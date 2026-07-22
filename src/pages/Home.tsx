@@ -236,7 +236,7 @@ function AboutSection() {
                 { icon: Award, title: "專業誠信", desc: "資深工程師與技師團隊，嚴謹把關每份報告" },
                 { icon: Mountain, title: "現場實務", desc: "自有 CPT 試驗車與監測儀器，掌握真實地層資料" },
                 { icon: Waves, title: "水保專長", desc: "坡地開發水保計畫與監造，守護山坡地安全" },
-                { icon: MapPin, title: "雙據點服務", desc: "高雄總公司與台北辦公室，服務範圍遍及全台" },
+                { icon: MapPin, title: "三據點服務", desc: "高雄總公司、台北與宜蘭辦公室，服務範圍遍及全台" },
               ].map((f) => (
                 <div key={f.title} className="flex gap-3.5 rounded-2xl bg-sand-50 p-4 ring-1 ring-sand-200">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-900 text-emerald2-400">

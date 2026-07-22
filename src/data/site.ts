@@ -17,7 +17,7 @@ export const stats = [
   { value: 30, suffix: "+", label: "年專業經驗", labelEn: "YEARS OF EXPERIENCE" },
   { value: 500, suffix: "+", label: "工程實績", labelEn: "COMPLETED PROJECTS" },
   { value: 6, suffix: "", label: "專業領域", labelEn: "AREAS OF EXPERTISE" },
-  { value: 2, suffix: "", label: "服務據點", labelEn: "OFFICES IN TAIWAN" },
+  { value: 3, suffix: "", label: "服務據點", labelEn: "OFFICES IN TAIWAN" },
 ];
 
 export interface Service {

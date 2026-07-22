@@ -9,7 +9,7 @@ export default function Location() {
       <PageHero
         eyebrow="Location"
         title="交通位置"
-        description="高雄總公司與台北辦公室，雙據點提供全台工程顧問服務。"
+        description="高雄總公司、台北與宜蘭辦公室，三據點提供全台工程顧問服務。"
       />
 
       <section className="bg-sand-50 py-14 lg:py-20">
