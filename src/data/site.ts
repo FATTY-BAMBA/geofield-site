@@ -80,31 +80,142 @@ export const services: Service[] = [
   },
 ];
 
-export type ProjectCategory = "鑽探" | "邊坡" | "監造";
+export type ProjectCategory = "鑽探" | "邊坡" | "監造" | "隧道";
+
+/** 一張工程照片 */
+export interface ProjectPhoto {
+  src: string;
+  caption?: string;
+  /** 圖說類圖片請設為 "contain"，避免裁切；現場照片維持預設的 "cover"。 */
+  fit?: "cover" | "contain";
+}
+
+/** 詳細內容中的一個技術段落 */
+export interface ProjectSection {
+  title: string;
+  body: string;
+  image?: string;
+  /** 圖說、剖面圖、模型截圖請設為 "contain"，避免邊緣被裁切。 */
+  fit?: "cover" | "contain";
+  bullets?: string[];
+}
+
+/**
+ * 專案詳細內容。全部為選填 —— 尚未整理詳細資料的專案
+ * 仍會正常顯示於列表中，只是不會產生內頁連結。
+ */
+export interface ProjectDetail {
+  /** 內頁主視覺。列表卡片一律使用分類圖，以維持九宮格的一致性。 */
+  heroImage?: string;
+  client?: string;
+  location?: string;
+  period?: string;
+  summary: string;
+  scope: string[];
+  sections: ProjectSection[];
+  photos?: ProjectPhoto[];
+}
 
 export interface Project {
+  /** 網址代稱，例如 /projects/irrigation-tunnel */
+  slug: string;
   title: string;
   category: ProjectCategory;
   photoCount: number;
+  detail?: ProjectDetail;
 }
 
 export const categoryImages: Record<ProjectCategory, string> = {
   鑽探: "/images/hero-strata.png",
   邊坡: "/images/svc-slope.png",
   監造: "/images/svc-conservation.png",
+  隧道: "/images/svc-tunnel.png",
 };
 
+const IRRIGATION_TUNNEL_DIR = "/images/projects/irrigation-tunnel";
+
 export const projects: Project[] = [
-  { title: "永鑫能源關廟太陽光電廠地基調查工作", category: "鑽探", photoCount: 30 },
-  { title: "高雄市彌陀區彌海段地基調查工作", category: "鑽探", photoCount: 16 },
-  { title: "國道3號南下373k+300 邊坡修復工程", category: "邊坡", photoCount: 8 },
-  { title: "台九線 攔石網工程", category: "邊坡", photoCount: 2 },
-  { title: "台九線461K+200 石籠・掛網噴植", category: "邊坡", photoCount: 4 },
-  { title: "台九線470K+593 加勁護堤", category: "邊坡", photoCount: 3 },
-  { title: "110年度高雄市大寮區基層建設小型道路路面整修工程（AC）", category: "監造", photoCount: 5 },
-  { title: "高雄市西子灣風景區整建工程", category: "監造", photoCount: 12 },
-  { title: "101年度金獅湖滯洪池周邊地景環境改造工程", category: "監造", photoCount: 12 },
+  {
+    slug: "irrigation-tunnel-inspection",
+    title: "水圳隧道檢測安全評估",
+    category: "隧道",
+    photoCount: 11,
+    detail: {
+      heroImage: `${IRRIGATION_TUNNEL_DIR}/hero.webp`,
+      summary:
+        "早年因應農業用水需求所興建之磚砌水圳隧道，迄今仍有尚在營運使用者。在歷經百年歲月，隧道結構老化與服務性能下降，為管理單位無法迴避的課題。大域公司長期投入營運隧道維護管理與安全檢測評估技術，協助管理單位辦理逾齡水圳隧道之檢測、評估與修復補強規劃，使水圳隧道能發揮持續穩定供水功能。",
+      scope: [
+        "逾齡水圳隧道維護管理策略研訂",
+        "水圳隧道檢測安全評估",
+        "水文地質調查分析",
+        "隧道損壞機制研判",
+        "修復補強對策設計",
+      ],
+      sections: [
+        {
+          title: "維護管理策略架構",
+          body: "以「維管資料」為核心，建立日常巡檢、定期檢測、功能評估、設施監測與應對策略之循環機制。經評估具立即性風險者，採取主動式管理並即時進行補修、補強或更新；無立即性風險者，則納入非主動式管理持續追蹤，使有限的維護經費能配置於風險最高的區段。",
+          image: `${IRRIGATION_TUNNEL_DIR}/maintenance-cycle.webp`,
+          fit: "contain",
+          bullets: ["日常巡檢", "定期檢測", "功能評估", "設施監測", "應對策略（補修／補強／更新）"],
+        },
+        {
+          title: "現場檢測評估",
+          body: "於停水期間進入隧道進行全線踏勘，以目視及近接檢測記錄襯砌裂縫、滲漏水、材料劣化與斷面淨空縮減等異狀，並依里程建立損壞位置圖資。除隧道段外，導水路之開渠段亦納入檢查範圍，其邊坡與護岸為全線風險相對較高之區段。",
+          image: `${IRRIGATION_TUNNEL_DIR}/lining-inspection.webp`,
+        },
+        {
+          title: "襯砌結構透地雷達探查",
+          body: "採用多通道透地雷達陣列（13 通道）搭配移動式載台，沿隧道縱向連續掃描襯砌結構。探查成果可辨識磚砌／灰泥襯砌與鋼筋混凝土襯砌之界面、襯砌內部局部空洞位置，以及襯砌背後岩盤疏鬆或破碎之範圍，作為補強範圍劃設之依據。",
+          image: `${IRRIGATION_TUNNEL_DIR}/gpr-interpretation.webp`,
+          fit: "contain",
+        },
+        {
+          title: "點雲掃描與數位模型建置",
+          body: "以三維雷射掃描建置隧道全線點雲數位模型，可據以量測任意斷面之淨空、檢核既有斷面與設計斷面之差異，並將檢測所得之損壞位置套繪於模型上，形成可供管理單位長期沿用的數位維管底圖。",
+          image: `${IRRIGATION_TUNNEL_DIR}/point-cloud-model.webp`,
+          fit: "contain",
+        },
+        {
+          title: "結構異狀掃描追蹤",
+          body: "針對已辨識之結構異狀區段，於不同時期重複掃描並進行點雲比對，量化異狀之發展趨勢。相較於單次檢測，週期性追蹤可區分「既有穩定損壞」與「持續發展中損壞」，避免將全部異狀一律視為緊急處理項目。",
+          image: `${IRRIGATION_TUNNEL_DIR}/change-tracking.webp`,
+          fit: "contain",
+        },
+        {
+          title: "結構異狀變化監測",
+          body: "於重點區段佈設裂縫計等監測儀器，長期記錄裂縫寬度與結構位移之變化量，並訂定分級管理值。監測數據與檢測、掃描成果整合後，作為研判隧道損壞機制與研擬修復補強對策之依據。",
+          image: `${IRRIGATION_TUNNEL_DIR}/crack-gauge.webp`,
+        },
+      ],
+      // 僅收錄未在上方技術段落出現過的照片，避免重複
+      photos: [
+        { src: `${IRRIGATION_TUNNEL_DIR}/hero.webp`, caption: "百年磚砌水圳隧道襯砌現況" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/site-survey.webp`, caption: "隧道全線現場踏勘作業" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/brick-arch.webp`, caption: "磚砌拱圈結構現況" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/temporary-support.webp`, caption: "劣化區段臨時支撐" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/open-channel.webp`, caption: "導水路開渠段檢查" },
+      ],
+    },
+  },
+  { slug: "guanmiao-solar-borehole", title: "永鑫能源關廟太陽光電廠地基調查工作", category: "鑽探", photoCount: 30 },
+  { slug: "mituo-mihai-borehole", title: "高雄市彌陀區彌海段地基調查工作", category: "鑽探", photoCount: 16 },
+  { slug: "n3-373k-slope-repair", title: "國道3號南下373k+300 邊坡修復工程", category: "邊坡", photoCount: 8 },
+  { slug: "tai9-rockfall-net", title: "台九線 攔石網工程", category: "邊坡", photoCount: 2 },
+  { slug: "tai9-461k-gabion", title: "台九線461K+200 石籠・掛網噴植", category: "邊坡", photoCount: 4 },
+  { slug: "tai9-470k-reinforced-embankment", title: "台九線470K+593 加勁護堤", category: "邊坡", photoCount: 3 },
+  {
+    slug: "daliao-road-resurfacing",
+    title: "110年度高雄市大寮區基層建設小型道路路面整修工程（AC）",
+    category: "監造",
+    photoCount: 5,
+  },
+  { slug: "sizihwan-scenic-area", title: "高雄市西子灣風景區整建工程", category: "監造", photoCount: 12 },
+  { slug: "jinshihu-detention-pond", title: "101年度金獅湖滯洪池周邊地景環境改造工程", category: "監造", photoCount: 12 },
 ];
+
+/** 依 slug 取得專案；找不到時回傳 undefined。 */
+export const getProject = (slug?: string) => projects.find((p) => p.slug === slug);
 
 export const offices = [
   {

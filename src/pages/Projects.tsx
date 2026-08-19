@@ -5,7 +5,11 @@ import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { cn } from "@/lib/utils";
 
-const categories: Array<"全部" | ProjectCategory> = ["全部", "鑽探", "邊坡", "監造"];
+// 由資料自動產生分類，日後新增分類無須再改這裡
+const categories: Array<"全部" | ProjectCategory> = [
+  "全部",
+  ...Array.from(new Set(projects.map((p) => p.category))),
+];
 
 export default function Projects() {
   const [cat, setCat] = useState<(typeof categories)[number]>("全部");
