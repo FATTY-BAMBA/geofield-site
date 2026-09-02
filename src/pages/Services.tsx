@@ -14,7 +14,7 @@ export default function Services() {
       <PageHero
         eyebrow="Services"
         title="服務項目"
-        description="六大專業領域涵蓋工程全生命週期——從地質調查、設計分析，到施工監造與長期安全監測。"
+        description="服務涵蓋地質調查、設計分析、施工監造及長期安全監測等六大專業領域。"
         image="/images/svc-hydro.png"
       />
 

@@ -53,7 +53,7 @@ export default function ProjectDetail() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.35fr_0.65fr] lg:px-8">
           <Reveal>
             <SectionHeading eyebrow="Overview" title="專案概述" />
-            <p className="mt-6 text-[15px] leading-loose text-slate-600">{d.summary}</p>
+            <p className="mt-6 text-base leading-loose text-slate-600">{d.summary}</p>
             {meta.length > 0 && (
               <dl className="mt-8 grid gap-4 sm:grid-cols-3">
                 {meta.map(({ icon: Icon, label, value }) => (
@@ -121,7 +121,7 @@ export default function ProjectDetail() {
                     )}
                     <div className="flex flex-1 flex-col p-6 lg:p-7">
                       <h3 className="text-lg font-black text-brand-900">{sec.title}</h3>
-                      <p className="mt-3 text-[15px] leading-loose text-slate-600">{sec.body}</p>
+                      <p className="mt-3 text-base leading-loose text-slate-600">{sec.body}</p>
                       {sec.bullets && (
                         <ul className="mt-auto flex flex-wrap gap-2 pt-5">
                           {sec.bullets.map((b) => (
@@ -170,7 +170,7 @@ export default function ProjectDetail() {
                     </div>
                     {p.caption && (
                       <div className="flex flex-1 items-center p-5">
-                        <span className="text-[15px] font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
+                        <span className="text-base font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
                           {p.caption}
                         </span>
                       </div>

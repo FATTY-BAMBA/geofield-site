@@ -19,7 +19,7 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
           loading="lazy"
           className="relative h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.06]"
         />
-        <span className="absolute top-4 left-4 rounded-full bg-brand-950/85 px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-emerald2-300 uppercase backdrop-blur">
+        <span className="absolute top-4 left-4 rounded-full bg-brand-950/85 px-3 py-1 text-xs font-bold tracking-[0.1em] text-emerald2-300 uppercase backdrop-blur">
           {service.english}
         </span>
       </div>
@@ -32,7 +32,7 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
         {detailed && (
           <ul className="mt-4 space-y-2.5 border-t border-sand-200 pt-4">
             {service.points.map((pt) => (
-              <li key={pt} className="flex items-start gap-2 text-[13px] leading-relaxed text-slate-600">
+              <li key={pt} className="flex items-start gap-2 text-sm leading-relaxed text-slate-600">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald2-500" />
                 {pt}
               </li>

@@ -32,7 +32,7 @@ function Hero() {
             <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-emerald2-400 animate-pulse-ring" />
               <span className="text-xs font-bold tracking-[0.2em] text-white/80 uppercase">
-                Est. {company.founded} · 高雄 Kaohsiung
+                民國{company.foundedRoc}年創立 · 高雄 Kaohsiung
               </span>
             </div>
           </Reveal>
@@ -47,10 +47,10 @@ function Hero() {
 
           <Reveal delay={0.16}>
             <p className="mt-6 text-lg font-bold text-white/90">{company.name}</p>
-            <p className="mt-1 text-[11px] font-semibold tracking-[0.22em] text-emerald2-300/90 uppercase">
+            <p className="mt-1 text-xs font-semibold tracking-[0.16em] text-emerald2-300/90 uppercase">
               {company.nameEn}
             </p>
-            <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/60">{company.intro}</p>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/65">{company.intro}</p>
           </Reveal>
 
           <Reveal delay={0.24}>
@@ -79,8 +79,8 @@ function Hero() {
                   <p className="text-3xl font-black text-white md:text-4xl">
                     <Counter target={s.value} suffix={s.suffix} />
                   </p>
-                  <p className="mt-1.5 text-[13px] font-semibold text-white/75">{s.label}</p>
-                  <p className="text-[9px] font-semibold tracking-[0.14em] text-white/35 uppercase">{s.labelEn}</p>
+                  <p className="mt-1.5 text-sm font-semibold text-white/75">{s.label}</p>
+                  <p className="mt-0.5 text-xs font-semibold leading-tight tracking-[0.08em] text-white/40 uppercase">{s.labelEn}</p>
                 </div>
               ))}
             </div>
@@ -107,8 +107,8 @@ function Hero() {
                   <Drill className="h-4.5 w-4.5" />
                 </span>
                 <div>
-                  <p className="text-[13px] font-bold text-brand-900">CPT 圓錐貫入試驗</p>
-                  <p className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">In-situ Testing</p>
+                  <p className="text-sm font-bold text-brand-900">CPT 圓錐貫入試驗</p>
+                  <p className="text-xs font-semibold tracking-wide text-slate-400 uppercase">In-situ Testing</p>
                 </div>
               </div>
             </div>
@@ -118,8 +118,8 @@ function Hero() {
                   <Layers className="h-4.5 w-4.5" />
                 </span>
                 <div>
-                  <p className="text-[13px] font-bold text-brand-900">地層剖面分析</p>
-                  <p className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Strata Analysis</p>
+                  <p className="text-sm font-bold text-brand-900">地層剖面分析</p>
+                  <p className="text-xs font-semibold tracking-wide text-slate-400 uppercase">Strata Analysis</p>
                 </div>
               </div>
             </div>
@@ -141,7 +141,7 @@ function ServicesSection() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
               eyebrow="Services · 服務項目"
-              title="六大專業領域，全方位大地工程顧問"
+              title="工程調查、設計、監造與監測"
               description="從地質調查、設計分析到施工監造與安全監測，提供工程全生命週期的專業技術服務。"
             />
             <Link
@@ -195,7 +195,7 @@ function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5">
                 <p className="text-sm font-bold text-white">大域工程 CPT 試驗車隊</p>
-                <p className="text-[10px] font-semibold tracking-[0.18em] text-white/70 uppercase">
+                <p className="text-xs font-semibold tracking-[0.12em] text-white/70 uppercase">
                   In-house Field Investigation Fleet
                 </p>
               </div>
@@ -220,12 +220,12 @@ function AboutSection() {
           <Reveal>
             <SectionHeading
               eyebrow="About · 關於大域"
-              title="三十年深耕台灣，值得信賴的大地工程夥伴"
+              title="從現地調查到工程判讀，累積逾三十年實務經驗"
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-5 text-[15px] leading-relaxed text-slate-500">
-              自{company.founded}年成立以來，大域工程累積超過 500 件工程實績，涵蓋鑽探調查、邊坡工程、
+            <p className="mt-5 text-base leading-relaxed text-slate-500">
+              自民國{company.foundedRoc}年（{company.founded}年）成立以來，大域工程累積超過 500 件工程實績，涵蓋鑽探調查、邊坡工程、
               隧道檢測與水土保持監造等領域。我們以自有試驗車隊與儀器設備深入現場，
               用第一手數據支撐每一項設計判斷。
             </p>
@@ -276,7 +276,7 @@ function ProjectsSection() {
             <SectionHeading
               eyebrow="Projects · 工程實績"
               title="五百餘件實績，遍佈全台的工程足跡"
-              description="從太陽光電廠地基調查到國道邊坡修復，每一件都是對品質的承諾。"
+              description="實績涵蓋太陽光電廠地基調查、國道邊坡修復、隧道檢測與水土保持監造。"
             />
             <Link
               to="/projects"
@@ -311,14 +311,14 @@ function AssuranceBand() {
             dark
             align="center"
             eyebrow="Why GeoField · 為什麼選擇大域"
-            title="把看不見的地層，變成可信賴的數據"
+            title="用現地資料支撐工程判斷"
           />
         </Reveal>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: Award, num: "30+", title: "年專業經驗", desc: "自1993年深耕大地工程領域" },
-            { icon: Layers, num: "6", title: "大專業領域", desc: "調查、設計、監造、監測一條龍服務" },
-            { icon: ShieldCheck, num: "100%", title: "品質承諾", desc: "嚴謹分析方法與可靠品質保證" },
+            { icon: Award, num: "30+", title: "年工程經驗", desc: "民國82年成立，持續投入大地工程顧問服務" },
+            { icon: Layers, num: "6", title: "大專業領域", desc: "整合調查、設計、監造與監測技術服務" },
+            { icon: ShieldCheck, num: "500+", title: "件工程實績", desc: "涵蓋鑽探、邊坡、隧道及水保相關工程" },
             { icon: MapPin, num: "3", title: "服務據點", desc: "高雄總公司 × 台北 × 宜蘭辦公室" },
           ].map((item, i) => (
             <Reveal key={item.title} delay={0.08 * i}>
@@ -328,7 +328,7 @@ function AssuranceBand() {
                 </span>
                 <p className="mt-5 text-3xl font-black text-white">{item.num}</p>
                 <p className="mt-1 text-sm font-bold text-emerald2-300">{item.title}</p>
-                <p className="mt-2 text-[13px] leading-relaxed text-white/55">{item.desc}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">{item.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -351,8 +351,8 @@ function CtaSection() {
         <Reveal>
           <div>
             <h2 className="text-3xl font-black text-white md:text-4xl">有工程需求？歡迎與我們聯繫</h2>
-            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-white/65">
-              若您有任何疑問或建議，歡迎留下您寶貴的訊息，我們將盡速與您聯繫。
+            <p className="mt-3 max-w-lg text-base leading-relaxed text-white/65">
+              請告訴我們工程位置、工作需求與預計時程，團隊將於營業時間內回覆。
             </p>
           </div>
         </Reveal>

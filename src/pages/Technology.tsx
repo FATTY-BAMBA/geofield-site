@@ -143,7 +143,7 @@ export default function Technology() {
                 "適合多點布設，從單點資訊延伸至坡面分區判讀",
                 "災後可重新固定並恢復監測，提高續測韌性",
               ].map((item) => (
-                <p key={item} className="flex gap-3 text-sm leading-relaxed text-slate-600">
+                <p key={item} className="flex gap-3 text-base leading-relaxed text-slate-600">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald2-500" />
                   {item}
                 </p>
@@ -203,7 +203,7 @@ export default function Technology() {
                       </span>
                       <div>
                         <h3 className="font-black text-brand-900">{title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+                        <p className="mt-2 text-base leading-relaxed text-slate-600">{text}</p>
                       </div>
                     </div>
                   </article>
@@ -232,12 +232,12 @@ export default function Technology() {
                   <div className={`absolute inset-x-0 top-0 h-1 ${stage.color}`} />
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-black tracking-[0.2em] text-slate-300">{stage.number}</span>
-                    <span className="rounded-full bg-sand-100 px-3 py-1 text-[10px] font-black tracking-wider text-brand-900 uppercase">
+                    <span className="rounded-full bg-sand-100 px-3 py-1 text-xs font-black tracking-wider text-brand-900 uppercase">
                       {stage.english}
                     </span>
                   </div>
                   <h3 className="mt-7 text-lg font-black text-brand-900">{stage.title}</h3>
-                  <p className="mt-3 min-h-12 text-sm leading-relaxed text-slate-500">{stage.text}</p>
+                  <p className="mt-3 min-h-12 text-base leading-relaxed text-slate-500">{stage.text}</p>
                   <p className="mt-6 border-t border-sand-200 pt-4 font-mono text-sm font-black text-brand-900">
                     {stage.threshold}
                   </p>
@@ -272,18 +272,24 @@ export default function Technology() {
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <Reveal>
               <figure className="h-full overflow-hidden rounded-3xl bg-sand-50 p-4 ring-1 ring-sand-200">
-                <img
-                  src={`${ASSET_DIR}/case-background.webp`}
-                  alt="監測案例地質背景與九個滑動分區"
-                  className="h-full w-full rounded-2xl object-contain"
-                />
+                <a href={`${ASSET_DIR}/case-background.webp`} target="_blank" rel="noreferrer">
+                  <img
+                    src={`${ASSET_DIR}/case-background.webp`}
+                    alt="監測案例地質背景、鑽孔位置與九個滑動分區"
+                    loading="lazy"
+                    className="w-full rounded-2xl object-contain"
+                  />
+                </a>
+                <figcaption className="px-2 pt-4 text-xs leading-relaxed text-slate-400">
+                  案例場址地形與滑動分區 A–I；點選圖片可查看完整解析度。
+                </figcaption>
               </figure>
             </Reveal>
             <Reveal direction="right">
               <div className="flex h-full flex-col rounded-3xl bg-brand-900 p-7 text-white lg:p-9">
                 <MapPinned className="h-7 w-7 text-emerald2-300" />
                 <h3 className="mt-5 text-2xl font-black">一年、24 次監測</h3>
-                <p className="mt-4 text-sm leading-loose text-white/65">
+                <p className="mt-4 text-base leading-loose text-white/65">
                   梅雨季期間，現地發生多處小規模坡面坍滑。ZT-4、ZT-5、ZT-7 與 ZT-8 的量測結果進入簡報所列警戒值範圍；其中 ZT-4 與 ZT-8 所在位置發生坡面滑動，並造成儀器嚴重傾斜或損壞。
                 </p>
                 <div className="mt-6 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
@@ -304,7 +310,7 @@ export default function Technology() {
                   <h3 className="mt-2 text-2xl font-black text-brand-900">監測網配置</h3>
                 </div>
                 <a
-                  href={`${ASSET_DIR}/monitoring-map.webp`}
+                  href={`${ASSET_DIR}/monitoring-map.png`}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-brand-900 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-brand-800"
@@ -331,7 +337,7 @@ export default function Technology() {
 
               <div className="mt-7 rounded-2xl bg-sand-50 px-3 py-6 sm:px-8">
                 <img
-                  src={`${ASSET_DIR}/monitoring-map.webp`}
+                  src={`${ASSET_DIR}/monitoring-map.png`}
                   alt="地表傾滑計、傾斜觀測管、沉陷觀測點、結構傾度盤及雨量計配置圖"
                   className="mx-auto w-full max-w-5xl object-contain"
                 />
@@ -369,7 +375,7 @@ export default function Technology() {
               <article className="h-full rounded-2xl bg-brand-900 p-6 text-white">
                 <p className="text-xs font-bold tracking-[0.16em] text-emerald2-300 uppercase">Cross validation</p>
                 <h3 className="mt-2 font-black">兩種方法，同一判讀</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/65">ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。</p>
+                <p className="mt-3 text-base leading-relaxed text-white/65">ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。</p>
               </article>
             </Reveal>
           </div>
@@ -396,11 +402,11 @@ export default function Technology() {
               {comparison.map(([label, conventional, surface]) => (
                 <div key={label} className="grid gap-3 border-t border-sand-200 px-6 py-5 md:grid-cols-[0.7fr_1fr_1fr]">
                   <p className="font-black text-brand-900">{label}</p>
-                  <p className="text-sm leading-relaxed text-slate-500">
+                  <p className="text-base leading-relaxed text-slate-500">
                     <span className="mb-1 block text-xs font-bold text-slate-400 md:hidden">傾斜觀測管</span>
                     {conventional}
                   </p>
-                  <p className="text-sm leading-relaxed text-slate-600">
+                  <p className="text-base leading-relaxed text-slate-600">
                     <span className="mb-1 block text-xs font-bold text-emerald2-600 md:hidden">地表傾滑監測</span>
                     {surface}
                   </p>
@@ -415,7 +421,7 @@ export default function Technology() {
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
           <Wrench className="h-7 w-7 text-emerald2-300" />
           <h2 className="text-2xl font-black text-white">需要規劃坡地監測系統？</h2>
-          <p className="max-w-xl text-sm leading-relaxed text-white/65">
+          <p className="max-w-xl text-base leading-relaxed text-white/65">
             我們可依地質條件、滑動機制與管理需求，評估監測配置與資料判讀方式。
           </p>
           <Link

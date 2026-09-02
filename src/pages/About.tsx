@@ -23,7 +23,7 @@ export default function About() {
       <PageHero
         eyebrow="About Us"
         title="關於我們"
-        description={`自${company.founded}年成立至今，大域工程以專業、誠信、創新、服務的理念，陪伴台灣每一寸土地的開發與守護。`}
+        description={`成立於民國${company.foundedRoc}年（${company.founded}年），提供土木、大地工程與水土保持相關技術服務。`}
         image="/images/hero-strata.png"
       />
 
@@ -50,7 +50,7 @@ export default function About() {
 
             <div>
               <Reveal>
-                <SectionHeading eyebrow="Who We Are" title="紮根高雄，放眼全台的工程顧問團隊" />
+                <SectionHeading eyebrow="Who We Are" title="以現地調查與工程分析為核心的顧問團隊" />
               </Reveal>
               <Reveal delay={0.1}>
                 <div className="mt-7 flex flex-wrap gap-2">
@@ -71,7 +71,7 @@ export default function About() {
                 </div>
                 <div
                   key={tab}
-                  className="mt-6 rounded-2xl bg-white p-7 text-[15px] leading-loose text-slate-600 ring-1 ring-sand-200"
+                  className="mt-6 rounded-2xl bg-white p-7 text-base leading-loose text-slate-600 ring-1 ring-sand-200"
                   style={{ animation: "fadeSlide 0.45s ease both" }}
                 >
                   {active.content}
@@ -93,7 +93,7 @@ export default function About() {
                   <Counter target={s.value} suffix={s.suffix} />
                 </p>
                 <p className="mt-2 text-sm font-bold text-slate-700">{s.label}</p>
-                <p className="text-[9px] font-semibold tracking-[0.16em] text-slate-400 uppercase">{s.labelEn}</p>
+                <p className="mt-0.5 text-xs font-semibold leading-tight tracking-[0.08em] text-slate-400 uppercase">{s.labelEn}</p>
               </div>
             </Reveal>
           ))}
@@ -104,7 +104,7 @@ export default function About() {
       <section className="bg-sand-50 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
-            <SectionHeading eyebrow="Milestones · 發展歷程" title="穩健前行三十年" align="center" />
+            <SectionHeading eyebrow="Company at a Glance · 公司概況" title="民國82年成立，持續累積工程經驗" align="center" />
           </Reveal>
           <div className="relative mt-14">
             <div className="absolute top-6 right-[12%] left-[12%] hidden h-0.5 bg-gradient-to-r from-brand-200 via-emerald2-400 to-brand-200 lg:block" />
@@ -117,7 +117,7 @@ export default function About() {
                     </span>
                     <div className="mt-5 rounded-2xl bg-white p-6 ring-1 ring-sand-200">
                       <p className="text-base font-bold text-brand-900">{m.title}</p>
-                      <p className="mt-2 text-[13px] leading-relaxed text-slate-500">{m.desc}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-500">{m.desc}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -142,7 +142,7 @@ export default function About() {
                     <v.icon className="h-6 w-6" />
                   </span>
                   <p className="mt-4 text-lg font-black text-white">{v.title}</p>
-                  <p className="mt-2 text-[13px] leading-relaxed text-white/55">{v.desc}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/60">{v.desc}</p>
                 </div>
               </Reveal>
             ))}

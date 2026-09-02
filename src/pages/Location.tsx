@@ -24,7 +24,7 @@ export default function Location() {
                     </span>
                     <div>
                       <h3 className="text-lg font-black text-brand-900">{o.name}</h3>
-                      <p className="text-[9px] font-bold tracking-[0.16em] text-slate-400 uppercase">{o.nameEn}</p>
+                      <p className="mt-0.5 text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</p>
                     </div>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-slate-600">{o.address}</p>

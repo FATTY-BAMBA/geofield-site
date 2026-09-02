@@ -30,7 +30,7 @@ export default function Contact() {
       return;
     }
     setError("");
-    const subject = encodeURIComponent(`網站洽詢 — ${form.name}`);
+    const subject = encodeURIComponent(`網站洽詢：${form.name}`);
     const body = encodeURIComponent(
       `姓名：${form.name}\nEmail：${form.email}\n電話：${form.phone || "（未填寫）"}\n\n訊息內容：\n${form.message}`
     );
@@ -39,7 +39,7 @@ export default function Contact() {
   };
 
   const inputCls =
-    "w-full rounded-xl border border-sand-200 bg-sand-50 px-4 py-3 text-[15px] text-brand-900 outline-none transition-all placeholder:text-slate-400 focus:border-emerald2-500 focus:bg-white focus:ring-4 focus:ring-emerald2-500/15";
+    "w-full rounded-xl border border-sand-200 bg-sand-50 px-4 py-3 text-base text-brand-900 outline-none transition-all placeholder:text-slate-400 focus:border-emerald2-500 focus:bg-white focus:ring-4 focus:ring-emerald2-500/15";
 
   return (
     <>
@@ -139,7 +139,7 @@ export default function Contact() {
                 <div key={o.name} className="rounded-3xl bg-white p-7 ring-1 ring-sand-200">
                   <div className="flex items-center justify-between gap-3">
                     <h4 className="text-lg font-black text-brand-900">{o.name}</h4>
-                    <span className="text-[9px] font-bold tracking-[0.16em] text-slate-400 uppercase">{o.nameEn}</span>
+                    <span className="text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</span>
                   </div>
                   <div className="mt-4 space-y-3 text-sm text-slate-600">
                     <p className="flex gap-2.5">
@@ -176,7 +176,7 @@ export default function Contact() {
                     營業時間：{company.hours}
                   </p>
                 </div>
-                <div className="mt-5 rounded-xl bg-white/5 px-4 py-3 text-[13px] leading-relaxed text-white/60 ring-1 ring-white/10">
+                <div className="mt-5 rounded-xl bg-white/5 px-4 py-3 text-sm leading-relaxed text-white/60 ring-1 ring-white/10">
                   急件或現場勘查需求，建議直接來電，我們將優先為您安排。
                 </div>
               </div>

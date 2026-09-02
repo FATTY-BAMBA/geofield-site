@@ -33,7 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </span>
       </div>
       <div className="flex flex-1 items-center gap-3 p-5">
-        <h3 className="flex-1 text-[15px] font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
+        <h3 className="flex-1 text-base font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
           {project.title}
         </h3>
         {hasDetail && (

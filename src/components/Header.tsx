@@ -38,7 +38,7 @@ export function Header() {
           <span className="leading-tight">
             <span
               className={cn(
-                "block text-[15px] font-bold tracking-wide transition-colors",
+                "block text-base font-bold tracking-wide transition-colors",
                 solid ? "text-brand-900" : "text-white"
               )}
             >
@@ -46,7 +46,7 @@ export function Header() {
             </span>
             <span
               className={cn(
-                "block text-[9px] font-semibold tracking-[0.14em] transition-colors",
+                "mt-0.5 block text-xs font-semibold tracking-[0.06em] transition-colors",
                 solid ? "text-brand-600" : "text-white/60"
               )}
             >
