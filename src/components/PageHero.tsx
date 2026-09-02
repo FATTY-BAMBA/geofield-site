@@ -32,8 +32,8 @@ export function PageHero({ eyebrow, title, description, image }: PageHeroProps) 
             <span className="font-semibold text-emerald2-300">{title}</span>
           </nav>
           <p className="mt-6 text-xs font-bold tracking-[0.3em] text-emerald2-400 uppercase">{eyebrow}</p>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white md:text-5xl">{title}</h1>
-          {description && <p className="mt-4 max-w-xl text-base leading-relaxed text-white/65">{description}</p>}
+          <h1 className="editorial-heading mt-3 text-4xl font-extrabold leading-[1.16] text-white md:text-5xl">{title}</h1>
+          {description && <p className="editorial-copy mt-4 max-w-2xl text-base text-white/70 md:text-[17px]">{description}</p>}
         </Reveal>
       </div>
       <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-transparent via-emerald2-500 to-transparent" />

@@ -45,7 +45,7 @@ export function ProjectCard({ project }: { project: Project }) {
           {yearLabel && <CalendarDays className="h-3.5 w-3.5 text-emerald2-500" />}
           <span>{yearLabel ?? scopeLabels[project.category]}</span>
         </div>
-        <h3 className="mt-3 text-base font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
+        <h3 className="editorial-heading mt-3 text-[17px] font-bold leading-[1.55] text-brand-900 transition-colors group-hover:text-emerald2-600">
           {project.title}
         </h3>
         <div className="mt-auto flex items-center justify-between border-t border-sand-200 pt-5 text-sm font-bold">

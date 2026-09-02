@@ -18,7 +18,7 @@ export default function Services() {
         image="/images/svc-hydro.png"
       />
 
-      <section className="bg-sand-50 py-14 lg:py-20">
+      <section className="bg-sand-50 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <div className="flex flex-wrap gap-2.5">

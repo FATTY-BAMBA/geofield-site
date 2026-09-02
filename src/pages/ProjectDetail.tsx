@@ -36,7 +36,7 @@ export default function ProjectDetail() {
               返回工程實績
             </Link>
             <p className="mt-6 text-xs font-bold tracking-[0.3em] text-emerald2-400 uppercase">Case Study</p>
-            <h1 className="mt-3 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
+            <h1 className="editorial-heading mt-3 max-w-3xl text-3xl font-extrabold leading-[1.18] text-white md:text-5xl">
               {project.title}
             </h1>
             <span className="mt-5 inline-block rounded-full bg-emerald2-500/15 px-4 py-1.5 text-sm font-bold text-emerald2-300">
@@ -48,11 +48,11 @@ export default function ProjectDetail() {
       </section>
 
       {/* 專案概述 + 工作項目 */}
-      <section className="bg-white py-14 lg:py-20">
+      <section className="bg-white py-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.35fr_0.65fr] lg:px-8">
           <Reveal>
             <SectionHeading eyebrow="Overview" title="專案概述" />
-            <p className="mt-6 text-base leading-loose text-slate-600">{d.summary}</p>
+            <p className="editorial-copy mt-6 text-base text-slate-600 md:text-[17px]">{d.summary}</p>
             {meta.length > 0 && (
               <dl className="mt-8 grid gap-4 sm:grid-cols-3">
                 {meta.map(({ icon: Icon, label, value }) => (
@@ -88,7 +88,7 @@ export default function ProjectDetail() {
 
       {/* 技術作業內容：等高卡片網格，與工程實績列表採用同一套視覺語彙 */}
       {d.sections.length > 0 && (
-        <section className="bg-sand-50 py-14 lg:py-20">
+        <section className="bg-sand-50 py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal>
               <SectionHeading
@@ -115,7 +115,7 @@ export default function ProjectDetail() {
                     )}
                     <div className="flex flex-1 flex-col p-6 lg:p-7">
                       <h3 className="text-lg font-extrabold text-brand-900">{sec.title}</h3>
-                      <p className="mt-3 text-base leading-loose text-slate-600">{sec.body}</p>
+                      <p className="editorial-copy mt-3 text-base text-slate-600">{sec.body}</p>
                       {sec.bullets && (
                         <ul className="mt-auto flex flex-wrap gap-2 pt-5">
                           {sec.bullets.map((b) => (
@@ -139,7 +139,7 @@ export default function ProjectDetail() {
 
       {/* 工程照片 */}
       {d.photos && d.photos.length > 0 && (
-        <section className="bg-white py-14 lg:py-20">
+        <section className="bg-white py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal>
               <SectionHeading
@@ -172,7 +172,7 @@ export default function ProjectDetail() {
       )}
 
       {/* CTA */}
-      <section className="bg-brand-900 py-14">
+      <section className="bg-brand-900 py-16 lg:py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
           <h3 className="text-2xl font-extrabold text-white">有類似的工程需求？</h3>
           <p className="max-w-lg text-base leading-relaxed text-white/65">

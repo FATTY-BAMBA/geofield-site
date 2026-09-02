@@ -38,7 +38,7 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <h1 className="mt-7 text-5xl font-black leading-[1.15] tracking-tight text-white md:text-6xl">
+            <h1 className="editorial-heading mt-7 text-5xl font-black leading-[1.12] text-white md:text-6xl">
               為未來，
               <br />
               <span className="text-gradient-emerald">打好基礎。</span>
@@ -50,7 +50,7 @@ function Hero() {
             <p className="mt-1 text-xs font-semibold tracking-[0.16em] text-emerald2-300/90 uppercase">
               {company.nameEn}
             </p>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/65">{company.intro}</p>
+            <p className="editorial-copy mt-5 max-w-lg text-base text-white/70 md:text-[17px]">{company.intro}</p>
           </Reveal>
 
           <Reveal delay={0.24}>
@@ -224,7 +224,7 @@ function AboutSection() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-5 text-base leading-relaxed text-slate-500">
+            <p className="editorial-copy mt-5 text-base text-slate-600 md:text-[17px]">
               自民國{company.foundedRoc}年（{company.founded}年）成立以來，大域工程累積超過 500 件工程實績，涵蓋鑽探調查、邊坡工程、
               隧道檢測與水土保持監造等領域。我們以自有試驗車隊與儀器設備深入現場，
               用第一手數據支撐每一項設計判斷。
@@ -238,13 +238,13 @@ function AboutSection() {
                 { icon: Waves, title: "水保專長", desc: "坡地開發水保計畫與監造，守護山坡地安全" },
                 { icon: MapPin, title: "三據點服務", desc: "高雄總公司、台北與宜蘭辦公室，服務範圍遍及全台" },
               ].map((f) => (
-                <div key={f.title} className="flex gap-3.5 rounded-2xl bg-sand-50 p-4 ring-1 ring-sand-200">
+                <div key={f.title} className="flex gap-3.5 rounded-2xl bg-sand-50 p-5 ring-1 ring-sand-200">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-900 text-emerald2-400">
                     <f.icon className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-sm font-bold text-brand-900">{f.title}</p>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{f.desc}</p>
+                    <p className="text-base font-bold text-brand-900">{f.title}</p>
+                    <p className="mt-1 text-sm leading-[1.7] text-slate-600">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -328,7 +328,7 @@ function AssuranceBand() {
                 </span>
                 <p className="mt-5 text-3xl font-black text-white">{item.num}</p>
                 <p className="mt-1 text-sm font-bold text-emerald2-300">{item.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">{item.desc}</p>
+                <p className="mt-2 text-[15px] leading-[1.75] text-white/65">{item.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -350,8 +350,8 @@ function CtaSection() {
       <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-5 py-16 lg:px-8 lg:py-20">
         <Reveal>
           <div>
-            <h2 className="text-3xl font-extrabold text-white md:text-4xl">有工程需求？歡迎與我們聯繫</h2>
-            <p className="mt-3 max-w-lg text-base leading-relaxed text-white/65">
+            <h2 className="editorial-heading text-3xl font-extrabold leading-[1.2] text-white md:text-4xl">有工程需求？歡迎與我們聯繫</h2>
+            <p className="editorial-copy mt-3 max-w-lg text-base text-white/70 md:text-[17px]">
               請告訴我們工程位置、工作需求與預計時程，團隊將於營業時間內回覆。
             </p>
           </div>

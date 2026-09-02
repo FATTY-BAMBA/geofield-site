@@ -45,6 +45,8 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "ss01", "cv05";
+    line-break: strict;
+    text-rendering: optimizeLegibility;
   }
   ::selection {
     background: rgba(29, 158, 117, 0.25);
@@ -81,6 +83,14 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+  .editorial-heading {
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .editorial-copy {
+    line-height: 1.8;
+    text-wrap: pretty;
   }
   .animate-float {
     animation: float 6s ease-in-out infinite;

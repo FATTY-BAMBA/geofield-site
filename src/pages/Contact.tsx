@@ -49,7 +49,7 @@ export default function Contact() {
         description="若您有任何工程需求、疑問或建議，歡迎留下訊息，我們將盡速與您聯繫。"
       />
 
-      <section className="bg-sand-50 py-14 lg:py-20">
+      <section className="bg-sand-50 py-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
           {/* Form */}
           <Reveal direction="left">
@@ -60,7 +60,7 @@ export default function Contact() {
                     <CheckCircle2 className="h-9 w-9" />
                   </span>
                   <h3 className="mt-6 text-2xl font-extrabold text-brand-900">訊息已為您準備好</h3>
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
+                  <p className="editorial-copy mt-3 max-w-sm text-[15px] text-slate-600">
                     我們已開啟您的郵件軟體並帶入訊息內容，送出後我們將盡速回覆。
                     若未自動開啟，歡迎直接來信 {company.email} 或致電 (07) 229-5922。
                   </p>
@@ -74,7 +74,7 @@ export default function Contact() {
               ) : (
                 <form onSubmit={submit}>
                   <h3 className="text-xl font-extrabold text-brand-900">線上洽詢</h3>
-                  <p className="mt-2 text-sm text-slate-500">填寫以下表單，我們將於營業時間內盡速回覆您。</p>
+                  <p className="mt-2 text-[15px] leading-[1.7] text-slate-600">填寫以下表單，我們將於營業時間內盡速回覆您。</p>
                   <div className="mt-7 grid gap-5 sm:grid-cols-2">
                     <div>
                       <label className="mb-1.5 block text-sm font-bold text-brand-900">
@@ -141,7 +141,7 @@ export default function Contact() {
                     <h4 className="text-lg font-extrabold text-brand-900">{o.name}</h4>
                     <span className="text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</span>
                   </div>
-                  <div className="mt-4 space-y-3 text-sm text-slate-600">
+                  <div className="mt-4 space-y-3 text-[15px] leading-[1.7] text-slate-600">
                     <p className="flex gap-2.5">
                       <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald2-500" />
                       {o.address}
@@ -164,7 +164,7 @@ export default function Contact() {
                 </div>
               ))}
               <div className="rounded-3xl bg-brand-950 p-7 text-white">
-                <div className="space-y-3 text-sm">
+                <div className="space-y-3 text-[15px] leading-[1.7]">
                   <p className="flex gap-2.5 text-white/80">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-emerald2-400" />
                     <a href={`mailto:${company.email}`} className="transition-colors hover:text-white">
@@ -176,7 +176,7 @@ export default function Contact() {
                     營業時間：{company.hours}
                   </p>
                 </div>
-                <div className="mt-5 rounded-xl bg-white/5 px-4 py-3 text-sm leading-relaxed text-white/60 ring-1 ring-white/10">
+                <div className="mt-5 rounded-xl bg-white/5 px-4 py-3 text-[15px] leading-[1.75] text-white/65 ring-1 ring-white/10">
                   急件或現場勘查需求，建議直接來電，我們將優先為您安排。
                 </div>
               </div>

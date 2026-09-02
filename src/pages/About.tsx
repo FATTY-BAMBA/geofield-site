@@ -71,7 +71,7 @@ export default function About() {
                 </div>
                 <div
                   key={tab}
-                  className="mt-6 rounded-2xl bg-white p-7 text-base leading-loose text-slate-600 ring-1 ring-sand-200"
+                  className="editorial-copy mt-6 rounded-2xl bg-white p-7 text-base text-slate-600 ring-1 ring-sand-200 md:text-[17px]"
                   style={{ animation: "fadeSlide 0.45s ease both" }}
                 >
                   {active.content}
@@ -117,7 +117,7 @@ export default function About() {
                     </span>
                     <div className="mt-5 rounded-2xl bg-white p-6 ring-1 ring-sand-200">
                       <p className="text-base font-bold text-brand-900">{m.title}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-500">{m.desc}</p>
+                      <p className="mt-2 text-[15px] leading-[1.75] text-slate-600">{m.desc}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -142,7 +142,7 @@ export default function About() {
                     <v.icon className="h-6 w-6" />
                   </span>
                   <p className="mt-4 text-lg font-extrabold text-white">{v.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">{v.desc}</p>
+                  <p className="mt-2 text-[15px] leading-[1.75] text-white/65">{v.desc}</p>
                 </div>
               </Reveal>
             ))}

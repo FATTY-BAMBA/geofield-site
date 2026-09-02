@@ -12,7 +12,7 @@ export default function Location() {
         description="高雄總公司、台北與宜蘭辦公室，三據點提供全台工程顧問服務。"
       />
 
-      <section className="bg-sand-50 py-14 lg:py-20">
+      <section className="bg-sand-50 py-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 xl:grid-cols-3 lg:px-8">
           {offices.map((o, i) => (
             <Reveal key={o.name} delay={0.08 * i}>
@@ -27,8 +27,8 @@ export default function Location() {
                       <p className="mt-0.5 text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</p>
                     </div>
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-slate-600">{o.address}</p>
-                  <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+                  <p className="editorial-copy mt-4 text-[15px] text-slate-600">{o.address}</p>
+                  <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[15px] leading-[1.7] text-slate-600">
                     {o.tel && (
                       <span className="inline-flex items-center gap-2">
                         <Phone className="h-4 w-4 text-emerald2-500" /> {o.tel}
