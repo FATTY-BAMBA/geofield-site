@@ -59,7 +59,7 @@ export default function Contact() {
                   <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald2-500/10 text-emerald2-500">
                     <CheckCircle2 className="h-9 w-9" />
                   </span>
-                  <h3 className="mt-6 text-2xl font-black text-brand-900">訊息已為您準備好</h3>
+                  <h3 className="mt-6 text-2xl font-extrabold text-brand-900">訊息已為您準備好</h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-500">
                     我們已開啟您的郵件軟體並帶入訊息內容，送出後我們將盡速回覆。
                     若未自動開啟，歡迎直接來信 {company.email} 或致電 (07) 229-5922。
@@ -73,7 +73,7 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={submit}>
-                  <h3 className="text-xl font-black text-brand-900">線上洽詢</h3>
+                  <h3 className="text-xl font-extrabold text-brand-900">線上洽詢</h3>
                   <p className="mt-2 text-sm text-slate-500">填寫以下表單，我們將於營業時間內盡速回覆您。</p>
                   <div className="mt-7 grid gap-5 sm:grid-cols-2">
                     <div>
@@ -138,7 +138,7 @@ export default function Contact() {
               {offices.map((o) => (
                 <div key={o.name} className="rounded-3xl bg-white p-7 ring-1 ring-sand-200">
                   <div className="flex items-center justify-between gap-3">
-                    <h4 className="text-lg font-black text-brand-900">{o.name}</h4>
+                    <h4 className="text-lg font-extrabold text-brand-900">{o.name}</h4>
                     <span className="text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</span>
                   </div>
                   <div className="mt-4 space-y-3 text-sm text-slate-600">

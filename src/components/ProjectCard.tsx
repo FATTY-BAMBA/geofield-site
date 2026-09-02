@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Images, ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import { categoryImages, type Project } from "@/data/site";
 
 const categoryStyles: Record<string, string> = {
@@ -11,40 +11,57 @@ const categoryStyles: Record<string, string> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   const hasDetail = Boolean(project.detail);
+  const coverImage = project.detail?.heroImage ?? categoryImages[project.category];
+  const rocYear = project.title.match(/^(\d{2,3})年度/)?.[1];
+  const yearLabel = rocYear ? `民國${rocYear}年 · ${Number(rocYear) + 1911}` : null;
+  const scopeLabels: Record<string, string> = {
+    鑽探: "地基與地質調查",
+    邊坡: "邊坡治理與防災",
+    監造: "公共工程監造",
+    隧道: "隧道檢測與評估",
+  };
 
   const inner = (
     <>
-      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-sand-50 via-sand-100 to-brand-100">
+      <div className="relative h-52 overflow-hidden bg-gradient-to-br from-sand-50 via-sand-100 to-brand-100">
         <div className="absolute inset-0 bg-grid-light" />
         <img
-          src={categoryImages[project.category]}
-          alt={project.category}
+          src={coverImage}
+          alt={hasDetail ? project.title : project.category}
           loading="lazy"
-          className="relative h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-[1.06]"
+          className={`relative h-full w-full transition-transform duration-700 group-hover:scale-[1.035] ${
+            hasDetail ? "object-cover" : "object-contain p-4"
+          }`}
         />
+        {hasDetail && <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />}
         <span
           className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-bold backdrop-blur ${categoryStyles[project.category]}`}
         >
           {project.category}
         </span>
-        <span className="absolute right-4 bottom-4 inline-flex items-center gap-1.5 rounded-full bg-brand-950/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-          <Images className="h-3.5 w-3.5" />
-          {project.photoCount} 張
-        </span>
       </div>
-      <div className="flex flex-1 items-center gap-3 p-5">
-        <h3 className="flex-1 text-base font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex items-center gap-2 text-xs font-bold tracking-wide text-slate-400">
+          {yearLabel && <CalendarDays className="h-3.5 w-3.5 text-emerald2-500" />}
+          <span>{yearLabel ?? scopeLabels[project.category]}</span>
+        </div>
+        <h3 className="mt-3 text-base font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
           {project.title}
         </h3>
-        {hasDetail && (
-          <ArrowRight className="h-4 w-4 shrink-0 text-emerald2-500 transition-transform group-hover:translate-x-1" />
-        )}
+        <div className="mt-auto flex items-center justify-between border-t border-sand-200 pt-5 text-sm font-bold">
+          <span className={hasDetail ? "text-emerald2-600" : "text-slate-400"}>
+            {hasDetail ? "查看完整案例" : "工程實績"}
+          </span>
+          {hasDetail && (
+            <ArrowRight className="h-4 w-4 shrink-0 text-emerald2-500 transition-transform group-hover:translate-x-1" />
+          )}
+        </div>
       </div>
     </>
   );
 
   const shell =
-    "group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.25)]";
+    "group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.2)] hover:ring-brand-200";
 
   // 已建立詳細內容者才連結至內頁；其餘維持原本的靜態卡片。
   return hasDetail ? (

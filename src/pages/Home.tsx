@@ -350,7 +350,7 @@ function CtaSection() {
       <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-5 py-16 lg:px-8 lg:py-20">
         <Reveal>
           <div>
-            <h2 className="text-3xl font-black text-white md:text-4xl">有工程需求？歡迎與我們聯繫</h2>
+            <h2 className="text-3xl font-extrabold text-white md:text-4xl">有工程需求？歡迎與我們聯繫</h2>
             <p className="mt-3 max-w-lg text-base leading-relaxed text-white/65">
               請告訴我們工程位置、工作需求與預計時程，團隊將於營業時間內回覆。
             </p>

@@ -17,7 +17,7 @@ export function SectionHeading({ eyebrow, title, description, align = "left", da
       </div>
       <h2
         className={cn(
-          "mt-4 text-3xl md:text-4xl font-black leading-tight tracking-tight",
+          "mt-4 text-3xl font-extrabold leading-tight tracking-tight md:text-4xl",
           dark ? "text-white" : "text-brand-900"
         )}
       >

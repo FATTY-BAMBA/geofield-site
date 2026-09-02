@@ -112,7 +112,7 @@ export default function About() {
               {milestones.map((m, i) => (
                 <Reveal key={m.year} delay={0.08 * i}>
                   <div className="relative text-center">
-                    <span className="relative z-10 inline-flex h-12 items-center rounded-full bg-brand-900 px-5 text-sm font-black tracking-wide text-emerald2-300 shadow-lg">
+                    <span className="relative z-10 inline-flex h-12 items-center rounded-full bg-brand-900 px-5 text-sm font-bold tracking-wide text-emerald2-300 shadow-lg">
                       {m.year}
                     </span>
                     <div className="mt-5 rounded-2xl bg-white p-6 ring-1 ring-sand-200">
@@ -141,7 +141,7 @@ export default function About() {
                   <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-emerald2-500/15 text-emerald2-400 ring-1 ring-emerald2-500/30">
                     <v.icon className="h-6 w-6" />
                   </span>
-                  <p className="mt-4 text-lg font-black text-white">{v.title}</p>
+                  <p className="mt-4 text-lg font-extrabold text-white">{v.title}</p>
                   <p className="mt-2 text-sm leading-relaxed text-white/60">{v.desc}</p>
                 </div>
               </Reveal>

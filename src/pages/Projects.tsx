@@ -20,7 +20,7 @@ export default function Projects() {
       <PageHero
         eyebrow="Projects"
         title="工程實績"
-        description="累積五百餘件工程實績，涵蓋鑽探調查、邊坡工程與水保監造等類型，足跡遍及全台。"
+        description="整理鑽探調查、邊坡工程、水保監造與隧道檢測等代表性實績；已完成資料整理的項目可進一步查看案例內容。"
         image="/images/svc-slope.png"
       />
 

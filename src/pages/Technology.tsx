@@ -6,12 +6,12 @@ import {
   ChevronRight,
   CloudRain,
   MapPinned,
-  Maximize2,
   Radio,
   Wrench,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { TechnicalFigure } from "@/components/TechnicalFigure";
 
 const ASSET_DIR = "/images/technology/kantaro";
 
@@ -181,16 +181,15 @@ export default function Technology() {
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <Reveal>
-              <figure className="overflow-hidden rounded-3xl bg-white p-4 ring-1 ring-sand-200 sm:p-7">
-                <img
-                  src={`${ASSET_DIR}/system-diagram.webp`}
-                  alt="地表傾滑監測系統安裝與感測架構示意"
-                  className="mx-auto max-h-[520px] w-full object-contain"
-                />
-                <figcaption className="mt-4 text-center text-xs leading-relaxed text-slate-400">
-                  系統安裝概念示意；實際埋設深度與位置應依現地地層條件評估。
-                </figcaption>
-              </figure>
+              <TechnicalFigure
+                src={`${ASSET_DIR}/system-diagram.webp`}
+                alt="地表傾滑監測系統安裝與感測架構示意"
+                caption="系統安裝概念示意；實際埋設深度與位置應依現地地層條件評估。"
+                label="System diagram"
+                className="rounded-3xl p-4 sm:p-7"
+                mediaClassName="min-h-[420px] rounded-2xl"
+                imageClassName="mx-auto max-h-[520px] p-2"
+              />
             </Reveal>
 
             <div className="space-y-4">
@@ -202,7 +201,7 @@ export default function Technology() {
                         <Icon className="h-5 w-5" />
                       </span>
                       <div>
-                        <h3 className="font-black text-brand-900">{title}</h3>
+                        <h3 className="font-extrabold text-brand-900">{title}</h3>
                         <p className="mt-2 text-base leading-relaxed text-slate-600">{text}</p>
                       </div>
                     </div>
@@ -236,7 +235,7 @@ export default function Technology() {
                       {stage.english}
                     </span>
                   </div>
-                  <h3 className="mt-7 text-lg font-black text-brand-900">{stage.title}</h3>
+                  <h3 className="mt-7 text-lg font-extrabold text-brand-900">{stage.title}</h3>
                   <p className="mt-3 min-h-12 text-base leading-relaxed text-slate-500">{stage.text}</p>
                   <p className="mt-6 border-t border-sand-200 pt-4 font-mono text-sm font-black text-brand-900">
                     {stage.threshold}
@@ -271,24 +270,20 @@ export default function Technology() {
 
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <Reveal>
-              <figure className="h-full overflow-hidden rounded-3xl bg-sand-50 p-4 ring-1 ring-sand-200">
-                <a href={`${ASSET_DIR}/case-background.webp`} target="_blank" rel="noreferrer">
-                  <img
-                    src={`${ASSET_DIR}/case-background.webp`}
-                    alt="監測案例地質背景、鑽孔位置與九個滑動分區"
-                    loading="lazy"
-                    className="w-full rounded-2xl object-contain"
-                  />
-                </a>
-                <figcaption className="px-2 pt-4 text-xs leading-relaxed text-slate-400">
-                  案例場址地形與滑動分區 A–I；點選圖片可查看完整解析度。
-                </figcaption>
-              </figure>
+              <TechnicalFigure
+                src={`${ASSET_DIR}/case-background.webp`}
+                alt="監測案例地質背景、鑽孔位置與九個滑動分區"
+                caption="案例場址地形與滑動分區 A–I。綠色測點為既有傾斜觀測管位置。"
+                label="Site context"
+                className="h-full rounded-3xl bg-sand-50 p-4"
+                mediaClassName="aspect-[4/3] rounded-2xl"
+                imageClassName="p-1"
+              />
             </Reveal>
             <Reveal direction="right">
               <div className="flex h-full flex-col rounded-3xl bg-brand-900 p-7 text-white lg:p-9">
                 <MapPinned className="h-7 w-7 text-emerald2-300" />
-                <h3 className="mt-5 text-2xl font-black">一年、24 次監測</h3>
+                <h3 className="mt-5 text-2xl font-extrabold">一年、24 次監測</h3>
                 <p className="mt-4 text-base leading-loose text-white/65">
                   梅雨季期間，現地發生多處小規模坡面坍滑。ZT-4、ZT-5、ZT-7 與 ZT-8 的量測結果進入簡報所列警戒值範圍；其中 ZT-4 與 ZT-8 所在位置發生坡面滑動，並造成儀器嚴重傾斜或損壞。
                 </p>
@@ -303,21 +298,15 @@ export default function Technology() {
           </div>
 
           <Reveal>
-            <figure className="mt-8 overflow-hidden rounded-3xl bg-white p-5 ring-1 ring-sand-200 sm:p-8 lg:p-10">
+            <div className="mt-8 overflow-hidden rounded-3xl bg-white p-5 ring-1 ring-sand-200 sm:p-8 lg:p-10">
               <div className="flex flex-wrap items-end justify-between gap-4 border-b border-sand-200 pb-6">
                 <div>
                   <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Monitoring layout</p>
-                  <h3 className="mt-2 text-2xl font-black text-brand-900">監測網配置</h3>
+                  <h3 className="mt-2 text-2xl font-extrabold text-brand-900">監測網配置</h3>
                 </div>
-                <a
-                  href={`${ASSET_DIR}/monitoring-map.png`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-brand-900 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-brand-800"
-                >
-                  <Maximize2 className="h-3.5 w-3.5" />
-                  放大查看
-                </a>
+                <p className="max-w-sm text-sm leading-relaxed text-slate-500">
+                  以原始配置圖保留測點位置，警戒結果另以網頁資訊卡呈現。
+                </p>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold text-slate-500">
@@ -335,24 +324,22 @@ export default function Technology() {
                 ))}
               </div>
 
-              <div className="mt-7 rounded-2xl bg-sand-50 px-3 py-6 sm:px-8">
-                <img
-                  src={`${ASSET_DIR}/monitoring-map.png`}
-                  alt="地表傾滑計、傾斜觀測管、沉陷觀測點、結構傾度盤及雨量計配置圖"
-                  className="mx-auto w-full max-w-5xl object-contain"
-                />
-              </div>
-              <figcaption className="mt-5 text-xs leading-relaxed text-slate-400">
-                測點位置與編號維持原始資料；原圖內建圖例已移至網頁介面，以改善閱讀清晰度。
-              </figcaption>
-            </figure>
+              <TechnicalFigure
+                src={`${ASSET_DIR}/monitoring-map.png`}
+                alt="地表傾滑計、傾斜觀測管、沉陷觀測點、結構傾度盤及雨量計配置圖"
+                caption="測點位置與編號維持原始資料；點選圖面可放大檢視。"
+                className="mt-7 border-0 bg-sand-50 ring-0"
+                mediaClassName="px-3 py-6 sm:px-8"
+                imageClassName="mx-auto max-w-5xl"
+              />
+            </div>
           </Reveal>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <Reveal>
               <article className="h-full rounded-2xl bg-orange-50 p-6 ring-1 ring-orange-200">
                 <p className="text-xs font-bold tracking-[0.16em] text-orange-700 uppercase">Warning range</p>
-                <h3 className="mt-2 font-black text-brand-900">達警戒值範圍</h3>
+                <h3 className="mt-2 font-extrabold text-brand-900">達警戒值範圍</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {["ZT-4", "ZT-5", "ZT-7", "ZT-8"].map((station) => (
                     <span key={station} className="rounded-full bg-white px-3 py-1.5 text-xs font-black text-orange-700 ring-1 ring-orange-200">{station}</span>
@@ -363,7 +350,7 @@ export default function Technology() {
             <Reveal delay={0.06}>
               <article className="h-full rounded-2xl bg-red-50 p-6 ring-1 ring-red-200">
                 <p className="text-xs font-bold tracking-[0.16em] text-red-700 uppercase">Slope movement</p>
-                <h3 className="mt-2 font-black text-brand-900">發生坡面滑動</h3>
+                <h3 className="mt-2 font-extrabold text-brand-900">發生坡面滑動</h3>
                 <div className="mt-4 flex gap-2">
                   {["ZT-4", "ZT-8"].map((station) => (
                     <span key={station} className="rounded-full bg-white px-3 py-1.5 text-xs font-black text-red-700 ring-1 ring-red-200">{station}</span>
@@ -374,7 +361,7 @@ export default function Technology() {
             <Reveal delay={0.12}>
               <article className="h-full rounded-2xl bg-brand-900 p-6 text-white">
                 <p className="text-xs font-bold tracking-[0.16em] text-emerald2-300 uppercase">Cross validation</p>
-                <h3 className="mt-2 font-black">兩種方法，同一判讀</h3>
+                <h3 className="mt-2 font-extrabold">兩種方法，同一判讀</h3>
                 <p className="mt-3 text-base leading-relaxed text-white/65">ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。</p>
               </article>
             </Reveal>
@@ -401,7 +388,7 @@ export default function Technology() {
               </div>
               {comparison.map(([label, conventional, surface]) => (
                 <div key={label} className="grid gap-3 border-t border-sand-200 px-6 py-5 md:grid-cols-[0.7fr_1fr_1fr]">
-                  <p className="font-black text-brand-900">{label}</p>
+                  <p className="font-extrabold text-brand-900">{label}</p>
                   <p className="text-base leading-relaxed text-slate-500">
                     <span className="mb-1 block text-xs font-bold text-slate-400 md:hidden">傾斜觀測管</span>
                     {conventional}
@@ -420,7 +407,7 @@ export default function Technology() {
       <section className="bg-brand-900 py-14">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
           <Wrench className="h-7 w-7 text-emerald2-300" />
-          <h2 className="text-2xl font-black text-white">需要規劃坡地監測系統？</h2>
+          <h2 className="text-2xl font-extrabold text-white">需要規劃坡地監測系統？</h2>
           <p className="max-w-xl text-base leading-relaxed text-white/65">
             我們可依地質條件、滑動機制與管理需求，評估監測配置與資料判讀方式。
           </p>

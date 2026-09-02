@@ -32,7 +32,7 @@ export function PageHero({ eyebrow, title, description, image }: PageHeroProps) 
             <span className="font-semibold text-emerald2-300">{title}</span>
           </nav>
           <p className="mt-6 text-xs font-bold tracking-[0.3em] text-emerald2-400 uppercase">{eyebrow}</p>
-          <h1 className="mt-3 text-4xl font-black tracking-tight text-white md:text-5xl">{title}</h1>
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white md:text-5xl">{title}</h1>
           {description && <p className="mt-4 max-w-xl text-base leading-relaxed text-white/65">{description}</p>}
         </Reveal>
       </div>

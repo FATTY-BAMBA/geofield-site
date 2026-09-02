@@ -23,7 +23,7 @@ export default function Location() {
                       <MapPin className="h-5 w-5" />
                     </span>
                     <div>
-                      <h3 className="text-lg font-black text-brand-900">{o.name}</h3>
+                      <h3 className="text-lg font-extrabold text-brand-900">{o.name}</h3>
                       <p className="mt-0.5 text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</p>
                     </div>
                   </div>

@@ -1,14 +1,13 @@
-import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router";
-import { ArrowLeft, Building2, CalendarDays, MapPin, X } from "lucide-react";
+import { ArrowLeft, Building2, CalendarDays, MapPin } from "lucide-react";
 import { getProject, categoryImages } from "@/data/site";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { TechnicalFigure } from "@/components/TechnicalFigure";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProject(slug);
-  const [lightbox, setLightbox] = useState<number | null>(null);
 
   // 無此專案，或該專案尚未建立詳細內容 → 回列表頁
   if (!project || !project.detail) return <Navigate to="/projects" replace />;
@@ -36,8 +35,8 @@ export default function ProjectDetail() {
               <ArrowLeft className="h-3.5 w-3.5" />
               返回工程實績
             </Link>
-            <p className="mt-6 text-xs font-bold tracking-[0.3em] text-emerald2-400 uppercase">Project</p>
-            <h1 className="mt-3 max-w-3xl text-3xl font-black leading-tight tracking-tight text-white md:text-5xl">
+            <p className="mt-6 text-xs font-bold tracking-[0.3em] text-emerald2-400 uppercase">Case Study</p>
+            <h1 className="mt-3 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-white md:text-5xl">
               {project.title}
             </h1>
             <span className="mt-5 inline-block rounded-full bg-emerald2-500/15 px-4 py-1.5 text-sm font-bold text-emerald2-300">
@@ -62,7 +61,7 @@ export default function ProjectDetail() {
                       <Icon className="h-3.5 w-3.5" />
                       {label}
                     </dt>
-                    <dd className="mt-2 text-sm font-bold text-brand-900">{value}</dd>
+                    <dd className="mt-2 text-base font-bold text-brand-900">{value}</dd>
                   </div>
                 ))}
               </dl>
@@ -71,14 +70,14 @@ export default function ProjectDetail() {
 
           <Reveal direction="right">
             <div className="rounded-3xl bg-brand-900 p-8">
-              <h3 className="text-lg font-black text-white">工作項目</h3>
+              <h3 className="text-lg font-extrabold text-white">工作項目</h3>
               <ul className="mt-6 space-y-4">
                 {d.scope.map((s, i) => (
                   <li key={s} className="flex gap-3.5">
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-emerald2-500/20 text-xs font-black text-emerald2-300">
                       {i + 1}
                     </span>
-                    <span className="text-sm leading-relaxed text-white/80">{s}</span>
+                    <span className="text-base leading-relaxed text-white/80">{s}</span>
                   </li>
                 ))}
               </ul>
@@ -87,7 +86,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* 技術作業內容 —— 等高卡片網格，與工程實績列表同一套視覺語彙 */}
+      {/* 技術作業內容：等高卡片網格，與工程實績列表採用同一套視覺語彙 */}
       {d.sections.length > 0 && (
         <section className="bg-sand-50 py-14 lg:py-20">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -102,25 +101,20 @@ export default function ProjectDetail() {
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {d.sections.map((sec, i) => (
                 <Reveal key={sec.title} delay={0.05 * (i % 4)} className="h-full">
-                  <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.15)]">
+                  <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.13)] hover:ring-brand-200">
                     {sec.image && (
-                      <div className="relative h-56 shrink-0 overflow-hidden bg-gradient-to-br from-sand-50 via-sand-100 to-brand-100">
-                        <div className="absolute inset-0 bg-grid-light" />
-                        <img
-                          src={sec.image}
-                          alt={sec.title}
-                          loading="lazy"
-                          className={`relative h-full w-full ${
-                            sec.fit === "contain" ? "object-contain p-4" : "object-cover"
-                          }`}
-                        />
-                        <span className="absolute top-4 left-4 rounded-full bg-brand-950/85 px-3 py-1 text-xs font-black tracking-widest text-emerald2-300 backdrop-blur">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                      </div>
+                      <TechnicalFigure
+                        src={sec.image}
+                        alt={sec.title}
+                        label={String(i + 1).padStart(2, "0")}
+                        fit={sec.fit ?? "cover"}
+                        className="shrink-0 rounded-none border-0 ring-0"
+                        mediaClassName="h-60"
+                        imageClassName={sec.fit === "contain" ? "p-5" : undefined}
+                      />
                     )}
                     <div className="flex flex-1 flex-col p-6 lg:p-7">
-                      <h3 className="text-lg font-black text-brand-900">{sec.title}</h3>
+                      <h3 className="text-lg font-extrabold text-brand-900">{sec.title}</h3>
                       <p className="mt-3 text-base leading-loose text-slate-600">{sec.body}</p>
                       {sec.bullets && (
                         <ul className="mt-auto flex flex-wrap gap-2 pt-5">
@@ -148,34 +142,28 @@ export default function ProjectDetail() {
         <section className="bg-white py-14 lg:py-20">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal>
-              <SectionHeading eyebrow="Gallery" title="工程照片" />
+              <SectionHeading
+                eyebrow="Field Record"
+                title="工程影像與現況紀錄"
+                description="點選任一圖片可查看完整尺寸與圖說。"
+              />
             </Reveal>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {d.photos.map((p, i) => (
-                <Reveal key={p.src} delay={0.05 * (i % 3)} className="h-full">
-                  <button
-                    onClick={() => setLightbox(i)}
-                    className="group flex h-full w-full flex-col overflow-hidden rounded-2xl bg-white text-left ring-1 ring-sand-200 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.25)]"
-                  >
-                    <div className="relative h-48 shrink-0 overflow-hidden bg-gradient-to-br from-sand-50 via-sand-100 to-brand-100">
-                      <div className="absolute inset-0 bg-grid-light" />
-                      <img
-                        src={p.src}
-                        alt={p.caption ?? project.title}
-                        loading="lazy"
-                        className={`relative h-full w-full transition-transform duration-500 group-hover:scale-[1.06] ${
-                          p.fit === "contain" ? "object-contain p-3" : "object-cover"
-                        }`}
-                      />
-                    </div>
-                    {p.caption && (
-                      <div className="flex flex-1 items-center p-5">
-                        <span className="text-base font-bold leading-snug text-brand-900 transition-colors group-hover:text-emerald2-600">
-                          {p.caption}
-                        </span>
-                      </div>
-                    )}
-                  </button>
+                <Reveal
+                  key={p.src}
+                  delay={0.05 * (i % 3)}
+                  className={i === 0 ? "h-full sm:col-span-2 lg:col-span-2" : "h-full"}
+                >
+                  <TechnicalFigure
+                    src={p.src}
+                    alt={p.caption ?? project.title}
+                    caption={p.caption}
+                    fit={p.fit ?? "cover"}
+                    className="h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.18)] hover:ring-brand-200"
+                    mediaClassName={i === 0 ? "h-64 lg:h-72" : "h-56 lg:h-60"}
+                    imageClassName={p.fit === "contain" ? "p-4" : undefined}
+                  />
                 </Reveal>
               ))}
             </div>
@@ -183,40 +171,12 @@ export default function ProjectDetail() {
         </section>
       )}
 
-      {/* Lightbox */}
-      {lightbox !== null && d.photos?.[lightbox] && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setLightbox(null)}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-brand-950/90 p-5 backdrop-blur"
-        >
-          <button
-            onClick={() => setLightbox(null)}
-            aria-label="關閉"
-            className="absolute top-5 right-5 rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20"
-          >
-            <X className="h-5 w-5" />
-          </button>
-          <figure onClick={(e) => e.stopPropagation()} className="max-w-4xl">
-            <img
-              src={d.photos[lightbox].src}
-              alt={d.photos[lightbox].caption ?? project.title}
-              className="max-h-[78vh] w-full rounded-2xl object-contain"
-            />
-            {d.photos[lightbox].caption && (
-              <figcaption className="mt-4 text-center text-sm text-white/70">{d.photos[lightbox].caption}</figcaption>
-            )}
-          </figure>
-        </div>
-      )}
-
       {/* CTA */}
       <section className="bg-brand-900 py-14">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
-          <h3 className="text-2xl font-black text-white">有類似的工程需求？</h3>
-          <p className="max-w-lg text-sm leading-relaxed text-white/65">
-            歡迎與我們聯繫，由專業團隊為您評估最適合的檢測與評估方案。
+          <h3 className="text-2xl font-extrabold text-white">有類似的工程需求？</h3>
+          <p className="max-w-lg text-base leading-relaxed text-white/65">
+            請提供場址、設施現況與工作需求，我們將依現地條件建議適合的調查與評估項目。
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
