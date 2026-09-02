@@ -5,6 +5,40 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TechnicalFigure } from "@/components/TechnicalFigure";
 
+const maintenanceSteps = ["日常巡檢", "定期檢測", "功能評估", "設施監測", "應對策略"];
+
+function MaintenanceCycleVisual() {
+  return (
+    <div className="relative h-full min-h-[360px] overflow-hidden rounded-3xl bg-brand-950 p-7 text-white ring-1 ring-white/10 lg:p-9">
+      <div className="absolute inset-0 bg-grid-dark opacity-45" />
+      <div className="relative">
+        <p className="text-xs font-bold tracking-[0.22em] text-emerald2-300 uppercase">Maintenance Framework</p>
+        <h4 className="editorial-heading mt-3 text-2xl font-extrabold">以維管資料串聯每一次判斷</h4>
+        <ol className="mt-7 grid grid-cols-2 gap-x-5 gap-y-3 sm:grid-cols-5 lg:grid-cols-2 xl:grid-cols-5">
+          {maintenanceSteps.map((step, index) => (
+            <li key={step} className="border-l-2 border-emerald2-500/65 pl-3">
+              <span className="block text-xs font-black tracking-wider text-emerald2-300">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="mt-1 block text-sm font-bold text-white/90">{step}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-8 grid gap-3 border-t border-white/15 pt-6 sm:grid-cols-2">
+          <div className="rounded-2xl bg-amber-400/10 p-4 ring-1 ring-amber-300/20">
+            <span className="text-xs font-bold text-amber-200">具立即性風險</span>
+            <p className="mt-1 text-sm leading-relaxed text-white/70">納入主動管理，安排補修、補強或更新。</p>
+          </div>
+          <div className="rounded-2xl bg-emerald2-500/10 p-4 ring-1 ring-emerald2-400/20">
+            <span className="text-xs font-bold text-emerald2-200">無立即性風險</span>
+            <p className="mt-1 text-sm leading-relaxed text-white/70">保留基準資料，依週期持續追蹤。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProject(slug);
@@ -86,7 +120,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* 技術作業內容：等高卡片網格，與工程實績列表採用同一套視覺語彙 */}
+      {/* 技術作業內容 */}
       {d.sections.length > 0 && (
         <section className="bg-sand-50 py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -94,34 +128,44 @@ export default function ProjectDetail() {
               <SectionHeading
                 eyebrow="Methodology"
                 title="技術作業內容"
-                description="結合現場檢測、非破壞探查、三維掃描與長期監測，建立完整的隧道維護管理資訊。"
+                description="把現場檢查、非破壞探查、三維掃描與重點量測整合到同一套位置資料中，支援後續維護判斷。"
               />
             </Reveal>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="mt-12 space-y-10 lg:mt-16 lg:space-y-16">
               {d.sections.map((sec, i) => (
-                <Reveal key={sec.title} delay={0.05 * (i % 4)} className="h-full">
-                  <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.13)] hover:ring-brand-200">
-                    {sec.image && (
-                      <TechnicalFigure
-                        src={sec.image}
-                        alt={sec.title}
-                        label={String(i + 1).padStart(2, "0")}
-                        fit={sec.fit ?? "cover"}
-                        className="shrink-0 rounded-none border-0 ring-0"
-                        mediaClassName="h-60"
-                        imageClassName={sec.fit === "contain" ? "p-5" : undefined}
-                      />
-                    )}
-                    <div className="flex flex-1 flex-col p-6 lg:p-7">
-                      <h3 className="text-lg font-extrabold text-brand-900">{sec.title}</h3>
-                      <p className="editorial-copy mt-3 text-base text-slate-600">{sec.body}</p>
+                <Reveal key={sec.title} delay={0.04 * (i % 3)}>
+                  <article className="grid items-center gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
+                    <div className={i % 2 === 1 ? "lg:order-2" : undefined}>
+                      {sec.visual === "maintenance-cycle" ? (
+                        <MaintenanceCycleVisual />
+                      ) : (
+                        sec.image && (
+                          <TechnicalFigure
+                            src={sec.image}
+                            alt={sec.title}
+                            fit={sec.fit ?? "cover"}
+                            className="rounded-3xl shadow-[0_22px_55px_-28px_rgba(13,59,76,0.35)]"
+                            mediaClassName="h-72 sm:h-[340px] lg:h-[390px]"
+                            imageClassName={sec.fit === "contain" ? "p-3 sm:p-6" : undefined}
+                          />
+                        )
+                      )}
+                    </div>
+                    <div className={i % 2 === 1 ? "lg:order-1" : undefined}>
+                      <p className="text-xs font-black tracking-[0.2em] text-emerald2-600 uppercase">
+                        {String(i + 1).padStart(2, "0")} / {String(d.sections.length).padStart(2, "0")}
+                      </p>
+                      <h3 className="editorial-heading mt-3 text-2xl font-extrabold leading-snug text-brand-900 lg:text-3xl">
+                        {sec.title}
+                      </h3>
+                      <p className="editorial-copy mt-5 text-base text-slate-600 md:text-[17px]">{sec.body}</p>
                       {sec.bullets && (
-                        <ul className="mt-auto flex flex-wrap gap-2 pt-5">
+                        <ul className="mt-6 flex flex-wrap gap-2">
                           {sec.bullets.map((b) => (
                             <li
                               key={b}
-                              className="rounded-full bg-sand-50 px-3 py-1.5 text-xs font-bold text-brand-900 ring-1 ring-sand-200"
+                              className="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-brand-900 ring-1 ring-sand-200"
                             >
                               {b}
                             </li>

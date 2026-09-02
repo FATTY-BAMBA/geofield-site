@@ -97,6 +97,8 @@ export interface ProjectSection {
   title: string;
   body: string;
   image?: string;
+  /** 適合以網頁元件重建、而非直接使用簡報截圖的技術圖解。 */
+  visual?: "maintenance-cycle";
   /** 圖說、剖面圖、模型截圖請設為 "contain"，避免邊緣被裁切。 */
   fit?: "cover" | "contain";
   bullets?: string[];
@@ -144,63 +146,63 @@ export const projects: Project[] = [
     slug: "irrigation-tunnel-inspection",
     title: "水圳隧道檢測安全評估",
     category: "隧道",
-    photoCount: 11,
+    photoCount: 5,
     detail: {
-      heroImage: `${IRRIGATION_TUNNEL_DIR}/site-survey.webp`,
+      heroImage: `${IRRIGATION_TUNNEL_DIR}/site-context.webp`,
       cardImage: categoryImages.隧道,
       cardImageFit: "contain",
       summary:
-        "本案例針對持續營運的老舊磚砌水圳隧道，辦理結構現況調查、安全評估與修復補強規劃。工作內容包括全線踏勘、襯砌異狀記錄、透地雷達探查、三維點雲建置及重點區段監測，並將成果整合為維護管理與處置優先順序的判讀依據。",
+        "早年為農業灌溉興建的磚砌水圳隧道，部分歷經百年仍持續供水。本案例整合現況巡查、襯砌探查、三維掃描與重點異狀監測成果，用於辨識需要持續追蹤或優先處置的區段，作為後續維護、補修與補強規劃的依據。",
       scope: [
-        "逾齡水圳隧道維護管理策略研訂",
-        "水圳隧道檢測安全評估",
-        "水文地質調查分析",
-        "隧道損壞機制研判",
-        "修復補強對策設計",
+        "隧道與開渠段現況巡查",
+        "襯砌表面異狀記錄",
+        "13 通道透地雷達探查",
+        "三維點雲模型建置",
+        "重點異狀量測與追蹤",
       ],
       sections: [
         {
           title: "維護管理策略架構",
-          body: "以「維管資料」為核心，建立日常巡檢、定期檢測、功能評估、設施監測與應對策略之循環機制。經評估具立即性風險者，採取主動式管理並即時進行補修、補強或更新；無立即性風險者，則納入非主動式管理持續追蹤，使有限的維護經費能配置於風險最高的區段。",
-          image: `${IRRIGATION_TUNNEL_DIR}/maintenance-cycle.webp`,
-          fit: "contain",
+          body: "以巡檢與檢測資料為基礎，串聯功能評估、設施監測及後續處置。需要立即處理的異狀納入主動管理；其餘項目保留基準資料並定期追蹤，讓維護資源集中在風險較高的區段。",
+          visual: "maintenance-cycle",
           bullets: ["日常巡檢", "定期檢測", "功能評估", "設施監測", "應對策略（補修／補強／更新）"],
         },
         {
           title: "現場檢測評估",
-          body: "於停水期間進入隧道進行全線踏勘，以目視及近接檢測記錄襯砌裂縫、滲漏水、材料劣化與斷面淨空縮減等異狀，並依里程建立損壞位置圖資。除隧道段外，導水路之開渠段亦納入檢查範圍，其邊坡與護岸為全線風險相對較高之區段。",
+          body: "工程人員沿線進行目視與近接檢查，記錄襯砌裂縫、滲水痕跡、材料劣化及斷面狀況，並同步巡查相連的開渠段。現場影像與位置資料共同建立後續判讀基準。",
           image: `${IRRIGATION_TUNNEL_DIR}/lining-inspection.webp`,
         },
         {
           title: "襯砌結構透地雷達探查",
-          body: "採用多通道透地雷達陣列（13 通道）搭配移動式載台，沿隧道縱向連續掃描襯砌結構。探查成果可辨識磚砌／灰泥襯砌與鋼筋混凝土襯砌之界面、襯砌內部局部空洞位置，以及襯砌背後岩盤疏鬆或破碎之範圍，作為補強範圍劃設之依據。",
+          body: "以 13 通道透地雷達陣列沿隧道縱向探查襯砌。不同通道的量測資料可協助辨識襯砌界面、局部空洞，以及襯砌背後可能的疏鬆或破碎區域，提供後續處置範圍的判讀依據。",
           image: `${IRRIGATION_TUNNEL_DIR}/gpr-interpretation.webp`,
           fit: "contain",
         },
         {
           title: "點雲掃描與數位模型建置",
-          body: "以三維雷射掃描建置隧道全線點雲數位模型，可據以量測任意斷面之淨空、檢核既有斷面與設計斷面之差異，並將檢測所得之損壞位置套繪於模型上，形成可供管理單位長期沿用的數位維管底圖。",
+          body: "三維掃描將隧道現況轉換為可量測的點雲模型，用於檢視線形與斷面差異，並可將現場發現的異狀對應至模型位置，形成後續複查可沿用的數位基準。",
           image: `${IRRIGATION_TUNNEL_DIR}/point-cloud-model.webp`,
           fit: "contain",
         },
         {
-          title: "結構異狀掃描追蹤",
-          body: "針對已辨識之結構異狀區段，於不同時期重複掃描並進行點雲比對，量化異狀之發展趨勢。相較於單次檢測，週期性追蹤可區分「既有穩定損壞」與「持續發展中損壞」，避免將全部異狀一律視為緊急處理項目。",
+          title: "結構異狀點雲追蹤",
+          body: "利用點雲掃描記錄頂拱襯砌鋼筋裸露、鏽蝕等異狀的位置與尺度，建立可供後續比較的基準。不同時期的資料可依相同位置比對，判斷異狀範圍是否持續變化。",
           image: `${IRRIGATION_TUNNEL_DIR}/change-tracking.webp`,
           fit: "contain",
         },
         {
-          title: "結構異狀變化監測",
-          body: "於重點區段佈設裂縫計等監測儀器，長期記錄裂縫寬度與結構位移之變化量，並訂定分級管理值。監測數據與檢測、掃描成果整合後，作為研判隧道損壞機制與研擬修復補強對策之依據。",
-          image: `${IRRIGATION_TUNNEL_DIR}/crack-gauge.webp`,
+          title: "重點異狀量測與追蹤",
+          body: "在已辨識的重點位置進行近接量測並留下基準紀錄。後續可使用相同位置與量測方式複查，將現場觀察、尺寸記錄及監測結果一起比較，判斷異狀是否持續發展。",
+          image: `${IRRIGATION_TUNNEL_DIR}/surface-condition-survey.webp`,
         },
       ],
       // 僅收錄未在上方技術段落出現過的照片，避免重複
       photos: [
-        { src: `${IRRIGATION_TUNNEL_DIR}/site-survey.webp`, caption: "隧道全線現場踏勘作業" },
-        { src: `${IRRIGATION_TUNNEL_DIR}/brick-arch.webp`, caption: "磚砌拱圈結構現況" },
-        { src: `${IRRIGATION_TUNNEL_DIR}/temporary-support.webp`, caption: "劣化區段臨時支撐" },
-        { src: `${IRRIGATION_TUNNEL_DIR}/open-channel.webp`, caption: "導水路開渠段檢查" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/site-survey.webp`, caption: "隧道內部襯砌與滲水痕跡巡查" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/brick-arch.webp`, caption: "磚砌拱圈與通水環境", fit: "contain" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/temporary-support.webp`, caption: "局部區段支撐及現況" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/open-channel.webp`, caption: "桃園大圳開渠段現場巡查", fit: "contain" },
+        { src: `${IRRIGATION_TUNNEL_DIR}/measurement-closeup.webp`, caption: "重點位置近接量測" },
       ],
     },
   },
