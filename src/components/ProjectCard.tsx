@@ -11,7 +11,9 @@ const categoryStyles: Record<string, string> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   const hasDetail = Boolean(project.detail);
-  const coverImage = project.detail?.heroImage ?? categoryImages[project.category];
+  const coverImage = project.detail?.cardImage ?? project.detail?.heroImage ?? categoryImages[project.category];
+  const coverFit = project.detail?.cardImageFit ?? (hasDetail ? "cover" : "contain");
+  const usesTechnicalBackdrop = coverFit === "contain";
   const rocYear = project.title.match(/^(\d{2,3})年度/)?.[1];
   const yearLabel = rocYear ? `民國${rocYear}年 · ${Number(rocYear) + 1911}` : null;
   const scopeLabels: Record<string, string> = {
@@ -23,20 +25,20 @@ export function ProjectCard({ project }: { project: Project }) {
 
   const inner = (
     <>
-      <div className={`relative h-52 overflow-hidden ${hasDetail ? "bg-brand-950" : "technical-media"}`}>
-        {!hasDetail && <div className="absolute inset-0 bg-grid-light opacity-45" />}
-        {!hasDetail && <div className="absolute inset-x-14 bottom-2 h-12 rounded-full bg-brand-900/15 blur-2xl" />}
+      <div className={`relative h-52 overflow-hidden ${usesTechnicalBackdrop ? "technical-media" : "bg-brand-950"}`}>
+        {usesTechnicalBackdrop && <div className="absolute inset-0 bg-grid-light opacity-45" />}
+        {usesTechnicalBackdrop && <div className="absolute inset-x-14 bottom-2 h-12 rounded-full bg-brand-900/15 blur-2xl" />}
         <img
           src={coverImage}
           alt={hasDetail ? project.title : project.category}
           loading="lazy"
           className={`relative h-full w-full transition-transform duration-700 group-hover:scale-[1.035] ${
-            hasDetail
+            coverFit === "cover"
               ? "object-cover"
               : "z-10 object-contain p-3 drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)]"
           }`}
         />
-        {hasDetail && <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />}
+        {!usesTechnicalBackdrop && <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />}
         <span
           className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-bold backdrop-blur ${categoryStyles[project.category]}`}
         >

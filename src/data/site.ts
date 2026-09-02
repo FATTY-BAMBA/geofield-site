@@ -107,8 +107,11 @@ export interface ProjectSection {
  * 仍會正常顯示於列表中，只是不會產生內頁連結。
  */
 export interface ProjectDetail {
-  /** 內頁主視覺；已完成案例頁的列表卡片亦會使用此圖。 */
+  /** 內頁主視覺。 */
   heroImage?: string;
+  /** 列表卡片可使用與內頁不同的視覺，例如技術示意圖。 */
+  cardImage?: string;
+  cardImageFit?: "cover" | "contain";
   client?: string;
   location?: string;
   period?: string;
@@ -143,7 +146,9 @@ export const projects: Project[] = [
     category: "隧道",
     photoCount: 11,
     detail: {
-      heroImage: `${IRRIGATION_TUNNEL_DIR}/hero.webp`,
+      heroImage: `${IRRIGATION_TUNNEL_DIR}/site-survey.webp`,
+      cardImage: categoryImages.隧道,
+      cardImageFit: "contain",
       summary:
         "本案例針對持續營運的老舊磚砌水圳隧道，辦理結構現況調查、安全評估與修復補強規劃。工作內容包括全線踏勘、襯砌異狀記錄、透地雷達探查、三維點雲建置及重點區段監測，並將成果整合為維護管理與處置優先順序的判讀依據。",
       scope: [
@@ -192,7 +197,6 @@ export const projects: Project[] = [
       ],
       // 僅收錄未在上方技術段落出現過的照片，避免重複
       photos: [
-        { src: `${IRRIGATION_TUNNEL_DIR}/hero.webp`, caption: "百年磚砌水圳隧道襯砌現況" },
         { src: `${IRRIGATION_TUNNEL_DIR}/site-survey.webp`, caption: "隧道全線現場踏勘作業" },
         { src: `${IRRIGATION_TUNNEL_DIR}/brick-arch.webp`, caption: "磚砌拱圈結構現況" },
         { src: `${IRRIGATION_TUNNEL_DIR}/temporary-support.webp`, caption: "劣化區段臨時支撐" },
