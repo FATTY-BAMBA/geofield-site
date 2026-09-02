@@ -295,18 +295,68 @@ export default function Technology() {
             </Reveal>
           </div>
 
-          <Reveal>
-            <figure className="mt-8 overflow-hidden rounded-3xl bg-sand-50 p-4 ring-1 ring-sand-200 sm:p-7">
-              <img
-                src={`${ASSET_DIR}/monitoring-map.webp`}
-                alt="地表傾滑計與傾斜觀測管配置及成果比較圖"
-                className="w-full object-contain"
-              />
-              <figcaption className="mt-4 text-center text-xs text-slate-400">
-                地表傾滑計與傾斜觀測管配置及觀測成果整合示意。
-              </figcaption>
-            </figure>
-          </Reveal>
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.45fr_0.55fr]">
+            <Reveal>
+              <figure className="overflow-hidden rounded-3xl bg-white p-4 ring-1 ring-sand-200 sm:p-7">
+                <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-sand-200 pb-5">
+                  <div>
+                    <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Monitoring layout</p>
+                    <h3 className="mt-2 text-xl font-black text-brand-900">監測網配置</h3>
+                  </div>
+                  <span className="rounded-full bg-sand-100 px-3 py-1.5 text-xs font-bold text-slate-500">ZT · BH · SM · TI · 雨量計</span>
+                </div>
+                <img
+                  src={`${ASSET_DIR}/monitoring-map.webp`}
+                  alt="地表傾滑計、傾斜觀測管、沉陷觀測點、結構傾度盤及雨量計配置圖"
+                  className="w-full object-contain"
+                />
+                <figcaption className="mt-5 border-t border-sand-200 pt-4 text-xs leading-relaxed text-slate-400">
+                  原始監測配置圖經裁切與清晰化處理；測點位置、編號與圖例內容均維持原始資料。
+                </figcaption>
+              </figure>
+            </Reveal>
+
+            <Reveal direction="right">
+              <aside className="flex h-full flex-col gap-4 rounded-3xl bg-sand-50 p-6 ring-1 ring-sand-200 lg:p-7">
+                <div>
+                  <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Observed response</p>
+                  <h3 className="mt-2 text-xl font-black text-brand-900">觀測結果摘要</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-500">
+                    將複雜標註移出圖面，以分級摘要呈現事件期間的重要結果。
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-white p-5 ring-1 ring-sand-200">
+                  <p className="text-xs font-bold text-slate-400">達警戒值範圍</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {["ZT-4", "ZT-5", "ZT-7", "ZT-8"].map((station) => (
+                      <span key={station} className="rounded-full bg-orange-50 px-3 py-1.5 text-xs font-black text-orange-700 ring-1 ring-orange-200">
+                        {station}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-white p-5 ring-1 ring-sand-200">
+                  <p className="text-xs font-bold text-slate-400">發生坡面滑動</p>
+                  <div className="mt-3 flex gap-2">
+                    {["ZT-4", "ZT-8"].map((station) => (
+                      <span key={station} className="rounded-full bg-red-50 px-3 py-1.5 text-xs font-black text-red-700 ring-1 ring-red-200">
+                        {station}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-auto rounded-2xl bg-brand-900 p-5 text-white">
+                  <p className="text-xs font-bold tracking-[0.16em] text-emerald2-300 uppercase">Cross validation</p>
+                  <p className="mt-2 text-sm font-bold leading-relaxed">
+                    ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。
+                  </p>
+                </div>
+              </aside>
+            </Reveal>
+          </div>
         </div>
       </section>
 
