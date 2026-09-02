@@ -40,7 +40,7 @@ export function ProjectCard({ project }: { project: Project }) {
         />
         {!usesTechnicalBackdrop && <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />}
         <span
-          className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-bold backdrop-blur ${categoryStyles[project.category]}`}
+          className={`absolute top-4 left-4 z-20 rounded-full px-3 py-1 text-xs font-bold shadow-sm backdrop-blur ${categoryStyles[project.category]}`}
         >
           {project.category}
         </span>

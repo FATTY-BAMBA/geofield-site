@@ -20,7 +20,7 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
           loading="lazy"
           className="relative z-10 h-full w-full object-contain p-3 drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)] transition-transform duration-500 group-hover:scale-[1.04]"
         />
-        <span className="absolute top-4 left-4 rounded-full bg-brand-950/85 px-3 py-1 text-xs font-bold tracking-[0.1em] text-emerald2-300 uppercase backdrop-blur">
+        <span className="absolute top-4 left-4 z-20 rounded-full bg-brand-950/95 px-3 py-1 text-xs font-bold tracking-[0.1em] text-emerald2-300 uppercase shadow-sm backdrop-blur">
           {service.english}
         </span>
       </div>
