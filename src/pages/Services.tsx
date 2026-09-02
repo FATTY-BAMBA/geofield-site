@@ -15,7 +15,7 @@ export default function Services() {
         eyebrow="Services"
         title="服務項目"
         description="服務涵蓋地質調查、設計分析、施工監造及長期安全監測等六大專業領域。"
-        image="/images/svc-hydro.png"
+        image="/images/service-cutouts/svc-hydro.webp"
       />
 
       <section className="bg-sand-50 py-16 lg:py-24">

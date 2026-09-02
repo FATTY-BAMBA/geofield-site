@@ -11,13 +11,14 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
       )}
     >
       {/* Visual */}
-      <div className="relative h-52 overflow-hidden bg-gradient-to-br from-sand-50 via-sand-100 to-brand-100">
-        <div className="absolute inset-0 bg-grid-light" />
+      <div className="technical-media relative h-52 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-light opacity-45" />
+        <div className="absolute inset-x-14 bottom-2 h-12 rounded-full bg-brand-900/15 blur-2xl" />
         <img
           src={service.image}
           alt={service.title}
           loading="lazy"
-          className="relative h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.06]"
+          className="relative z-10 h-full w-full object-contain p-3 drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)] transition-transform duration-500 group-hover:scale-[1.04]"
         />
         <span className="absolute top-4 left-4 rounded-full bg-brand-950/85 px-3 py-1 text-xs font-bold tracking-[0.1em] text-emerald2-300 uppercase backdrop-blur">
           {service.english}

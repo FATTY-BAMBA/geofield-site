@@ -21,7 +21,7 @@ export default function Projects() {
         eyebrow="Projects"
         title="工程實績"
         description="整理鑽探調查、邊坡工程、水保監造與隧道檢測等代表性實績；已完成資料整理的項目可進一步查看案例內容。"
-        image="/images/svc-slope.png"
+        image="/images/service-cutouts/svc-slope.webp"
       />
 
       <section className="bg-sand-50 py-16 lg:py-24">

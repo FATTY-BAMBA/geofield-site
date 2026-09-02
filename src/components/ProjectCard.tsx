@@ -23,14 +23,17 @@ export function ProjectCard({ project }: { project: Project }) {
 
   const inner = (
     <>
-      <div className="relative h-52 overflow-hidden bg-gradient-to-br from-sand-50 via-sand-100 to-brand-100">
-        <div className="absolute inset-0 bg-grid-light" />
+      <div className={`relative h-52 overflow-hidden ${hasDetail ? "bg-brand-950" : "technical-media"}`}>
+        {!hasDetail && <div className="absolute inset-0 bg-grid-light opacity-45" />}
+        {!hasDetail && <div className="absolute inset-x-14 bottom-2 h-12 rounded-full bg-brand-900/15 blur-2xl" />}
         <img
           src={coverImage}
           alt={hasDetail ? project.title : project.category}
           loading="lazy"
           className={`relative h-full w-full transition-transform duration-700 group-hover:scale-[1.035] ${
-            hasDetail ? "object-cover" : "object-contain p-4"
+            hasDetail
+              ? "object-cover"
+              : "z-10 object-contain p-3 drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)]"
           }`}
         />
         {hasDetail && <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />}

@@ -37,7 +37,7 @@ export const services: Service[] = [
     title: "水文地質探查",
     english: "HYDROGEOLOGICAL SURVEY",
     desc: "地下水文地質特性探查評估及施工影響分析",
-    image: "/images/svc-hydro.png",
+    image: "/images/service-cutouts/svc-hydro.webp",
     points: ["地下水位觀測與水力特性評估", "抽水試驗與含水層參數分析", "施工降水對鄰近建物影響評估", "地下水資源與補注調查"],
   },
   {
@@ -45,7 +45,7 @@ export const services: Service[] = [
     title: "隧道檢測評估",
     english: "TUNNEL INSPECTION",
     desc: "營運隧道檢測調查與安全服務性能評估",
-    image: "/images/svc-tunnel.png",
+    image: "/images/service-cutouts/svc-tunnel.webp",
     points: ["襯砌裂縫、滲漏水與劣化調查", "非破壞檢測與斷面變形量測", "隧道安全服務性能評估", "維護補強優先順序建議"],
   },
   {
@@ -53,7 +53,7 @@ export const services: Service[] = [
     title: "坡地防災設計",
     english: "SLOPE DISASTER PREVENTION",
     desc: "邊坡崩坍調查並設計修復方案",
-    image: "/images/svc-slope.png",
+    image: "/images/service-cutouts/svc-slope.webp",
     points: ["邊坡穩定分析與崩坍潛勢評估", "擋土牆、地錨與護坡設計", "落石防護網與攔石設施規劃", "崩坍地修復工程設計"],
   },
   {
@@ -61,7 +61,7 @@ export const services: Service[] = [
     title: "開挖基礎工法",
     english: "EXCAVATION & FOUNDATION",
     desc: "地下結構與基礎開挖工法規劃及鄰房安全維護",
-    image: "/images/svc-excavation.png",
+    image: "/images/service-cutouts/svc-excavation.webp",
     points: ["深開挖擋土支撐工法設計", "基礎型式評估與承載力分析", "開挖引致鄰房沉陷預測", "施工階段安全監測規劃"],
   },
   {
@@ -69,7 +69,7 @@ export const services: Service[] = [
     title: "安全監測分析",
     english: "SAFETY MONITORING",
     desc: "坡地滑移與土木工程安全監測系統規劃與執行",
-    image: "/images/svc-monitoring.png",
+    image: "/images/service-cutouts/svc-monitoring.webp",
     points: ["傾斜管、水壓計等儀器佈設", "自動化監測系統建置", "監測數據判讀與預警管理", "坡地滑移潛勢分析"],
   },
   {
@@ -77,7 +77,7 @@ export const services: Service[] = [
     title: "水保計畫監造",
     english: "SOIL & WATER CONSERVATION",
     desc: "坡地開發水保計畫及現場監造",
-    image: "/images/svc-conservation.png",
+    image: "/images/service-cutouts/svc-conservation.webp",
     points: ["水土保持計畫書編撰與送審", "滯洪沉砂設施規劃設計", "施工期間水保設施監造", "完工檢查與維護管理"],
   },
 ];
@@ -129,9 +129,9 @@ export interface Project {
 
 export const categoryImages: Record<ProjectCategory, string> = {
   鑽探: "/images/hero-strata.png",
-  邊坡: "/images/svc-slope.png",
-  監造: "/images/svc-conservation.png",
-  隧道: "/images/svc-tunnel.png",
+  邊坡: "/images/service-cutouts/svc-slope.webp",
+  監造: "/images/service-cutouts/svc-conservation.webp",
+  隧道: "/images/service-cutouts/svc-tunnel.webp",
 };
 
 const IRRIGATION_TUNNEL_DIR = "/images/projects/irrigation-tunnel";
