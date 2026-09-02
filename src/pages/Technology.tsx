@@ -6,6 +6,7 @@ import {
   ChevronRight,
   CloudRain,
   MapPinned,
+  Maximize2,
   Radio,
   Wrench,
 } from "lucide-react";
@@ -295,66 +296,81 @@ export default function Technology() {
             </Reveal>
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-[1.45fr_0.55fr]">
-            <Reveal>
-              <figure className="overflow-hidden rounded-3xl bg-white p-4 ring-1 ring-sand-200 sm:p-7">
-                <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-sand-200 pb-5">
-                  <div>
-                    <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Monitoring layout</p>
-                    <h3 className="mt-2 text-xl font-black text-brand-900">監測網配置</h3>
-                  </div>
-                  <span className="rounded-full bg-sand-100 px-3 py-1.5 text-xs font-bold text-slate-500">ZT · BH · SM · TI · 雨量計</span>
+          <Reveal>
+            <figure className="mt-8 overflow-hidden rounded-3xl bg-white p-5 ring-1 ring-sand-200 sm:p-8 lg:p-10">
+              <div className="flex flex-wrap items-end justify-between gap-4 border-b border-sand-200 pb-6">
+                <div>
+                  <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Monitoring layout</p>
+                  <h3 className="mt-2 text-2xl font-black text-brand-900">監測網配置</h3>
                 </div>
+                <a
+                  href={`${ASSET_DIR}/monitoring-map.webp`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-brand-900 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-brand-800"
+                >
+                  <Maximize2 className="h-3.5 w-3.5" />
+                  放大查看
+                </a>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold text-slate-500">
+                {[
+                  ["bg-indigo-600", "ZT 地表傾滑計 · 9處"],
+                  ["bg-red-500", "BH 傾斜觀測管 · 8處"],
+                  ["bg-amber-500", "SM 沉陷觀測點 · 15處"],
+                  ["bg-cyan-500", "TI 結構傾度盤 · 2處"],
+                  ["bg-fuchsia-500", "雨量計 · 1處"],
+                ].map(([color, label]) => (
+                  <span key={label} className="inline-flex items-center gap-2">
+                    <span className={`h-2.5 w-2.5 rounded-full ${color}`} />
+                    {label}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-7 rounded-2xl bg-sand-50 px-3 py-6 sm:px-8">
                 <img
                   src={`${ASSET_DIR}/monitoring-map.webp`}
                   alt="地表傾滑計、傾斜觀測管、沉陷觀測點、結構傾度盤及雨量計配置圖"
-                  className="w-full object-contain"
+                  className="mx-auto w-full max-w-5xl object-contain"
                 />
-                <figcaption className="mt-5 border-t border-sand-200 pt-4 text-xs leading-relaxed text-slate-400">
-                  原始監測配置圖經裁切與清晰化處理；測點位置、編號與圖例內容均維持原始資料。
-                </figcaption>
-              </figure>
+              </div>
+              <figcaption className="mt-5 text-xs leading-relaxed text-slate-400">
+                測點位置與編號維持原始資料；原圖內建圖例已移至網頁介面，以改善閱讀清晰度。
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <Reveal>
+              <article className="h-full rounded-2xl bg-orange-50 p-6 ring-1 ring-orange-200">
+                <p className="text-xs font-bold tracking-[0.16em] text-orange-700 uppercase">Warning range</p>
+                <h3 className="mt-2 font-black text-brand-900">達警戒值範圍</h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["ZT-4", "ZT-5", "ZT-7", "ZT-8"].map((station) => (
+                    <span key={station} className="rounded-full bg-white px-3 py-1.5 text-xs font-black text-orange-700 ring-1 ring-orange-200">{station}</span>
+                  ))}
+                </div>
+              </article>
             </Reveal>
-
-            <Reveal direction="right">
-              <aside className="flex h-full flex-col gap-4 rounded-3xl bg-sand-50 p-6 ring-1 ring-sand-200 lg:p-7">
-                <div>
-                  <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Observed response</p>
-                  <h3 className="mt-2 text-xl font-black text-brand-900">觀測結果摘要</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-500">
-                    將複雜標註移出圖面，以分級摘要呈現事件期間的重要結果。
-                  </p>
+            <Reveal delay={0.06}>
+              <article className="h-full rounded-2xl bg-red-50 p-6 ring-1 ring-red-200">
+                <p className="text-xs font-bold tracking-[0.16em] text-red-700 uppercase">Slope movement</p>
+                <h3 className="mt-2 font-black text-brand-900">發生坡面滑動</h3>
+                <div className="mt-4 flex gap-2">
+                  {["ZT-4", "ZT-8"].map((station) => (
+                    <span key={station} className="rounded-full bg-white px-3 py-1.5 text-xs font-black text-red-700 ring-1 ring-red-200">{station}</span>
+                  ))}
                 </div>
-
-                <div className="rounded-2xl bg-white p-5 ring-1 ring-sand-200">
-                  <p className="text-xs font-bold text-slate-400">達警戒值範圍</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {["ZT-4", "ZT-5", "ZT-7", "ZT-8"].map((station) => (
-                      <span key={station} className="rounded-full bg-orange-50 px-3 py-1.5 text-xs font-black text-orange-700 ring-1 ring-orange-200">
-                        {station}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-2xl bg-white p-5 ring-1 ring-sand-200">
-                  <p className="text-xs font-bold text-slate-400">發生坡面滑動</p>
-                  <div className="mt-3 flex gap-2">
-                    {["ZT-4", "ZT-8"].map((station) => (
-                      <span key={station} className="rounded-full bg-red-50 px-3 py-1.5 text-xs font-black text-red-700 ring-1 ring-red-200">
-                        {station}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-auto rounded-2xl bg-brand-900 p-5 text-white">
-                  <p className="text-xs font-bold tracking-[0.16em] text-emerald2-300 uppercase">Cross validation</p>
-                  <p className="mt-2 text-sm font-bold leading-relaxed">
-                    ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。
-                  </p>
-                </div>
-              </aside>
+              </article>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <article className="h-full rounded-2xl bg-brand-900 p-6 text-white">
+                <p className="text-xs font-bold tracking-[0.16em] text-emerald2-300 uppercase">Cross validation</p>
+                <h3 className="mt-2 font-black">兩種方法，同一判讀</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/65">ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。</p>
+              </article>
             </Reveal>
           </div>
         </div>
