@@ -229,10 +229,10 @@ export const offices = [
   {
     name: "北部辦公室（台北）",
     nameEn: "TAIPEI OFFICE",
-    address: "105609 台北市松山區南京東路四段1號8樓828室",
+    address: "10472臺北市中山區中吉里松江路200號12樓之5",
     tel: "(02) 2713-5922",
     fax: null,
-    mapQuery: "台北市松山區南京東路四段1號",
+    mapQuery: "臺北市中山區松江路200號12樓之5",
   },
   {
     name: "宜蘭辦公室",
@@ -283,6 +283,7 @@ export const navItems = [
   { key: "home", label: "首頁", path: "/" },
   { key: "about", label: "關於我們", path: "/about" },
   { key: "services", label: "服務項目", path: "/services" },
+  { key: "technology", label: "監測技術", path: "/technology" },
   { key: "projects", label: "工程實績", path: "/projects" },
   { key: "news", label: "最新消息", path: "/news" },
   { key: "location", label: "交通位置", path: "/location" },
