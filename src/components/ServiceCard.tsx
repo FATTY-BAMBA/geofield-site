@@ -10,27 +10,27 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
         "group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.25)] hover:ring-emerald2-500/40"
       )}
     >
+      {/* Keep the service label outside the artwork's visual safe area. */}
+      <div className="flex min-h-12 shrink-0 items-center border-b border-sand-200 bg-sand-50/90 px-5">
+        <span className="text-[11px] font-extrabold tracking-[0.14em] text-brand-800 uppercase">
+          {service.english}
+        </span>
+      </div>
+
       {/* Visual */}
-      <div className="technical-media relative flex h-56 flex-col overflow-hidden">
+      <div className="technical-media relative h-52 overflow-hidden">
         <div className="absolute inset-0 bg-grid-light opacity-45" />
-        <div className="absolute inset-x-14 bottom-2 h-12 rounded-full bg-brand-900/15 blur-2xl" />
-        <div className="relative z-20 shrink-0 px-4 pt-4">
-          <span className="inline-flex rounded-full bg-brand-950/95 px-3 py-1 text-xs font-bold tracking-[0.1em] text-emerald2-300 uppercase shadow-sm">
-            {service.english}
-          </span>
-        </div>
-        <div className="relative z-10 min-h-0 flex-1 px-3 pb-3">
-          <img
-            src={service.image}
-            alt={service.title}
-            loading="lazy"
-            className="h-full w-full object-contain drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)] transition-transform duration-500 group-hover:scale-[1.04]"
-          />
-        </div>
+        <div className="absolute inset-x-16 bottom-3 h-10 rounded-full bg-brand-900/12 blur-2xl" />
+        <img
+          src={service.image}
+          alt={service.title}
+          loading="lazy"
+          className="relative h-full w-full object-contain p-5 drop-shadow-[0_16px_14px_rgba(7,35,46,0.18)] transition-transform duration-500 group-hover:scale-[1.025] sm:p-6"
+        />
       </div>
 
       {/* Body */}
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-6 pt-5">
         <h3 className="text-lg font-bold text-brand-900">{service.title}</h3>
         <p className="editorial-copy mt-2 text-[15px] text-slate-600">{service.desc}</p>
 

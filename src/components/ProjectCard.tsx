@@ -25,28 +25,26 @@ export function ProjectCard({ project }: { project: Project }) {
 
   const inner = (
     <>
-      <div className={`relative flex h-56 flex-col overflow-hidden ${usesTechnicalBackdrop ? "technical-media" : "bg-brand-950"}`}>
-        {usesTechnicalBackdrop && <div className="absolute inset-0 bg-grid-light opacity-45" />}
-        {usesTechnicalBackdrop && <div className="absolute inset-x-14 bottom-2 h-12 rounded-full bg-brand-900/15 blur-2xl" />}
-        {usesTechnicalBackdrop ? (
-          <>
-            <div className="relative z-20 shrink-0 px-4 pt-4">
-              <span
-                className={`inline-flex rounded-full px-3 py-1 text-xs font-bold shadow-sm ${categoryStyles[project.category]}`}
-              >
-                {project.category}
-              </span>
-            </div>
-            <div className="relative z-10 min-h-0 flex-1 px-3 pb-3">
-              <img
-                src={coverImage}
-                alt={hasDetail ? project.title : project.category}
-                loading="lazy"
-                className="h-full w-full object-contain drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)] transition-transform duration-700 group-hover:scale-[1.035]"
-              />
-            </div>
-          </>
-        ) : (
+      {usesTechnicalBackdrop ? (
+        <>
+          <div className="flex min-h-11 shrink-0 items-center border-b border-sand-200 bg-sand-50/90 px-5">
+            <span className="text-[11px] font-extrabold tracking-[0.12em] text-emerald2-700">
+              {project.category}
+            </span>
+          </div>
+          <div className="technical-media relative h-52 overflow-hidden">
+            <div className="absolute inset-0 bg-grid-light opacity-45" />
+            <div className="absolute inset-x-16 bottom-3 h-10 rounded-full bg-brand-900/12 blur-2xl" />
+            <img
+              src={coverImage}
+              alt={hasDetail ? project.title : project.category}
+              loading="lazy"
+              className="relative h-full w-full object-contain p-5 drop-shadow-[0_16px_14px_rgba(7,35,46,0.18)] transition-transform duration-700 group-hover:scale-[1.025] sm:p-6"
+            />
+          </div>
+        </>
+      ) : (
+        <div className="relative h-56 overflow-hidden bg-brand-950">
           <>
             <img
               src={coverImage}
@@ -61,8 +59,8 @@ export function ProjectCard({ project }: { project: Project }) {
               {project.category}
             </span>
           </>
-        )}
-      </div>
+        </div>
+      )}
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center gap-2 text-xs font-bold tracking-wide text-slate-400">
           {yearLabel && <CalendarDays className="h-3.5 w-3.5 text-emerald2-500" />}
