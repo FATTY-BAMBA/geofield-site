@@ -14,6 +14,7 @@ interface TechnicalFigureProps {
   alt: string;
   caption?: string;
   label?: string;
+  labelPlacement?: "overlay" | "header";
   fit?: "cover" | "contain";
   className?: string;
   mediaClassName?: string;
@@ -26,6 +27,7 @@ export function TechnicalFigure({
   alt,
   caption,
   label,
+  labelPlacement = "overlay",
   fit = "contain",
   className,
   mediaClassName,
@@ -35,6 +37,13 @@ export function TechnicalFigure({
   return (
     <Dialog>
       <figure className={cn("overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200", className)}>
+        {label && labelPlacement === "header" && (
+          <div className="border-b border-sand-200 px-1 pt-1 pb-3">
+            <span className="text-xs font-bold tracking-[0.18em] text-emerald2-600 uppercase">
+              {label}
+            </span>
+          </div>
+        )}
         <DialogTrigger asChild>
           <button
             type="button"
@@ -55,7 +64,7 @@ export function TechnicalFigure({
                 imageClassName
               )}
             />
-            {label && (
+            {label && labelPlacement === "overlay" && (
               <span className="absolute top-4 left-4 rounded-full bg-brand-950/90 px-3 py-1.5 text-xs font-bold tracking-[0.12em] text-emerald2-300 uppercase backdrop-blur">
                 {label}
               </span>

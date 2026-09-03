@@ -275,6 +275,7 @@ export default function Technology() {
                 alt="監測案例地質背景、鑽孔位置與九個滑動分區"
                 caption="案例場址地形與滑動分區 A–I。綠色測點為既有傾斜觀測管位置。"
                 label="Site context"
+                labelPlacement="header"
                 className="h-full rounded-3xl bg-sand-50 p-4"
                 mediaClassName="aspect-[4/3] rounded-2xl"
                 imageClassName="p-1"
