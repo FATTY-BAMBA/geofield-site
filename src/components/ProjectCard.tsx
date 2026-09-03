@@ -25,25 +25,43 @@ export function ProjectCard({ project }: { project: Project }) {
 
   const inner = (
     <>
-      <div className={`relative h-52 overflow-hidden ${usesTechnicalBackdrop ? "technical-media" : "bg-brand-950"}`}>
+      <div className={`relative flex h-56 flex-col overflow-hidden ${usesTechnicalBackdrop ? "technical-media" : "bg-brand-950"}`}>
         {usesTechnicalBackdrop && <div className="absolute inset-0 bg-grid-light opacity-45" />}
         {usesTechnicalBackdrop && <div className="absolute inset-x-14 bottom-2 h-12 rounded-full bg-brand-900/15 blur-2xl" />}
-        <img
-          src={coverImage}
-          alt={hasDetail ? project.title : project.category}
-          loading="lazy"
-          className={`relative h-full w-full transition-transform duration-700 group-hover:scale-[1.035] ${
-            coverFit === "cover"
-              ? "object-cover"
-              : "z-10 object-contain p-3 drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)]"
-          }`}
-        />
-        {!usesTechnicalBackdrop && <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />}
-        <span
-          className={`absolute top-4 left-4 z-20 rounded-full px-3 py-1 text-xs font-bold shadow-sm backdrop-blur ${categoryStyles[project.category]}`}
-        >
-          {project.category}
-        </span>
+        {usesTechnicalBackdrop ? (
+          <>
+            <div className="relative z-20 shrink-0 px-4 pt-4">
+              <span
+                className={`inline-flex rounded-full px-3 py-1 text-xs font-bold shadow-sm ${categoryStyles[project.category]}`}
+              >
+                {project.category}
+              </span>
+            </div>
+            <div className="relative z-10 min-h-0 flex-1 px-3 pb-3">
+              <img
+                src={coverImage}
+                alt={hasDetail ? project.title : project.category}
+                loading="lazy"
+                className="h-full w-full object-contain drop-shadow-[0_18px_16px_rgba(7,35,46,0.2)] transition-transform duration-700 group-hover:scale-[1.035]"
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <img
+              src={coverImage}
+              alt={project.title}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />
+            <span
+              className={`absolute top-4 left-4 z-20 rounded-full px-3 py-1 text-xs font-bold shadow-sm backdrop-blur ${categoryStyles[project.category]}`}
+            >
+              {project.category}
+            </span>
+          </>
+        )}
       </div>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center gap-2 text-xs font-bold tracking-wide text-slate-400">

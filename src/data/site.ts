@@ -133,7 +133,7 @@ export interface Project {
 }
 
 export const categoryImages: Record<ProjectCategory, string> = {
-  鑽探: "/images/hero-strata.png",
+  鑽探: "/images/service-cutouts/svc-hydro.webp",
   邊坡: "/images/service-cutouts/svc-slope.webp",
   監造: "/images/service-cutouts/svc-conservation.webp",
   隧道: "/images/service-cutouts/svc-tunnel.webp",
