@@ -153,6 +153,8 @@ export interface Project {
   title: string;
   category: ProjectCategory;
   photoCount: number;
+  /** 經專案資料確認的民國年份；未確認時不以照片日期代替。 */
+  rocYear?: number;
   /** 列表卡片可先採用已確認的實景照片，不必等到完整案例內容上線。 */
   cardImage?: string;
   cardImageFit?: "cover" | "contain";
@@ -233,26 +235,70 @@ export const projects: Project[] = [
       ],
     },
   },
-  { slug: "guanmiao-solar-borehole", title: "永鑫能源關廟太陽光電廠地基調查工作", category: "鑽探", photoCount: 30 },
-  { slug: "mituo-mihai-borehole", title: "高雄市彌陀區彌海段地基調查工作", category: "鑽探", photoCount: 16 },
-  { slug: "n3-373k-slope-repair", title: "國道3號南下373k+300 邊坡修復工程", category: "邊坡", photoCount: 8 },
-  { slug: "tai9-rockfall-net", title: "台九線 攔石網工程", category: "邊坡", photoCount: 2 },
-  { slug: "tai9-461k-gabion", title: "台九線461K+200 石籠・掛網噴植", category: "邊坡", photoCount: 4 },
+  {
+    slug: "guanmiao-solar-borehole",
+    title: "永鑫能源關廟太陽光電廠地基調查工作",
+    category: "鑽探",
+    photoCount: 30,
+    cardImage: "/images/projects/guanmiao-solar/card-cover.webp",
+    cardImageFit: "cover",
+  },
+  {
+    slug: "mituo-mihai-borehole",
+    title: "高雄市彌陀區彌海段地基調查工作",
+    category: "鑽探",
+    photoCount: 16,
+    cardImage: "/images/projects/mituo-mihai/card-cover.webp",
+    cardImageFit: "cover",
+  },
+  {
+    slug: "n3-373k-slope-repair",
+    title: "國道3號南下373k+300 邊坡修復工程",
+    category: "邊坡",
+    photoCount: 8,
+    cardImage: "/images/projects/n3-373k/card-cover.webp",
+    cardImageFit: "cover",
+  },
+  {
+    slug: "tai9-rockfall-net",
+    title: "台九線 攔石網工程",
+    category: "邊坡",
+    photoCount: 2,
+    cardImage: "/images/projects/tai9-rockfall-net/card-cover.webp",
+    cardImageFit: "cover",
+  },
+  {
+    slug: "tai9-461k-gabion",
+    title: "台九線461K+200 石籠・掛網噴植",
+    category: "邊坡",
+    photoCount: 4,
+    cardImage: "/images/projects/tai9-461k/card-cover.webp",
+    cardImageFit: "cover",
+  },
   { slug: "tai9-470k-reinforced-embankment", title: "台九線470K+593 加勁護堤", category: "邊坡", photoCount: 3 },
   {
     slug: "daliao-road-resurfacing",
     title: "110年度高雄市大寮區基層建設小型道路路面整修工程（AC）",
     category: "監造",
     photoCount: 5,
+    rocYear: 110,
     cardImage: "/images/projects/daliao/card-cover.webp",
     cardImageFit: "cover",
   },
-  { slug: "sizihwan-scenic-area", title: "高雄市西子灣風景區整建工程", category: "監造", photoCount: 12 },
+  {
+    slug: "sizihwan-scenic-area",
+    title: "高雄市西子灣風景區整建工程",
+    category: "監造",
+    photoCount: 12,
+    cardImage: "/images/projects/sizihwan/card-cover.webp",
+    cardImageFit: "cover",
+  },
   {
     slug: "jinshihu-detention-pond",
     title: "101年度金獅湖滯洪池周邊地景環境改造工程",
     category: "監造",
     photoCount: 12,
+    rocYear: 101,
     cardImage: "/images/projects/jinshihu/card-cover.webp",
     cardImageFit: "cover",
   },
