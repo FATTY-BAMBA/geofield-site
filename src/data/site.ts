@@ -155,6 +155,8 @@ export interface Project {
   photoCount: number;
   /** 經專案資料確認的民國年份；未確認時不以照片日期代替。 */
   rocYear?: number;
+  /** 跨年度案件的完成年份；與 rocYear 一併顯示為年份區間。 */
+  rocYearEnd?: number;
   /** 列表卡片可先採用已確認的實景照片，不必等到完整案例內容上線。 */
   cardImage?: string;
   cardImageFit?: "cover" | "contain";
@@ -176,10 +178,13 @@ export const projects: Project[] = [
     title: "水圳隧道檢測安全評估",
     category: "隧道",
     photoCount: 5,
+    rocYear: 113,
+    rocYearEnd: 114,
     detail: {
       heroImage: `${IRRIGATION_TUNNEL_DIR}/site-context.webp`,
       cardImage: `${IRRIGATION_TUNNEL_DIR}/card-cover.webp`,
       cardImageFit: "cover",
+      period: "民國113年至114年（2024–2025）",
       summary:
         "早年為農業灌溉興建的磚砌水圳隧道，部分歷經百年仍持續供水。本案例整合現況巡查、襯砌探查、三維掃描與重點異狀監測成果，用於辨識需要持續追蹤或優先處置的區段，作為後續維護、補修與補強規劃的依據。",
       scope: [

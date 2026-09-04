@@ -15,7 +15,11 @@ export function ProjectCard({ project }: { project: Project }) {
     project.cardImage ?? project.detail?.cardImage ?? project.detail?.heroImage ?? categoryImages[project.category];
   const coverFit = project.cardImageFit ?? project.detail?.cardImageFit ?? (hasDetail ? "cover" : "contain");
   const usesTechnicalBackdrop = coverFit === "contain";
-  const yearLabel = project.rocYear ? `民國${project.rocYear}年 · ${project.rocYear + 1911}` : null;
+  const yearLabel = project.rocYear
+    ? project.rocYearEnd
+      ? `民國${project.rocYear}–${project.rocYearEnd}年 · ${project.rocYear + 1911}–${project.rocYearEnd + 1911}`
+      : `民國${project.rocYear}年 · ${project.rocYear + 1911}`
+    : null;
   const scopeLabels: Record<string, string> = {
     鑽探: "地基與地質調查",
     邊坡: "邊坡治理與防災",
