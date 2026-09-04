@@ -153,6 +153,9 @@ export interface Project {
   title: string;
   category: ProjectCategory;
   photoCount: number;
+  /** 列表卡片可先採用已確認的實景照片，不必等到完整案例內容上線。 */
+  cardImage?: string;
+  cardImageFit?: "cover" | "contain";
   detail?: ProjectDetail;
 }
 
@@ -241,9 +244,18 @@ export const projects: Project[] = [
     title: "110年度高雄市大寮區基層建設小型道路路面整修工程（AC）",
     category: "監造",
     photoCount: 5,
+    cardImage: "/images/projects/daliao/card-cover.webp",
+    cardImageFit: "cover",
   },
   { slug: "sizihwan-scenic-area", title: "高雄市西子灣風景區整建工程", category: "監造", photoCount: 12 },
-  { slug: "jinshihu-detention-pond", title: "101年度金獅湖滯洪池周邊地景環境改造工程", category: "監造", photoCount: 12 },
+  {
+    slug: "jinshihu-detention-pond",
+    title: "101年度金獅湖滯洪池周邊地景環境改造工程",
+    category: "監造",
+    photoCount: 12,
+    cardImage: "/images/projects/jinshihu/card-cover.webp",
+    cardImageFit: "cover",
+  },
 ];
 
 /** 依 slug 取得專案；找不到時回傳 undefined。 */

@@ -11,8 +11,9 @@ const categoryStyles: Record<string, string> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   const hasDetail = Boolean(project.detail);
-  const coverImage = project.detail?.cardImage ?? project.detail?.heroImage ?? categoryImages[project.category];
-  const coverFit = project.detail?.cardImageFit ?? (hasDetail ? "cover" : "contain");
+  const coverImage =
+    project.cardImage ?? project.detail?.cardImage ?? project.detail?.heroImage ?? categoryImages[project.category];
+  const coverFit = project.cardImageFit ?? project.detail?.cardImageFit ?? (hasDetail ? "cover" : "contain");
   const usesTechnicalBackdrop = coverFit === "contain";
   const rocYear = project.title.match(/^(\d{2,3})年度/)?.[1];
   const yearLabel = rocYear ? `民國${rocYear}年 · ${Number(rocYear) + 1911}` : null;
