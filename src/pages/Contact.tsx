@@ -74,7 +74,9 @@ export default function Contact() {
               ) : (
                 <form onSubmit={submit}>
                   <h3 className="text-xl font-extrabold text-brand-900">線上洽詢</h3>
-                  <p className="mt-2 text-base leading-[1.7] text-slate-600">填寫以下表單，我們將於營業時間內盡速回覆您。</p>
+                  <p className="mt-2 text-base leading-[1.7] text-slate-600">
+                    填寫以下內容後，系統將開啟您的郵件軟體並帶入洽詢資料。
+                  </p>
                   <div className="mt-7 grid gap-5 sm:grid-cols-2">
                     <div>
                       <label className="mb-1.5 block text-sm font-bold text-brand-900">
@@ -123,7 +125,7 @@ export default function Contact() {
                       type="submit"
                       className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-8 py-3.5 text-base font-bold text-white shadow-xl shadow-emerald2-500/25 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
                     >
-                      送出訊息
+                      開啟郵件傳送
                       <Send className="h-4 w-4" />
                     </button>
                   </div>

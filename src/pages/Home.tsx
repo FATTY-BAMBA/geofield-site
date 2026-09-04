@@ -17,6 +17,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProjectCard } from "@/components/ProjectCard";
 
+const featuredServiceIds = new Set(["hydro", "tunnel", "slope", "excavation", "monitoring", "conservation"]);
+const featuredServices = services.filter((service) => featuredServiceIds.has(service.id));
+
 /* ─── Hero ─── */
 function Hero() {
   return (
@@ -156,21 +159,21 @@ function ServicesSection() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
-              eyebrow="Services · 服務項目"
+              eyebrow="Featured Services · 精選服務"
               title="工程調查、設計、監造與監測"
-              description="從地質調查、設計分析到施工監造與安全監測，提供工程全生命週期的專業技術服務。"
+              description="精選六項核心服務；完整服務範圍包含工程計畫、公共工程設計與施工監造。"
             />
             <Link
               to="/services"
               className="group inline-flex items-center gap-2 rounded-xl border-2 border-brand-900 px-6 py-3 text-sm font-bold text-brand-900 transition-all hover:bg-brand-900 hover:text-white"
             >
-              全部服務
+              查看全部 9 項服務
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
+          {featuredServices.map((s, i) => (
             <Reveal key={s.id} delay={0.06 * i} className="h-full">
               <ServiceCard service={s} />
             </Reveal>
