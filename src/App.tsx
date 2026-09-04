@@ -31,7 +31,7 @@ const routeMeta: Record<string, { title: string; description: string }> = {
   },
   "/technology": {
     title: "Kantaro 自計化坡地監測｜大域工程顧問有限公司",
-    description: "了解 Kantaro 地表傾滑監測系統的感測原理、佈設方式、預警邏輯與坡地現場應用成果。",
+    description: "了解日本 CHUO KAIHATSU CORPORATION（CKC）Kantaro 地表傾滑監測系統，以及大域工程在台灣的經銷、現地導入與監測判讀服務。",
   },
   "/projects": {
     title: "工程實績｜大域工程顧問有限公司",

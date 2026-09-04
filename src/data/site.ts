@@ -315,12 +315,34 @@ export const industryLinks = [
   { label: "中華水土保持學會", href: "https://cswcs.org.tw/" },
 ];
 
-export const heroPhotos = [
-  { src: "/images/hero-1.jpg", alt: "大域工程 CPT 試驗車" },
-  { src: "/images/hero-2.jpg", alt: "大域工程 CPT 試驗車 · 落羽松" },
-  { src: "/images/hero-3.jpg", alt: "大域工程 CPT 試驗車 · 現場作業" },
-  { src: "/images/hero-4.jpg", alt: "大域工程 CPT 試驗車 · 工地" },
-];
+export const cptMedia = {
+  fleetPrimary: {
+    src: "/images/equipment/cpt/cpt-truck-blue.webp",
+    alt: "大域工程藍色車載式 CPT 圓錐貫入試驗車",
+    title: "車載式 CPT 現地試驗",
+    titleEn: "Truck-mounted CPT testing",
+  },
+  fleetSecondary: {
+    src: "/images/equipment/cpt/cpt-truck-field.webp",
+    alt: "大域工程白色車載式 CPT 圓錐貫入試驗車於現地部署",
+    title: "CPT 試驗車現地部署",
+    titleEn: "CPT field deployment",
+  },
+  liveData: {
+    src: "/images/equipment/cpt/cpt-live-data.webp",
+    alt: "CPT 試驗車內即時資料擷取螢幕與深度剖面曲線",
+    title: "即時資料擷取與深度剖面判讀",
+    titleEn: "Real-time data acquisition",
+  },
+  rods: {
+    src: "/images/equipment/cpt/cpt-rods.webp",
+    alt: "CPT 圓錐貫入試驗使用的貫入桿件與連接設備",
+    title: "CPT 貫入桿件與試驗設備",
+    titleEn: "CPT rods and testing equipment",
+  },
+};
+
+export const heroPhotos = [cptMedia.fleetPrimary, cptMedia.liveData, cptMedia.rods];
 
 export const navItems = [
   { key: "home", label: "首頁", path: "/" },

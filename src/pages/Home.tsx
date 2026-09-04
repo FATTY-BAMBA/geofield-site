@@ -213,9 +213,9 @@ function AboutSection() {
               ))}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5">
-                <p className="text-sm font-bold text-white">大域工程 CPT 試驗車隊</p>
+                <p className="text-sm font-bold text-white">{heroPhotos[index].title}</p>
                 <p className="text-xs font-semibold tracking-[0.12em] text-white/70 uppercase">
-                  In-house Field Investigation Fleet
+                  {heroPhotos[index].titleEn}
                 </p>
               </div>
               <div className="absolute bottom-5 right-5 flex gap-1.5">
@@ -253,7 +253,7 @@ function AboutSection() {
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
                 { icon: Award, title: "專業誠信", desc: "資深工程師與技師團隊，嚴謹把關每份報告" },
-                { icon: Mountain, title: "現場實務", desc: "自有 CPT 試驗車與監測儀器，掌握真實地層資料" },
+                { icon: Mountain, title: "現場實務", desc: "雙車配置的 CPT 試驗系統與監測儀器，掌握真實地層資料" },
                 { icon: Waves, title: "水保專長", desc: "坡地開發水保計畫與監造，守護山坡地安全" },
                 { icon: MapPin, title: "三據點服務", desc: "高雄總公司、台北與宜蘭辦公室，服務範圍遍及全台" },
               ].map((f) => (

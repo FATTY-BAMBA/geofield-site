@@ -140,8 +140,12 @@ export default function Technology() {
                 地表傾滑監測
               </h1>
               <p className="editorial-copy mt-6 max-w-xl text-base text-white/70 md:text-lg">
-                日本坡地監測技術 Kantaro 整合坡面傾斜、土壤水分與無線傳輸；大域工程提供在地導入、現地布設與監測判讀服務。
+                Kantaro 整合坡面傾斜、土壤水分與無線傳輸；大域工程於台灣提供系統經銷、現地導入、布設與監測判讀服務。
               </p>
+              <div className="mt-5 w-fit rounded-xl bg-brand-950/55 px-4 py-3 text-[13px] leading-relaxed text-white/65 ring-1 ring-white/10 backdrop-blur-md">
+                <p><span className="font-bold text-white/90">技術來源</span> · CHUO KAIHATSU CORPORATION（CKC）, Japan</p>
+                <p><span className="font-bold text-white/90">台灣經銷與工程導入</span> · 大域工程顧問有限公司</p>
+              </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 {[["24/7", "自動監控"], ["0.0025°", "傾斜解析度"], ["高密度", "面狀布設"]].map(([value, label]) => (
                   <div key={label} className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-md ring-1 ring-white/15">

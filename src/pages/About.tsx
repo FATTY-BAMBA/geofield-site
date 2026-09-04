@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Activity, Award, Drill, HeartHandshake, Lightbulb, ScanLine, Users } from "lucide-react";
-import { aboutTabs, company, heroPhotos, milestones, stats } from "@/data/site";
+import { Activity, Award, CheckCircle2, Drill, HeartHandshake, Lightbulb, ScanLine, Users } from "lucide-react";
+import { aboutTabs, company, cptMedia, milestones, stats } from "@/data/site";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
@@ -53,8 +53,8 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-[2rem] bg-brand-900/5" />
                 <img
-                  src="/images/hero-2.jpg"
-                  alt="大域工程 CPT 試驗車"
+                  src={cptMedia.fleetPrimary.src}
+                  alt={cptMedia.fleetPrimary.alt}
                   className="relative aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-2xl ring-1 ring-sand-200"
                 />
                 <div className="absolute -bottom-6 -right-4 rounded-2xl bg-brand-900 px-6 py-4 text-white shadow-xl md:-right-8">
@@ -201,17 +201,60 @@ export default function About() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {heroPhotos.map((p, i) => (
-              <Reveal key={p.src} delay={0.06 * i}>
-                <div className="group overflow-hidden rounded-2xl ring-1 ring-sand-200">
-                  <img
-                    src={p.src}
-                    alt={p.alt}
-                    loading="lazy"
-                    className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+          <Reveal>
+            <article className="mt-10 overflow-hidden rounded-[2rem] bg-brand-950 text-white shadow-[0_24px_60px_-36px_rgba(6,45,59,0.8)] ring-1 ring-brand-900/15">
+              <div className="grid gap-8 p-7 md:items-center md:p-9 lg:grid-cols-[180px_1fr_auto]">
+                <div className="flex items-baseline gap-3 md:block">
+                  <p className="text-5xl font-black text-emerald2-300 md:text-6xl">2</p>
+                  <p className="mt-1 text-sm font-bold tracking-[0.16em] text-white/55 uppercase">Truck-mounted CPT Systems</p>
                 </div>
+                <div className="max-w-2xl">
+                  <p className="text-2xl font-black leading-tight md:text-3xl">雙車配置的車載式 CPT 現地試驗系統</p>
+                  <p className="editorial-copy mt-3 text-base text-white/70">
+                    大域配置兩部車載式 CPT 試驗車，均可依案件需求與工地條件投入現地調查，並於車內完成資料擷取與深度剖面檢視。
+                  </p>
+                </div>
+                <ul className="space-y-2 text-sm font-semibold text-white/75 lg:min-w-48">
+                  {["雙車皆可投入現地作業", "即時取得連續地層資料", "試驗成果支援工程判讀"].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald2-300" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <figure className="border-t border-white/10 bg-black/20">
+                <img
+                  src={cptMedia.fleetSecondary.src}
+                  alt={cptMedia.fleetSecondary.alt}
+                  loading="lazy"
+                  className="h-auto w-full"
+                />
+                <figcaption className="flex flex-wrap items-baseline justify-between gap-2 px-7 py-4 md:px-9">
+                  <span className="text-sm font-bold text-white">{cptMedia.fleetSecondary.title}</span>
+                  <span className="text-xs font-semibold tracking-[0.12em] text-white/45 uppercase">{cptMedia.fleetSecondary.titleEn}</span>
+                </figcaption>
+              </figure>
+            </article>
+          </Reveal>
+
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
+            {[cptMedia.fleetPrimary, cptMedia.liveData, cptMedia.rods].map((item, i) => (
+              <Reveal key={item.src} delay={0.06 * i} className="h-full">
+                <figure className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200">
+                  <div className="overflow-hidden bg-sand-100">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading="lazy"
+                      className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+                    />
+                  </div>
+                  <figcaption className="flex flex-1 flex-col px-5 py-4">
+                    <span className="text-base font-extrabold text-brand-900">{item.title}</span>
+                    <span className="mt-1 text-xs font-semibold tracking-[0.1em] text-slate-400 uppercase">{item.titleEn}</span>
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
