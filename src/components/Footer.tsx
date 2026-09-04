@@ -78,7 +78,7 @@ export function Footer() {
 
           {/* Services + contact */}
           <div>
-            <h4 className="text-xs font-bold tracking-[0.22em] text-emerald2-400 uppercase">專業領域</h4>
+            <h4 className="text-xs font-bold tracking-[0.22em] text-emerald2-400 uppercase">核心服務</h4>
             <ul className="mt-5 space-y-2.5">
               {services.map((s) => (
                 <li key={s.id} className="text-sm text-white/60">

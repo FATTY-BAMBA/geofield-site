@@ -15,9 +15,9 @@ export default function Location() {
       <section className="bg-sand-50 py-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 xl:grid-cols-3 lg:px-8">
           {offices.map((o, i) => (
-            <Reveal key={o.name} delay={0.08 * i}>
-              <div className="overflow-hidden rounded-3xl bg-white ring-1 ring-sand-200">
-                <div className="p-7 pb-5">
+            <Reveal key={o.name} delay={0.08 * i} className="h-full">
+              <article className="grid h-full grid-rows-[minmax(190px,auto)_300px] overflow-hidden rounded-3xl bg-white ring-1 ring-sand-200 sm:grid-rows-[minmax(190px,auto)_340px]">
+                <div className="flex flex-col p-7 pb-5">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-900 text-emerald2-400">
                       <MapPin className="h-5 w-5" />
@@ -28,7 +28,7 @@ export default function Location() {
                     </div>
                   </div>
                   <p className="editorial-copy mt-4 text-base text-slate-600">{o.address}</p>
-                  <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-base leading-[1.7] text-slate-600">
+                  <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-3 text-base leading-[1.7] text-slate-600">
                     {o.tel && (
                       <span className="inline-flex items-center gap-2">
                         <Phone className="h-4 w-4 text-emerald2-500" /> {o.tel}
@@ -41,7 +41,7 @@ export default function Location() {
                     )}
                   </div>
                 </div>
-                <div className="h-[340px] w-full border-t border-sand-200">
+                <div className="h-[300px] w-full border-t border-sand-200 sm:h-[340px]">
                   <iframe
                     src={`https://www.google.com/maps?q=${encodeURIComponent(o.mapQuery)}&output=embed`}
                     width="100%"
@@ -52,7 +52,7 @@ export default function Location() {
                     title={`大域工程顧問 ${o.name}`}
                   />
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>

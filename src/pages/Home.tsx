@@ -333,7 +333,7 @@ function AssuranceBand() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { icon: Award, num: "30+", title: "年工程經驗", desc: "民國82年成立，持續投入大地工程顧問服務" },
-            { icon: Layers, num: "6", title: "大專業領域", desc: "整合調查、設計、監造與監測技術服務" },
+            { icon: Layers, num: String(services.length), title: "項核心服務", desc: "整合調查、設計、監造、檢測與監測技術" },
             { icon: ShieldCheck, num: "500+", title: "件工程實績", desc: "涵蓋鑽探、邊坡、隧道及水保相關工程" },
             { icon: MapPin, num: "3", title: "服務據點", desc: "高雄總公司 × 台北 × 宜蘭辦公室" },
           ].map((item, i) => (

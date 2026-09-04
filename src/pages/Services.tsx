@@ -22,9 +22,9 @@ export default function Services() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <div className="mb-10 max-w-3xl border-l-4 border-emerald2-500 pl-5">
-              <h2 className="text-2xl font-extrabold text-brand-900">六大類別，涵蓋多項工程技術服務</h2>
+              <h2 className="text-2xl font-extrabold text-brand-900">九項核心服務，對應工程各階段需求</h2>
               <p className="editorial-copy mt-3 text-base text-slate-600 md:text-[17px]">
-                下列分類用於快速找到對應能力，並不代表每個領域只有單一服務。點選分類後，可查看該領域的主要工作內容與應用範圍。
+                從前期調查、規劃設計及計畫編製，到施工監造、檢測與長期監測，點選下方項目即可查看主要工作內容。
               </p>
             </div>
           </Reveal>
@@ -40,7 +40,7 @@ export default function Services() {
                     : "bg-white text-brand-900 ring-1 ring-sand-200 hover:ring-brand-900/30"
                 )}
               >
-                全部領域
+                全部服務
               </button>
               {services.map((s) => (
                 <button
@@ -62,7 +62,7 @@ export default function Services() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((s, i) => (
-              <Reveal key={s.id} delay={0.05 * i} className="h-full">
+              <Reveal key={s.id} delay={0.05 * (i % 6)} className="h-full">
                 <ServiceCard service={s} detailed />
               </Reveal>
             ))}

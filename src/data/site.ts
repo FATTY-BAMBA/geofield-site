@@ -18,7 +18,7 @@ export const company = {
 export const stats = [
   { value: 30, suffix: "+", label: "年專業經驗", labelEn: "YEARS OF EXPERIENCE", href: "/about" },
   { value: 500, suffix: "+", label: "工程實績", labelEn: "COMPLETED PROJECTS", href: "/projects" },
-  { value: 6, suffix: "", label: "專業領域", labelEn: "AREAS OF EXPERTISE", href: "/services" },
+  { value: 9, suffix: "", label: "核心服務", labelEn: "CORE SERVICES", href: "/services" },
   { value: 3, suffix: "", label: "服務據點", labelEn: "OFFICES IN TAIWAN", href: "/location" },
 ];
 
@@ -27,7 +27,8 @@ export interface Service {
   title: string;
   english: string;
   desc: string;
-  image: string;
+  image?: string;
+  visual?: "planning" | "design" | "supervision";
   points: string[];
 }
 
@@ -58,11 +59,27 @@ export const services: Service[] = [
   },
   {
     id: "excavation",
-    title: "基礎開挖與工程計畫",
-    english: "EXCAVATION, FOUNDATION & PLANNING",
-    desc: "地下結構、基礎開挖與施工計畫規劃，並評估鄰近設施影響",
+    title: "基礎開挖與鄰房安全",
+    english: "EXCAVATION & FOUNDATION",
+    desc: "地下結構與基礎開挖工法規劃，並評估施工對鄰近建物的影響",
     image: "/images/service-cutouts/svc-excavation.webp",
-    points: ["深開挖擋土支撐與基礎工法設計", "施工計畫書與雜項執照相關計畫", "開挖引致鄰房沉陷與安全評估", "捷運等鄰近設施影響評估"],
+    points: ["深開挖擋土支撐與基礎工法設計", "基礎型式評估與承載力分析", "開挖引致鄰房沉陷與安全評估", "施工階段安全監測規劃"],
+  },
+  {
+    id: "planning",
+    title: "工程計畫與影響評估",
+    english: "ENGINEERING PLANS & IMPACT ASSESSMENT",
+    desc: "依開發與施工需求編製工程計畫，評估鄰近建物及交通設施影響",
+    visual: "planning",
+    points: ["施工計畫書編製與技術文件整合", "雜項執照相關計畫編製", "捷運等鄰近設施影響評估", "施工風險、保護及監測方案規劃"],
+  },
+  {
+    id: "design",
+    title: "公共工程規劃設計",
+    english: "PUBLIC WORKS PLANNING & DESIGN",
+    desc: "整合現地條件、工程需求與施工可行性，完成公共工程規劃與設計",
+    visual: "design",
+    points: ["現況調查與設計條件整理", "方案研擬與工程可行性評估", "細部設計、數量及預算編製", "施工界面與安全需求整合"],
   },
   {
     id: "monitoring",
@@ -79,6 +96,14 @@ export const services: Service[] = [
     desc: "坡地開發水土保持規劃設計、送審及施工監造",
     image: "/images/service-cutouts/svc-conservation.webp",
     points: ["水土保持計畫書編撰與送審", "滯洪沉砂設施規劃設計", "施工期間水保設施監造", "完工檢查與維護管理"],
+  },
+  {
+    id: "supervision",
+    title: "施工監造與品質管理",
+    english: "CONSTRUCTION SUPERVISION",
+    desc: "依設計圖說與契約要求辦理施工查驗、品質管理及完工確認",
+    visual: "supervision",
+    points: ["施工進度與工項查驗", "材料設備與施工品質管理", "設計界面、變更及履約協調", "完工查驗與文件整理"],
   },
 ];
 
@@ -269,14 +294,14 @@ export const aboutTabs = [
     key: "expertise",
     label: "專業特性",
     content:
-      "服務由地質鑽探與水文調查延伸至隧道工程與檢測、坡地防災、基礎開挖、工程安全監測及水土保持設計監造。團隊以現地試驗、非破壞檢測與監測資料支援工程判讀。",
+      "服務由地質鑽探與水文調查延伸至隧道工程與檢測、坡地防災、基礎開挖、工程計畫、公共工程設計、施工監造、安全監測及水土保持。團隊以現地試驗、非破壞檢測與監測資料支援工程判讀。",
   },
 ];
 
 export const milestones = [
   { year: "民國82年", title: "公司成立", desc: "1993年於高雄成立，投入大地工程與水土保持顧問服務" },
   { year: "30+ 年", title: "工程顧問經驗", desc: "累積現地調查、設計分析、施工監造及安全監測經驗" },
-  { year: "6 大領域", title: "專業服務範圍", desc: "由水文地質、隧道及坡地工程延伸至監測與水保監造" },
+  { year: "9 項服務", title: "專業服務範圍", desc: "由現地調查延伸至規劃設計、施工監造、檢測與安全評估" },
   { year: "3 處據點", title: "全台服務", desc: "高雄總公司與台北、宜蘭辦公室支援各地工程需求" },
 ];
 
