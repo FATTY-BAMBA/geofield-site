@@ -178,8 +178,8 @@ export const projects: Project[] = [
     photoCount: 5,
     detail: {
       heroImage: `${IRRIGATION_TUNNEL_DIR}/site-context.webp`,
-      cardImage: categoryImages.隧道,
-      cardImageFit: "contain",
+      cardImage: `${IRRIGATION_TUNNEL_DIR}/card-cover.webp`,
+      cardImageFit: "cover",
       summary:
         "早年為農業灌溉興建的磚砌水圳隧道，部分歷經百年仍持續供水。本案例整合現況巡查、襯砌探查、三維掃描與重點異狀監測成果，用於辨識需要持續追蹤或優先處置的區段，作為後續維護、補修與補強規劃的依據。",
       scope: [
