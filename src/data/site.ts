@@ -27,8 +27,7 @@ export interface Service {
   title: string;
   english: string;
   desc: string;
-  image?: string;
-  visual?: "planning" | "design" | "supervision";
+  image: string;
   points: string[];
 }
 
@@ -70,7 +69,7 @@ export const services: Service[] = [
     title: "工程計畫與影響評估",
     english: "ENGINEERING PLANS & IMPACT ASSESSMENT",
     desc: "依開發與施工需求編製工程計畫，評估鄰近建物及交通設施影響",
-    visual: "planning",
+    image: "/images/service-cutouts/svc-planning.webp",
     points: ["施工計畫書編製與技術文件整合", "雜項執照相關計畫編製", "捷運等鄰近設施影響評估", "施工風險、保護及監測方案規劃"],
   },
   {
@@ -78,7 +77,7 @@ export const services: Service[] = [
     title: "公共工程規劃設計",
     english: "PUBLIC WORKS PLANNING & DESIGN",
     desc: "整合現地條件、工程需求與施工可行性，完成公共工程規劃與設計",
-    visual: "design",
+    image: "/images/service-cutouts/svc-design.webp",
     points: ["現況調查與設計條件整理", "方案研擬與工程可行性評估", "細部設計、數量及預算編製", "施工界面與安全需求整合"],
   },
   {
@@ -102,7 +101,7 @@ export const services: Service[] = [
     title: "施工監造與品質管理",
     english: "CONSTRUCTION SUPERVISION",
     desc: "依設計圖說與契約要求辦理施工查驗、品質管理及完工確認",
-    visual: "supervision",
+    image: "/images/service-cutouts/svc-supervision.webp",
     points: ["施工進度與工項查驗", "材料設備與施工品質管理", "設計界面、變更及履約協調", "完工查驗與文件整理"],
   },
 ];
