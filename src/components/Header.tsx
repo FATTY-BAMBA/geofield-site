@@ -99,7 +99,8 @@ export function Header() {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen(!open)}
-          aria-label="開啟選單"
+          aria-label={open ? "關閉選單" : "開啟選單"}
+          aria-expanded={open}
           className={cn(
             "flex h-11 w-11 items-center justify-center rounded-xl transition-colors lg:hidden",
             solid ? "text-brand-900 hover:bg-sand-100" : "text-white hover:bg-white/10"
@@ -123,7 +124,7 @@ export function Header() {
               to={item.path}
               className={({ isActive }) =>
                 cn(
-                  "block rounded-lg px-4 py-3 text-[15px] font-medium",
+                  "block rounded-lg px-4 py-3 text-base font-medium",
                   isActive ? "bg-sand-100 text-emerald2-600" : "text-brand-900 hover:bg-sand-50"
                 )
               }
@@ -133,7 +134,7 @@ export function Header() {
           ))}
           <Link
             to="/contact"
-            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-emerald2-500 px-4 py-3 text-[15px] font-bold text-white"
+            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-emerald2-500 px-4 py-3 text-base font-bold text-white"
           >
             <PhoneCall className="h-4 w-4" />
             聯絡我們

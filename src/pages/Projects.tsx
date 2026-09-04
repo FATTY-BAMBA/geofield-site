@@ -32,8 +32,9 @@ export default function Projects() {
                 <button
                   key={c}
                   onClick={() => setCat(c)}
+                  aria-pressed={cat === c}
                   className={cn(
-                    "rounded-full px-5 py-2.5 text-sm font-bold transition-all",
+                    "min-h-11 rounded-full px-5 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2",
                     cat === c
                       ? "bg-brand-900 text-white shadow-lg"
                       : "bg-white text-brand-900 ring-1 ring-sand-200 hover:ring-brand-900/30"

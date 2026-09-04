@@ -4,7 +4,11 @@ import {
   ArrowRight,
   CheckCircle2,
   ChevronRight,
+  ClipboardCheck,
   CloudRain,
+  Crosshair,
+  Database,
+  Gauge,
   MapPinned,
   Radio,
   Wrench,
@@ -84,6 +88,29 @@ const warningStages = [
   },
 ];
 
+const monitoringCapabilities = [
+  {
+    icon: Crosshair,
+    title: "位移與沉陷量測",
+    text: "依場址需求配置全測站、水準測量及沉陷觀測點，追蹤平面與高程變化。",
+  },
+  {
+    icon: Gauge,
+    title: "地層與結構傾斜",
+    text: "透過傾斜觀測管、結構傾度盤及地表傾滑計，掌握不同深度與位置的變形。",
+  },
+  {
+    icon: Database,
+    title: "資料收測與整合",
+    text: "依監測頻率採人工或自動化收測，整理雨量、水位、位移與傾斜資料。",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "成果判讀與安全評估",
+    text: "比對管理值與時間趨勢，提出持續追蹤、現場查核或應變處置建議。",
+  },
+];
+
 export default function Technology() {
   return (
     <>
@@ -104,8 +131,8 @@ export default function Technology() {
                 <ChevronRight className="h-3.5 w-3.5" />
                 <span className="font-semibold text-emerald2-300">監測技術</span>
               </nav>
-              <p className="mt-8 text-xs font-bold tracking-[0.3em] text-emerald2-300 uppercase">
-                Monitoring Technology
+              <p className="mt-8 text-sm font-bold tracking-[0.24em] text-emerald2-300 uppercase">
+                Kantaro · Monitoring Technology
               </p>
               <h1 className="editorial-heading mt-4 text-4xl font-black leading-[1.1] text-white md:text-6xl">
                 自計化坡地
@@ -113,13 +140,13 @@ export default function Technology() {
                 地表傾滑監測
               </h1>
               <p className="editorial-copy mt-6 max-w-xl text-base text-white/70 md:text-lg">
-                整合坡面傾斜、土壤水分與無線傳輸，以高密度監測網掌握淺層坡地變形趨勢。
+                日本坡地監測技術 Kantaro 整合坡面傾斜、土壤水分與無線傳輸；大域工程提供在地導入、現地布設與監測判讀服務。
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 {[["24/7", "自動監控"], ["0.0025°", "傾斜解析度"], ["高密度", "面狀布設"]].map(([value, label]) => (
                   <div key={label} className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-md ring-1 ring-white/15">
                     <span className="font-black text-white">{value}</span>
-                    <span className="ml-2 text-[13px] text-white/60">{label}</span>
+                    <span className="ml-2 text-sm text-white/70">{label}</span>
                   </div>
                 ))}
               </div>
@@ -161,7 +188,7 @@ export default function Technology() {
               ].map(([value, label]) => (
                 <div key={label} className="rounded-2xl bg-sand-50 p-5 ring-1 ring-sand-200">
                   <p className="text-2xl font-black tracking-tight text-brand-900">{value}</p>
-                  <p className="mt-2 text-[13px] font-bold leading-[1.6] text-slate-600">{label}</p>
+                  <p className="mt-2 text-sm font-bold leading-[1.6] text-slate-600">{label}</p>
                 </div>
               ))}
             </div>
@@ -262,7 +289,7 @@ export default function Technology() {
               <Reveal key={label} delay={index * 0.05}>
                 <div className="h-full rounded-2xl bg-sand-50 p-5 text-center ring-1 ring-sand-200">
                   <p className="text-3xl font-black text-brand-900">{value}</p>
-                  <p className="mt-2 text-[13px] font-bold leading-[1.6] text-slate-600">{label}</p>
+                  <p className="mt-2 text-sm font-bold leading-[1.6] text-slate-600">{label}</p>
                 </div>
               </Reveal>
             ))}
@@ -305,12 +332,12 @@ export default function Technology() {
                   <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Monitoring layout</p>
                   <h3 className="mt-2 text-2xl font-extrabold text-brand-900">監測網配置</h3>
                 </div>
-                <p className="max-w-sm text-[15px] leading-[1.75] text-slate-600">
+                <p className="max-w-sm text-base leading-[1.75] text-slate-600">
                   以原始配置圖保留測點位置，警戒結果另以網頁資訊卡呈現。
                 </p>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-[13px] font-bold text-slate-600">
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-slate-600">
                 {[
                   ["bg-indigo-600", "ZT 地表傾滑計 · 9處"],
                   ["bg-red-500", "BH 傾斜觀測管 · 8處"],
@@ -402,6 +429,31 @@ export default function Technology() {
               ))}
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Monitoring Services · 監測服務"
+              title="從儀器配置到安全評估"
+              description="Kantaro 是坡地監測工具之一。實際工程仍需依地質條件、構造物型式與管理目標，搭配合適的量測方法並進行整體判讀。"
+            />
+          </Reveal>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {monitoringCapabilities.map(({ icon: Icon, title, text }, index) => (
+              <Reveal key={title} delay={index * 0.06}>
+                <article className="h-full rounded-2xl bg-sand-50 p-6 ring-1 ring-sand-200">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-900 text-emerald2-300">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-5 text-lg font-extrabold text-brand-900">{title}</h3>
+                  <p className="mt-3 text-base leading-[1.75] text-slate-600">{text}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

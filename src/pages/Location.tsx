@@ -27,8 +27,8 @@ export default function Location() {
                       <p className="mt-0.5 text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</p>
                     </div>
                   </div>
-                  <p className="editorial-copy mt-4 text-[15px] text-slate-600">{o.address}</p>
-                  <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[15px] leading-[1.7] text-slate-600">
+                  <p className="editorial-copy mt-4 text-base text-slate-600">{o.address}</p>
+                  <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-base leading-[1.7] text-slate-600">
                     {o.tel && (
                       <span className="inline-flex items-center gap-2">
                         <Phone className="h-4 w-4 text-emerald2-500" /> {o.tel}

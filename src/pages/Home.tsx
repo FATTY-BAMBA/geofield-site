@@ -57,14 +57,14 @@ function Hero() {
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-7 py-3.5 text-[15px] font-bold text-white shadow-xl shadow-emerald2-500/25 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
+                className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-7 py-3.5 text-base font-bold text-white shadow-xl shadow-emerald2-500/25 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
               >
                 探索服務項目
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-7 py-3.5 text-[15px] font-bold text-white ring-1 ring-white/20 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-7 py-3.5 text-base font-bold text-white ring-1 ring-white/20 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/10"
               >
                 檢視工程實績
               </Link>
@@ -75,13 +75,21 @@ function Hero() {
           <Reveal delay={0.32}>
             <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-8 sm:grid-cols-4">
               {stats.map((s) => (
-                <div key={s.label}>
+                <Link
+                  key={s.label}
+                  to={s.href}
+                  className="group rounded-xl py-1 outline-none transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald2-400"
+                  aria-label={`查看${s.label}`}
+                >
                   <p className="text-3xl font-black text-white md:text-4xl">
                     <Counter target={s.value} suffix={s.suffix} />
                   </p>
-                  <p className="mt-1.5 text-sm font-semibold text-white/75">{s.label}</p>
+                  <p className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-semibold text-white/75 transition-colors group-hover:text-white">
+                    {s.label}
+                    <ArrowRight className="h-3.5 w-3.5 text-emerald2-300 transition-transform group-hover:translate-x-1" />
+                  </p>
                   <p className="mt-0.5 text-xs font-semibold leading-tight tracking-[0.08em] text-white/40 uppercase">{s.labelEn}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </Reveal>
@@ -91,14 +99,22 @@ function Hero() {
         <Reveal delay={0.2} direction="right" className="relative">
           <div className="relative mx-auto max-w-[560px]">
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-emerald2-500/20 via-transparent to-brand-600/30 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[1.75rem] ring-1 ring-white/20 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]">
+            <Link
+              to="/about#equipment"
+              className="group relative block overflow-hidden rounded-[1.75rem] ring-1 ring-white/20 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-400"
+              aria-label="查看大域工程現地調查設備"
+            >
               <img
                 src="/images/hero-strata.png"
                 alt="大地工程鑽探 3D 剖面示意"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-transparent to-transparent" />
-            </div>
+              <span className="absolute right-5 bottom-5 inline-flex items-center gap-2 rounded-xl bg-brand-950/85 px-4 py-3 text-sm font-bold text-white shadow-xl backdrop-blur transition-all lg:opacity-0 lg:group-hover:opacity-100 lg:group-focus-visible:opacity-100">
+                查看現地調查設備
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
 
             {/* Floating chips */}
             <div className="absolute -left-4 top-8 animate-float rounded-2xl bg-white/95 px-4 py-3 shadow-xl backdrop-blur md:-left-8">
@@ -244,7 +260,7 @@ function AboutSection() {
                   </span>
                   <div>
                     <p className="text-base font-bold text-brand-900">{f.title}</p>
-                    <p className="mt-1 text-sm leading-[1.7] text-slate-600">{f.desc}</p>
+                    <p className="mt-1 text-base leading-[1.7] text-slate-600">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -253,7 +269,7 @@ function AboutSection() {
           <Reveal delay={0.26}>
             <Link
               to="/about"
-              className="group mt-9 inline-flex items-center gap-2 text-[15px] font-bold text-emerald2-600 transition-colors hover:text-emerald2-500"
+              className="group mt-9 inline-flex min-h-11 items-center gap-2 text-base font-bold text-emerald2-600 transition-colors hover:text-emerald2-500"
             >
               深入了解大域
               <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
@@ -328,7 +344,7 @@ function AssuranceBand() {
                 </span>
                 <p className="mt-5 text-3xl font-black text-white">{item.num}</p>
                 <p className="mt-1 text-sm font-bold text-emerald2-300">{item.title}</p>
-                <p className="mt-2 text-[15px] leading-[1.75] text-white/65">{item.desc}</p>
+                <p className="mt-2 text-base leading-[1.75] text-white/65">{item.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -360,14 +376,14 @@ function CtaSection() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-8 py-4 text-[15px] font-bold text-white shadow-xl shadow-emerald2-500/30 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
+              className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-8 py-4 text-base font-bold text-white shadow-xl shadow-emerald2-500/30 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
             >
               立即聯絡我們
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="tel:+88672295922"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 text-[15px] font-bold text-white ring-1 ring-white/25 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/15"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 text-base font-bold text-white ring-1 ring-white/25 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/15"
             >
               (07) 229-5922
             </a>
@@ -382,8 +398,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <ServicesSection />
       <AboutSection />
+      <ServicesSection />
       <AssuranceBand />
       <ProjectsSection />
       <CtaSection />

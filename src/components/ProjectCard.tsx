@@ -28,7 +28,7 @@ export function ProjectCard({ project }: { project: Project }) {
       {usesTechnicalBackdrop ? (
         <>
           <div className="flex min-h-11 shrink-0 items-center border-b border-sand-200 bg-sand-50/90 px-5">
-            <span className="text-[11px] font-extrabold tracking-[0.12em] text-emerald2-700">
+            <span className="text-sm font-extrabold tracking-[0.08em] text-emerald2-700">
               {project.category}
             </span>
           </div>
@@ -62,14 +62,14 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       )}
       <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-center gap-2 text-xs font-bold tracking-wide text-slate-400">
+        <div className="flex items-center gap-2 text-sm font-bold tracking-wide text-slate-500">
           {yearLabel && <CalendarDays className="h-3.5 w-3.5 text-emerald2-500" />}
           <span>{yearLabel ?? scopeLabels[project.category]}</span>
         </div>
-        <h3 className="editorial-heading mt-3 text-[17px] font-bold leading-[1.55] text-brand-900 transition-colors group-hover:text-emerald2-600">
+        <h3 className="editorial-heading mt-3 text-lg font-bold leading-[1.55] text-brand-900 transition-colors group-hover:text-emerald2-600">
           {project.title}
         </h3>
-        <div className="mt-auto flex items-center justify-between border-t border-sand-200 pt-5 text-sm font-bold">
+        <div className="mt-auto flex min-h-11 items-center justify-between border-t border-sand-200 pt-4 text-base font-bold">
           <span className={hasDetail ? "text-emerald2-600" : "text-slate-400"}>
             {hasDetail ? "查看完整案例" : "工程實績"}
           </span>

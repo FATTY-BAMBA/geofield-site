@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Award, HeartHandshake, Lightbulb, Users } from "lucide-react";
+import { Activity, Award, Drill, HeartHandshake, Lightbulb, ScanLine, Users } from "lucide-react";
 import { aboutTabs, company, heroPhotos, milestones, stats } from "@/data/site";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -12,6 +12,24 @@ const values = [
   { icon: HeartHandshake, title: "誠信", desc: "誠實面對數據，可靠交付每份承諾" },
   { icon: Lightbulb, title: "創新", desc: "持續導入新工法與自動化監測技術" },
   { icon: Users, title: "服務", desc: "重視客戶需求，建立長期夥伴關係" },
+];
+
+const capabilities = [
+  {
+    icon: Drill,
+    title: "鑽探與 CPT 現地試驗",
+    desc: "取得地層、強度與地下水相關資料，作為基礎及開挖設計判讀依據。",
+  },
+  {
+    icon: Activity,
+    title: "工程安全監測",
+    desc: "整合傾斜、沉陷、水位及自動化資料，追蹤工程與坡地變化趨勢。",
+  },
+  {
+    icon: ScanLine,
+    title: "隧道非破壞檢測",
+    desc: "運用透地雷達、三維掃描與近接調查，建立維護管理所需的現況資料。",
+  },
 ];
 
 export default function About() {
@@ -53,13 +71,18 @@ export default function About() {
                 <SectionHeading eyebrow="Who We Are" title="以現地調查與工程分析為核心的顧問團隊" />
               </Reveal>
               <Reveal delay={0.1}>
-                <div className="mt-7 flex flex-wrap gap-2">
+                <div className="mt-7 flex flex-wrap gap-2" role="tablist" aria-label="關於大域">
                   {aboutTabs.map((t) => (
                     <button
                       key={t.key}
                       onClick={() => setTab(t.key)}
+                      type="button"
+                      role="tab"
+                      id={`about-tab-${t.key}`}
+                      aria-selected={tab === t.key}
+                      aria-controls="about-tab-content"
                       className={cn(
-                        "rounded-full px-5 py-2.5 text-sm font-bold transition-all",
+                        "min-h-11 rounded-full px-5 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2",
                         tab === t.key
                           ? "bg-brand-900 text-white shadow-lg"
                           : "bg-white text-brand-900 ring-1 ring-sand-200 hover:ring-brand-900/30"
@@ -71,6 +94,9 @@ export default function About() {
                 </div>
                 <div
                   key={tab}
+                  id="about-tab-content"
+                  role="tabpanel"
+                  aria-labelledby={`about-tab-${tab}`}
                   className="editorial-copy mt-6 rounded-2xl bg-white p-7 text-base text-slate-600 ring-1 ring-sand-200 md:text-[17px]"
                   style={{ animation: "fadeSlide 0.45s ease both" }}
                 >
@@ -117,7 +143,7 @@ export default function About() {
                     </span>
                     <div className="mt-5 rounded-2xl bg-white p-6 ring-1 ring-sand-200">
                       <p className="text-base font-bold text-brand-900">{m.title}</p>
-                      <p className="mt-2 text-[15px] leading-[1.75] text-slate-600">{m.desc}</p>
+                      <p className="mt-2 text-base leading-[1.75] text-slate-600">{m.desc}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -142,7 +168,7 @@ export default function About() {
                     <v.icon className="h-6 w-6" />
                   </span>
                   <p className="mt-4 text-lg font-extrabold text-white">{v.title}</p>
-                  <p className="mt-2 text-[15px] leading-[1.75] text-white/65">{v.desc}</p>
+                  <p className="mt-2 text-base leading-[1.75] text-white/65">{v.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -151,15 +177,30 @@ export default function About() {
       </section>
 
       {/* Fleet gallery */}
-      <section className="bg-white py-16 lg:py-24">
+      <section id="equipment" className="scroll-mt-24 bg-white py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow="Our Fleet · 自有設備"
-              title="CPT 試驗車隊，深入第一現場"
-              description="自有圓錐貫入試驗車與監測儀器，從現地試驗到數據分析全程自主掌控。"
+              eyebrow="Equipment & Methods · 設備與技術"
+              title="從現地取得資料，再轉化為工程判斷"
+              description="依工程需求整合鑽探、現地試驗、非破壞檢測及安全監測，讓設計與維護建議建立在可追溯的現場資料上。"
             />
           </Reveal>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {capabilities.map(({ icon: Icon, title, desc }, i) => (
+              <Reveal key={title} delay={0.06 * i}>
+                <article className="flex h-full gap-4 rounded-2xl bg-sand-50 p-6 ring-1 ring-sand-200">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-900 text-emerald2-300">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-extrabold text-brand-900">{title}</h3>
+                    <p className="mt-2 text-base leading-[1.75] text-slate-600">{desc}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {heroPhotos.map((p, i) => (
               <Reveal key={p.src} delay={0.06 * i}>

@@ -16,10 +16,10 @@ export const company = {
 };
 
 export const stats = [
-  { value: 30, suffix: "+", label: "年專業經驗", labelEn: "YEARS OF EXPERIENCE" },
-  { value: 500, suffix: "+", label: "工程實績", labelEn: "COMPLETED PROJECTS" },
-  { value: 6, suffix: "", label: "專業領域", labelEn: "AREAS OF EXPERTISE" },
-  { value: 3, suffix: "", label: "服務據點", labelEn: "OFFICES IN TAIWAN" },
+  { value: 30, suffix: "+", label: "年專業經驗", labelEn: "YEARS OF EXPERIENCE", href: "/about" },
+  { value: 500, suffix: "+", label: "工程實績", labelEn: "COMPLETED PROJECTS", href: "/projects" },
+  { value: 6, suffix: "", label: "專業領域", labelEn: "AREAS OF EXPERTISE", href: "/services" },
+  { value: 3, suffix: "", label: "服務據點", labelEn: "OFFICES IN TAIWAN", href: "/location" },
 ];
 
 export interface Service {
@@ -34,19 +34,19 @@ export interface Service {
 export const services: Service[] = [
   {
     id: "hydro",
-    title: "水文地質探查",
-    english: "HYDROGEOLOGICAL SURVEY",
-    desc: "地下水文地質特性探查評估及施工影響分析",
+    title: "地質鑽探與水文調查",
+    english: "SITE & HYDROGEOLOGICAL INVESTIGATION",
+    desc: "整合鑽探、現地試驗與地下水調查，建立設計所需的地層資料",
     image: "/images/service-cutouts/svc-hydro.webp",
-    points: ["地下水位觀測與水力特性評估", "抽水試驗與含水層參數分析", "施工降水對鄰近建物影響評估", "地下水資源與補注調查"],
+    points: ["地質鑽探、取樣與地層判釋", "CPT 圓錐貫入及現地試驗", "地下水位觀測與抽水試驗", "施工降水與鄰近環境影響評估"],
   },
   {
     id: "tunnel",
-    title: "隧道檢測評估",
-    english: "TUNNEL INSPECTION",
-    desc: "營運隧道檢測調查與安全服務性能評估",
+    title: "隧道工程與檢測評估",
+    english: "TUNNEL ENGINEERING & INSPECTION",
+    desc: "涵蓋隧道規劃、調查設計，以及營運階段的檢測與安全評估",
     image: "/images/service-cutouts/svc-tunnel.webp",
-    points: ["襯砌裂縫、滲漏水與劣化調查", "非破壞檢測與斷面變形量測", "隧道安全服務性能評估", "維護補強優先順序建議"],
+    points: ["隧道路線地質調查與工程規劃", "開挖、支撐及襯砌設計評估", "營運隧道非破壞檢測與變形量測", "安全服務性能評估與維護補強建議"],
   },
   {
     id: "slope",
@@ -58,25 +58,25 @@ export const services: Service[] = [
   },
   {
     id: "excavation",
-    title: "開挖基礎工法",
-    english: "EXCAVATION & FOUNDATION",
-    desc: "地下結構與基礎開挖工法規劃及鄰房安全維護",
+    title: "基礎開挖與工程計畫",
+    english: "EXCAVATION, FOUNDATION & PLANNING",
+    desc: "地下結構、基礎開挖與施工計畫規劃，並評估鄰近設施影響",
     image: "/images/service-cutouts/svc-excavation.webp",
-    points: ["深開挖擋土支撐工法設計", "基礎型式評估與承載力分析", "開挖引致鄰房沉陷預測", "施工階段安全監測規劃"],
+    points: ["深開挖擋土支撐與基礎工法設計", "施工計畫書與雜項執照相關計畫", "開挖引致鄰房沉陷與安全評估", "捷運等鄰近設施影響評估"],
   },
   {
     id: "monitoring",
     title: "安全監測分析",
     english: "SAFETY MONITORING",
-    desc: "坡地滑移與土木工程安全監測系統規劃與執行",
+    desc: "由儀器配置、資料收測到成果判讀，建立工程安全管理依據",
     image: "/images/service-cutouts/svc-monitoring.webp",
-    points: ["傾斜管、水壓計等儀器佈設", "自動化監測系統建置", "監測數據判讀與預警管理", "坡地滑移潛勢分析"],
+    points: ["全測站、水準測量與傾度盤佈設", "傾斜管、水壓計及自動化監測建置", "監測數據判讀、趨勢分析與預警管理", "監測成果安全評估與應變建議"],
   },
   {
     id: "conservation",
-    title: "水保計畫監造",
+    title: "水土保持設計與監造",
     english: "SOIL & WATER CONSERVATION",
-    desc: "坡地開發水保計畫及現場監造",
+    desc: "坡地開發水土保持規劃設計、送審及施工監造",
     image: "/images/service-cutouts/svc-conservation.webp",
     points: ["水土保持計畫書編撰與送審", "滯洪沉砂設施規劃設計", "施工期間水保設施監造", "完工檢查與維護管理"],
   },
@@ -269,7 +269,7 @@ export const aboutTabs = [
     key: "expertise",
     label: "專業特性",
     content:
-      "服務範圍包括水文地質探查、隧道檢測評估、坡地防災設計、開挖與基礎工法、安全監測分析及水土保持計畫監造。團隊由工程師與專業技師組成，並以自有現地試驗及監測設備支援工程判讀。",
+      "服務由地質鑽探與水文調查延伸至隧道工程與檢測、坡地防災、基礎開挖、工程安全監測及水土保持設計監造。團隊以現地試驗、非破壞檢測與監測資料支援工程判讀。",
   },
 ];
 
@@ -281,8 +281,13 @@ export const milestones = [
 ];
 
 export const industryLinks = [
+  { label: "中國工程師學會", href: "https://www.cie.org.tw/" },
+  { label: "地工技術研究發展基金會", href: "https://www.geotech.org.tw/" },
+  { label: "岩盤工程暨工程地質學會", href: "https://tsrmeg.geo.org.tw/" },
   { label: "中華民國隧道協會", href: "https://ctta.org/zh-TW" },
   { label: "中華民國大地工程學會", href: "https://www.tgs.org.tw/" },
+  { label: "中華民國大地工程技師公會", href: "https://www.pgea.org.tw/" },
+  { label: "高雄市土木技師公會", href: "https://www.kpcea.org.tw/" },
   { label: "中華水土保持學會", href: "https://cswcs.org.tw/" },
 ];
 

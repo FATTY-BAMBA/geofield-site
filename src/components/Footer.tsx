@@ -98,12 +98,12 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-7">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="grid gap-5 lg:grid-cols-[220px_1fr] lg:items-start">
             <div>
               <h4 className="text-xs font-bold tracking-[0.22em] text-emerald2-400 uppercase">專業連結</h4>
               <p className="mt-1 text-sm text-white/45">工程領域相關學協會</p>
             </div>
-            <ul className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6">
+            <ul className="grid gap-x-6 gap-y-3 sm:grid-cols-2 xl:grid-cols-3">
               {industryLinks.map((item) => (
                 <li key={item.label}>
                   <a

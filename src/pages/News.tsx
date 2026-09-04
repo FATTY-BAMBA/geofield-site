@@ -16,7 +16,7 @@ export default function News() {
                 <Newspaper className="h-8 w-8" />
               </span>
               <h3 className="mt-6 text-xl font-extrabold text-brand-900">目前尚無最新消息</h3>
-              <p className="editorial-copy mt-3 text-[15px] text-slate-600">
+              <p className="editorial-copy mt-3 text-base text-slate-600">
                 最新消息正在整理中，敬請期待。若您想直接了解我們的工程實績與服務內容，歡迎前往瀏覽。
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
