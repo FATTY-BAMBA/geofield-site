@@ -13,6 +13,8 @@ import Location from "./pages/Location";
 import News from "./pages/News";
 import { projects } from "./data/site";
 
+const SITE_ORIGIN = "https://www.geofield.tw";
+
 const defaultDescription =
   "大域工程顧問有限公司成立於民國82年（1993年），提供地質鑽探、隧道工程、坡地防災、工程設計、施工監造與安全監測服務。";
 
@@ -31,7 +33,7 @@ const routeMeta: Record<string, { title: string; description: string }> = {
   },
   "/technology": {
     title: "Kantaro 自計化坡地監測｜大域工程顧問有限公司",
-    description: "了解日本 CHUO KAIHATSU CORPORATION（CKC）Kantaro 地表傾滑監測系統，以及大域工程在台灣的經銷、現地導入與監測判讀服務。",
+    description: "了解日本 CHUO KAIHATSU CORPORATION（CKC）的自計化坡地地表傾滑計，以及大域工程在台灣提供的現地勘查、系統建置、監測判讀及維護服務。",
   },
   "/projects": {
     title: "工程實績｜大域工程顧問有限公司",
@@ -64,14 +66,34 @@ function RouteMeta() {
         }
       : (routeMeta[pathname] ?? routeMeta["/"]);
 
+    const canonicalPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+    const canonicalUrl = `${SITE_ORIGIN}${canonicalPath}`;
+
     document.title = meta.title;
-    let description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (!description) {
-      description = document.createElement("meta");
-      description.name = "description";
-      document.head.appendChild(description);
+
+    const setMeta = (selector: string, attribute: "name" | "property", key: string, content: string) => {
+      let element = document.querySelector<HTMLMetaElement>(selector);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attribute, key);
+        document.head.appendChild(element);
+      }
+      element.content = content;
+    };
+
+    setMeta('meta[name="description"]', "name", "description", meta.description);
+    setMeta('meta[property="og:title"]', "property", "og:title", meta.title);
+    setMeta('meta[property="og:description"]', "property", "og:description", meta.description);
+    setMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
+    setMeta('meta[property="og:type"]', "property", "og:type", "website");
+
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
     }
-    description.content = meta.description;
+    canonical.href = canonicalUrl;
   }, [pathname]);
 
   return null;
