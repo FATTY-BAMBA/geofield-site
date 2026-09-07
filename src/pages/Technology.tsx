@@ -132,19 +132,19 @@ export default function Technology() {
                 <span className="font-semibold text-emerald2-300">監測技術</span>
               </nav>
               <p className="mt-8 text-sm font-bold tracking-[0.24em] text-emerald2-300 uppercase">
-                Kantaro · Monitoring Technology
+                Kantaro · 自計化坡地地表傾滑計
               </p>
               <h1 className="editorial-heading mt-4 text-4xl font-black leading-[1.1] text-white md:text-6xl">
                 自計化坡地
                 <br />
-                地表傾滑監測
+                地表傾滑計
               </h1>
               <p className="editorial-copy mt-6 max-w-xl text-base text-white/70 md:text-lg">
-                Kantaro 整合坡面傾斜、土壤水分與無線傳輸；大域工程於台灣提供系統經銷、現地導入、布設與監測判讀服務。
+                Kantaro 整合坡面傾斜、土壤水分與無線傳輸；大域工程作為 CKC 在地工程應用夥伴，於台灣提供現地勘查、安裝與系統建置、監測服務、資料判讀及維護／售後服務。
               </p>
               <div className="mt-5 w-fit rounded-xl bg-brand-950/55 px-4 py-3 text-[13px] leading-relaxed text-white/65 ring-1 ring-white/10 backdrop-blur-md">
-                <p><span className="font-bold text-white/90">技術來源</span> · CHUO KAIHATSU CORPORATION（CKC）, Japan</p>
-                <p><span className="font-bold text-white/90">台灣經銷與工程導入</span> · 大域工程顧問有限公司</p>
+                <p><span className="font-bold text-white/90">技術來源</span> · <a href="https://www.ckcnet.co.jp/" target="_blank" rel="noreferrer" className="underline decoration-white/30 underline-offset-2 transition-colors hover:text-white">CHUO KAIHATSU CORPORATION（中央開発株式会社，CKC）</a></p>
+                <p><span className="font-bold text-white/90">在地工程應用夥伴</span> · 大域工程顧問有限公司</p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 {[["24/7", "自動監控"], ["0.0025°", "傾斜解析度"], ["高密度", "面狀布設"]].map(([value, label]) => (
@@ -215,7 +215,7 @@ export default function Technology() {
               <TechnicalFigure
                 src={`${ASSET_DIR}/system-diagram.webp`}
                 alt="地表傾滑監測系統安裝與感測架構示意"
-                caption="系統安裝概念示意；實際埋設深度與位置應依現地地層條件評估。"
+                caption="系統安裝概念示意；實際埋設深度與位置應依現地地層條件評估。資料來源：CHUO KAIHATSU CORPORATION（CKC）。"
                 label="System diagram"
                 className="rounded-3xl p-4 sm:p-7"
                 mediaClassName="min-h-[420px] rounded-2xl"
