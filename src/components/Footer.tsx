@@ -87,9 +87,14 @@ export function Footer() {
               ))}
             </ul>
             <div className="mt-6 space-y-2 text-sm text-white/60">
-              <p className="flex items-center gap-2">
-                <Mail className="h-3.5 w-3.5 text-emerald2-400" /> {company.email}
-              </p>
+              <a
+                href={`mailto:${company.email}`}
+                className="flex items-center gap-2 transition-colors hover:text-white"
+                aria-label={`寄送電子郵件至 ${company.email}`}
+              >
+                <Mail className="h-3.5 w-3.5 text-emerald2-400" />
+                {company.email}
+              </a>
               <p className="flex items-center gap-2">
                 <Clock className="h-3.5 w-3.5 text-emerald2-400" /> {company.hours}
               </p>
