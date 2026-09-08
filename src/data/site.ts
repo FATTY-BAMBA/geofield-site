@@ -405,13 +405,39 @@ export const cptMedia = {
   },
 };
 
-export const heroPhotos = [cptMedia.fleetPrimary, cptMedia.liveData, cptMedia.rods];
+export const heroPhotos = [
+  cptMedia.fleetPrimary,
+  {
+    src: "/images/projects/guanmiao-solar/card-cover.webp",
+    alt: "永鑫能源關廟太陽光電廠地基調查現場",
+    title: "地質鑽探與地基調查",
+    titleEn: "Site investigation & drilling",
+  },
+  {
+    src: "/images/projects/irrigation-tunnel/site-context.webp",
+    alt: "水圳隧道檢測安全評估現場",
+    title: "隧道巡檢與安全評估",
+    titleEn: "Tunnel inspection & assessment",
+  },
+  {
+    src: "/images/projects/n3-373k/card-cover.webp",
+    alt: "國道3號南下373k+300邊坡修復工程全景",
+    title: "邊坡治理與防災",
+    titleEn: "Slope engineering & protection",
+  },
+  {
+    src: "/images/projects/jinshihu/card-cover.webp",
+    alt: "金獅湖滯洪池周邊地景環境改造工程",
+    title: "公共工程監造",
+    titleEn: "Public works supervision",
+  },
+];
 
 export const navItems = [
   { key: "home", label: "首頁", path: "/" },
   { key: "about", label: "關於我們", path: "/about" },
   { key: "services", label: "服務項目", path: "/services" },
-  { key: "technology", label: "監測技術", path: "/technology" },
+  { key: "technology", label: "技術與設備", path: "/technology" },
   { key: "projects", label: "工程實績", path: "/projects" },
   { key: "news", label: "最新消息", path: "/news" },
   { key: "location", label: "交通位置", path: "/location" },
