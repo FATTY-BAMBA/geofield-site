@@ -316,7 +316,7 @@ export default function About() {
                 className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-brand-900 ring-1 ring-sand-300 transition hover:-translate-y-0.5 hover:ring-brand-300"
               >
                 查看服務項目
-                <ArrowRight class classNameName="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/contact"
