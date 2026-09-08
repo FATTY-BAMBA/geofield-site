@@ -129,7 +129,7 @@ export default function Technology() {
               <nav className="flex items-center gap-1.5 text-[13px] text-white/50">
                 <Link to="/" className="transition-colors hover:text-white">首頁</Link>
                 <ChevronRight className="h-3.5 w-3.5" />
-                <span className="font-semibold text-emerald2-300">監測技術</span>
+                <span className="font-semibold text-emerald2-300">技術與設備</span>
               </nav>
               <p className="mt-8 text-sm font-bold tracking-[0.24em] text-emerald2-300 uppercase">
                 Kantaro · 自計化坡地地表傾滑計
