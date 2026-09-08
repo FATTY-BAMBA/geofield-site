@@ -61,8 +61,11 @@ export default function Contact() {
                   </span>
                   <h3 className="mt-6 text-2xl font-extrabold text-brand-900">訊息已為您準備好</h3>
                   <p className="editorial-copy mt-3 max-w-sm text-base text-slate-600">
-                    我們已開啟您的郵件軟體並帶入訊息內容，送出後我們將盡速回覆。
-                    若未自動開啟，歡迎直接來信 {company.email} 或致電 (07) 229-5922。
+                    我們已開啟您的郵件軟體並帶入訊息內容，收件人為{" "}
+                    <a href={`mailto:${company.email}`} className="font-bold text-emerald2-600 hover:underline">
+                      {company.email}
+                    </a>
+                    。送出後我們將盡速回覆；若未自動開啟，請直接來信或致電 (07) 229-5922。
                   </p>
                   <button
                     onClick={() => setSent(false)}
@@ -75,7 +78,11 @@ export default function Contact() {
                 <form onSubmit={submit}>
                   <h3 className="text-xl font-extrabold text-brand-900">線上洽詢</h3>
                   <p className="mt-2 text-base leading-[1.7] text-slate-600">
-                    填寫以下內容後，系統將開啟您的郵件軟體並帶入洽詢資料。
+                    填寫以下內容後，系統將開啟您的郵件軟體，並將洽詢資料寄送至{" "}
+                    <a href={`mailto:${company.email}`} className="font-bold text-emerald2-600 hover:underline">
+                      {company.email}
+                    </a>
+                    。
                   </p>
                   <div className="mt-7 grid gap-5 sm:grid-cols-2">
                     <div>
@@ -123,9 +130,10 @@ export default function Contact() {
                   <div className="mt-7 text-right">
                     <button
                       type="submit"
+                      aria-label={`開啟郵件並寄送至 ${company.email}`}
                       className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-8 py-3.5 text-base font-bold text-white shadow-xl shadow-emerald2-500/25 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
                     >
-                      開啟郵件傳送
+                      寄送至大域信箱
                       <Send className="h-4 w-4" />
                     </button>
                   </div>
