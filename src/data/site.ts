@@ -106,7 +106,7 @@ export const services: Service[] = [
   },
 ];
 
-export type ProjectCategory = "鑽探" | "邊坡" | "監造" | "隧道";
+export type ProjectCategory = "設計" | "鑽探" | "邊坡" | "監造" | "隧道";
 
 /** 一張工程照片 */
 export interface ProjectPhoto {
@@ -133,6 +133,8 @@ export interface ProjectSection {
  * 仍會正常顯示於列表中，只是不會產生內頁連結。
  */
 export interface ProjectDetail {
+  /** 完整案例或先行發布的影像紀錄。 */
+  contentStatus?: "complete" | "image-record";
   /** 內頁主視覺。 */
   heroImage?: string;
   /** 列表卡片可使用與內頁不同的視覺，例如技術示意圖。 */
@@ -164,6 +166,7 @@ export interface Project {
 }
 
 export const categoryImages: Record<ProjectCategory, string> = {
+  設計: "/images/service-cutouts/svc-design.webp",
   鑽探: "/images/service-cutouts/svc-hydro.webp",
   邊坡: "/images/service-cutouts/svc-slope.webp",
   監造: "/images/service-cutouts/svc-conservation.webp",
@@ -171,8 +174,66 @@ export const categoryImages: Record<ProjectCategory, string> = {
 };
 
 const IRRIGATION_TUNNEL_DIR = "/images/projects/irrigation-tunnel";
+const JIJI_LINE_DIR = "/images/projects/jiji-line";
+const FANGYE_TUNNEL_DIR = "/images/projects/fangye-tunnel";
 
 export const projects: Project[] = [
+  {
+    slug: "jiji-line-improvement",
+    title: "台鐵集集線改善統包工程",
+    category: "設計",
+    photoCount: 31,
+    cardImage: `${JIJI_LINE_DIR}/card-cover.webp`,
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: `${JIJI_LINE_DIR}/card-cover.webp`,
+      location: "台鐵集集線沿線",
+      summary:
+        "本頁依目前已提供的工程影像，呈現台鐵集集線改善統包工程相關的沿線環境、隧道現況與現場調查紀錄。完整執行期間、委託單位、大域服務範圍及成果說明，將於專案資料確認後補充。",
+      scope: [
+        "集集線沿線與隧道現況影像紀錄",
+        "隧道透地雷達現場作業紀錄",
+        "鑽探驗深作業影像紀錄",
+        "現地踏勘與團隊作業紀錄",
+      ],
+      sections: [],
+      photos: [
+        { src: `${JIJI_LINE_DIR}/jiji-station.webp`, caption: "集集車站與鐵道路線現況" },
+        { src: `${JIJI_LINE_DIR}/tunnel-portal.webp`, caption: "集集線隧道入口與周邊環境" },
+        { src: `${JIJI_LINE_DIR}/gpr-survey.webp`, caption: "隧道內透地雷達現場作業" },
+        { src: `${JIJI_LINE_DIR}/site-team.webp`, caption: "工程人員於隧道入口進行現地作業" },
+      ],
+    },
+  },
+  {
+    slug: "fangye-no1-tunnel-repair",
+    title: "台鐵高雄段枋野一號隧道湧水噴泥修繕工程（委託調查、規劃設計及監造技術服務）",
+    category: "設計",
+    photoCount: 21,
+    cardImage: `${FANGYE_TUNNEL_DIR}/card-cover.webp`,
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: `${FANGYE_TUNNEL_DIR}/card-cover.webp`,
+      location: "枋野一號隧道",
+      summary:
+        "本頁依目前已提供的工程影像，呈現枋野一號隧道湧水噴泥修繕工程的隧道調查、現場量測與影像掃描紀錄。專案完整期間、委託單位、各階段服務內容及成果說明，將於資料確認後補充。",
+      scope: [
+        "隧道現況調查",
+        "現場水位量測紀錄",
+        "隧道影像掃描作業",
+        "規劃設計與監造技術服務",
+      ],
+      sections: [],
+      photos: [
+        { src: `${FANGYE_TUNNEL_DIR}/tunnel-inspection.webp`, caption: "隧道內部現況調查" },
+        { src: `${FANGYE_TUNNEL_DIR}/water-level-measurement.webp`, caption: "現場水位量測作業" },
+        { src: `${FANGYE_TUNNEL_DIR}/tunnel-scanning.webp`, caption: "隧道影像掃描作業" },
+        { src: `${FANGYE_TUNNEL_DIR}/tunnel-portal.webp`, caption: "枋野一號隧道入口與現地作業" },
+      ],
+    },
+  },
   {
     slug: "irrigation-tunnel-inspection",
     title: "水圳隧道檢測安全評估",

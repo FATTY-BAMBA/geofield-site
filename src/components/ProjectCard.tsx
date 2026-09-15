@@ -3,6 +3,7 @@ import { ArrowRight, CalendarDays } from "lucide-react";
 import { categoryImages, type Project } from "@/data/site";
 
 const categoryStyles: Record<string, string> = {
+  設計: "bg-amber-50/95 text-amber-800",
   鑽探: "bg-brand-900/90 text-emerald2-300",
   邊坡: "bg-emerald2-600/90 text-white",
   監造: "bg-white/90 text-brand-900",
@@ -11,6 +12,7 @@ const categoryStyles: Record<string, string> = {
 
 export function ProjectCard({ project }: { project: Project }) {
   const hasDetail = Boolean(project.detail);
+  const isImageRecord = project.detail?.contentStatus === "image-record";
   const coverImage =
     project.cardImage ?? project.detail?.cardImage ?? project.detail?.heroImage ?? categoryImages[project.category];
   const coverFit = project.cardImageFit ?? project.detail?.cardImageFit ?? (hasDetail ? "cover" : "contain");
@@ -21,6 +23,7 @@ export function ProjectCard({ project }: { project: Project }) {
       : `民國${project.rocYear}年 · ${project.rocYear + 1911}`
     : null;
   const scopeLabels: Record<string, string> = {
+    設計: "公共工程規劃設計",
     鑽探: "地基與地質調查",
     邊坡: "邊坡治理與防災",
     監造: "公共工程監造",
@@ -75,7 +78,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </h3>
         <div className="mt-auto flex min-h-11 items-center justify-between border-t border-sand-200 pt-4 text-base font-bold">
           <span className={hasDetail ? "text-emerald2-600" : "text-slate-400"}>
-            {hasDetail ? "查看完整案例" : "工程實績"}
+            {hasDetail ? (isImageRecord ? "查看工程影像" : "查看完整案例") : "工程實績"}
           </span>
           {hasDetail && (
             <ArrowRight className="h-4 w-4 shrink-0 text-emerald2-500 transition-transform group-hover:translate-x-1" />

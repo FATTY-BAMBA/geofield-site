@@ -47,6 +47,7 @@ export default function ProjectDetail() {
   if (!project || !project.detail) return <Navigate to="/projects" replace />;
 
   const d = project.detail;
+  const isImageRecord = d.contentStatus === "image-record";
   const hero = d.heroImage ?? categoryImages[project.category];
   const meta = [
     { icon: Building2, label: "業主", value: d.client },
@@ -86,6 +87,14 @@ export default function ProjectDetail() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.35fr_0.65fr] lg:px-8">
           <Reveal>
             <SectionHeading eyebrow="Overview" title="專案概述" />
+            {isImageRecord && (
+              <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
+                <p className="text-sm font-extrabold text-amber-900">工程影像已先行整理</p>
+                <p className="mt-1 text-sm leading-relaxed text-amber-800/80">
+                  本頁先呈現目前可確認的專案名稱與現場影像；完整工作內容與成果將於公司資料確認後更新。
+                </p>
+              </div>
+            )}
             <p className="editorial-copy mt-6 text-base text-slate-600 md:text-[17px]">{d.summary}</p>
             {meta.length > 0 && (
               <dl className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -104,7 +113,7 @@ export default function ProjectDetail() {
 
           <Reveal direction="right">
             <div className="rounded-3xl bg-brand-900 p-8">
-              <h3 className="text-lg font-extrabold text-white">工作項目</h3>
+              <h3 className="text-lg font-extrabold text-white">{isImageRecord ? "目前可確認內容" : "工作項目"}</h3>
               <ul className="mt-6 space-y-4">
                 {d.scope.map((s, i) => (
                   <li key={s} className="flex gap-3.5">
@@ -189,7 +198,7 @@ export default function ProjectDetail() {
               <SectionHeading
                 eyebrow="Field Record"
                 title="工程影像與現況紀錄"
-                description="點選任一圖片可查看完整尺寸與圖說。"
+                description={isImageRecord ? "精選目前已提供的現場照片；後續可隨專案資料補充更多說明。" : "點選任一圖片可查看完整尺寸與圖說。"}
               />
             </Reveal>
             <div className="mt-10 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
