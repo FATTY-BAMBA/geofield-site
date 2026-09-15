@@ -612,7 +612,7 @@ export const offices = [
   {
     name: "北部辦公室（台北）",
     nameEn: "TAIPEI OFFICE",
-    address: "10472臺北市中山區中吉里松江路200號12樓之5",
+    address: "104486 臺北市中山區中吉里松江路200號12樓之5",
     tel: "(02) 2713-5922",
     fax: null,
     mapQuery: "臺北市中山區松江路200號12樓之5",
@@ -620,7 +620,7 @@ export const offices = [
   {
     name: "宜蘭辦公室",
     nameEn: "YILAN OFFICE",
-    address: "260 宜蘭縣宜蘭市復興路三段207號2樓",
+    address: "260026 宜蘭縣宜蘭市復興路三段207號2樓",
     tel: null,
     fax: null,
     mapQuery: "宜蘭縣宜蘭市復興路三段207號",

@@ -4,54 +4,46 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { cn } from "@/lib/utils";
-import { ChevronDown } from "lucide-react";
 
-// 由資料自動產生分類，日後新增分類無須再改這裡
-const categories: Array<"全部" | ProjectCategory> = [
-  "全部",
-  ...Array.from(new Set(projects.map((p) => p.category))),
-];
+const categories: ProjectCategory[] = ["鑽探", "隧道", "監造", "設計", "邊坡"];
 
 export default function Projects() {
-  const [cat, setCat] = useState<(typeof categories)[number]>("全部");
-  const [showAll, setShowAll] = useState(false);
-  const filtered = cat === "全部" ? projects : projects.filter((p) => p.category === cat);
-  const visible = cat === "全部" && !showAll ? filtered.slice(0, 12) : filtered;
-  const remaining = filtered.length - visible.length;
-
-  const selectCategory = (category: (typeof categories)[number]) => {
-    setCat(category);
-    setShowAll(false);
-  };
+  const [cat, setCat] = useState<ProjectCategory>("鑽探");
+  const filtered = projects.filter((project) => project.category === cat);
 
   return (
     <>
       <PageHero
         eyebrow="Projects"
         title="工程實績"
-        description="整理鑽探調查、邊坡工程、水保監造與隧道檢測等代表性實績；已完成資料整理的項目可進一步查看案例內容。"
+        description="依服務範圍整理鑽探調查、隧道檢測、施工監造、公共工程設計與邊坡工程等代表性實績；已完成資料整理的項目可進一步查看案例內容。"
         image="/images/service-cutouts/svc-slope.webp"
       />
 
       <section className="bg-sand-50 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
-            <div className="flex flex-wrap items-center gap-2.5">
-              {categories.map((c) => (
+            <div className="flex flex-wrap items-center gap-2.5" aria-label="工程實績分類">
+              {categories.map((category) => (
                 <button
-                  key={c}
-                  onClick={() => selectCategory(c)}
-                  aria-pressed={cat === c}
+                  key={category}
+                  onClick={() => setCat(category)}
+                  aria-pressed={cat === category}
                   className={cn(
                     "min-h-11 rounded-full px-5 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2",
-                    cat === c
+                    cat === category
                       ? "bg-brand-900 text-white shadow-lg"
                       : "bg-white text-brand-900 ring-1 ring-sand-200 hover:ring-brand-900/30"
                   )}
                 >
-                  {c}
-                  <span className={cn("ml-1.5 text-xs", cat === c ? "text-emerald2-300" : "text-slate-400")}>
-                    {c === "全部" ? projects.length : projects.filter((p) => p.category === c).length}
+                  {category}
+                  <span
+                    className={cn(
+                      "ml-1.5 text-xs",
+                      cat === category ? "text-emerald2-300" : "text-slate-400"
+                    )}
+                  >
+                    {projects.filter((project) => project.category === category).length}
                   </span>
                 </button>
               ))}
@@ -59,25 +51,12 @@ export default function Projects() {
           </Reveal>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {visible.map((p, i) => (
-              <Reveal key={p.title} delay={0.05 * (i % 6)} className="h-full">
-                <ProjectCard project={p} />
+            {filtered.map((project, index) => (
+              <Reveal key={project.title} delay={0.05 * (index % 6)} className="h-full">
+                <ProjectCard project={project} />
               </Reveal>
             ))}
           </div>
-
-          {cat === "全部" && remaining > 0 && (
-            <div className="mt-10 flex justify-center">
-              <button
-                type="button"
-                onClick={() => setShowAll(true)}
-                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-900 shadow-sm ring-1 ring-sand-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-brand-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2"
-              >
-                查看更多工程實績（{remaining}）
-                <ChevronDown className="h-4 w-4 text-emerald2-600" aria-hidden="true" />
-              </button>
-            </div>
-          )}
         </div>
       </section>
     </>
