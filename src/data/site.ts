@@ -553,23 +553,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "tai9-rockfall-net",
-    title: "台九線 攔石網工程",
-    category: "邊坡",
-    photoCount: 2,
-    cardImage: "/images/projects/tai9-rockfall-net/card-cover.webp",
-    cardImageFit: "cover",
-  },
-  {
-    slug: "tai9-461k-gabion",
-    title: "台九線461K+200 石籠・掛網噴植",
-    category: "邊坡",
-    photoCount: 4,
-    cardImage: "/images/projects/tai9-461k/card-cover.webp",
-    cardImageFit: "cover",
-  },
-  { slug: "tai9-470k-reinforced-embankment", title: "台九線470K+593 加勁護堤", category: "邊坡", photoCount: 3 },
-  {
     slug: "daliao-road-resurfacing",
     title: "110年度高雄市大寮區基層建設小型道路路面整修工程（AC）",
     category: "監造",
