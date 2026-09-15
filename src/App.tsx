@@ -11,7 +11,9 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
 import Location from "./pages/Location";
 import News from "./pages/News";
+import NewsDetail from "./pages/NewsDetail";
 import { projects } from "./data/site";
+import { getNewsArticle } from "./data/news";
 
 const SITE_ORIGIN = "https://www.geofield.tw";
 
@@ -41,7 +43,7 @@ const routeMeta: Record<string, { title: string; description: string }> = {
   },
   "/news": {
     title: "最新消息｜大域工程顧問有限公司",
-    description: "查看大域工程顧問的公司消息、技術分享與工程動態。",
+    description: "查看大域工程顧問的研討會參與、技術分享與專業活動紀錄。",
   },
   "/contact": {
     title: "聯絡我們｜大域工程顧問有限公司",
@@ -59,7 +61,10 @@ function RouteMeta() {
   useEffect(() => {
     const projectSlug = pathname.startsWith("/projects/") ? pathname.split("/").filter(Boolean).at(-1) : undefined;
     const project = projectSlug ? projects.find((item) => item.slug === projectSlug) : undefined;
-    const meta = project
+    const article = pathname.startsWith("/news/") ? getNewsArticle(pathname.split("/").filter(Boolean).at(-1)) : undefined;
+    const meta = article
+      ? { title: `${article.title}｜大域工程顧問有限公司`, description: article.excerpt }
+      : project
       ? {
           title: `${project.title}｜大域工程顧問有限公司`,
           description: project.detail?.summary ?? `查看${project.title}工程案例與專業服務內容。`,
@@ -85,7 +90,7 @@ function RouteMeta() {
     setMeta('meta[property="og:title"]', "property", "og:title", meta.title);
     setMeta('meta[property="og:description"]', "property", "og:description", meta.description);
     setMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
-    setMeta('meta[property="og:type"]', "property", "og:type", "website");
+    setMeta('meta[property="og:type"]', "property", "og:type", article ? "article" : "website");
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
@@ -131,6 +136,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/location" element={<Location />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:slug" element={<NewsDetail />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
