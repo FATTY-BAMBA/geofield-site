@@ -79,6 +79,7 @@ export function TechnicalFigure({
 
       <DialogContent
         showCloseButton={false}
+        style={{ width: "min(96vw, 1600px)", maxWidth: "none" }}
         className="max-h-[96vh] w-[min(96vw,1600px)] max-w-none gap-0 overflow-hidden border-white/10 bg-brand-950 p-3 text-white shadow-2xl sm:max-w-none sm:rounded-2xl sm:p-4"
       >
         <DialogTitle className="sr-only">{alt}</DialogTitle>
