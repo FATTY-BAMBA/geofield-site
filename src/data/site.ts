@@ -179,6 +179,52 @@ const FANGYE_TUNNEL_DIR = "/images/projects/fangye-tunnel";
 
 export const projects: Project[] = [
   {
+    slug: "taitung-railway-tunnel-inspection",
+    title: "臺鐵局台東工務段隧道檢測",
+    category: "隧道",
+    photoCount: 34,
+    cardImage: "/images/projects/taitung-railway-tunnel-inspection/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/taitung-railway-tunnel-inspection/card-cover.webp",
+      location: "臺鐵台東工務段轄區",
+      summary:
+        "本頁依目前已提供的工程影像，呈現臺鐵台東工務段轄區隧道的現地巡查、影像掃描、微變位監測與量測作業。各隧道範圍、執行期間、檢測數量及成果判讀，將於專案資料確認後補充。",
+      scope: ["鐵路隧道現況巡查", "隧道影像掃描作業", "微變位監測與現場量測", "隧道襯砌近接檢查"],
+      sections: [],
+      photos: [
+        { src: "/images/projects/taitung-railway-tunnel-inspection/monitoring.webp", caption: "隧道內微變位監測作業" },
+        { src: "/images/projects/taitung-railway-tunnel-inspection/survey.webp", caption: "隧道內現場量測紀錄" },
+        { src: "/images/projects/taitung-railway-tunnel-inspection/scanning.webp", caption: "隧道影像掃描現場作業" },
+        { src: "/images/projects/taitung-railway-tunnel-inspection/elevated-inspection.webp", caption: "隧道襯砌近接檢查" },
+      ],
+    },
+  },
+  {
+    slug: "hualien-railway-tunnel-inspection",
+    title: "臺鐵局花蓮工務段隧道檢測",
+    category: "隧道",
+    photoCount: 24,
+    cardImage: "/images/projects/hualien-railway-tunnel-inspection/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/hualien-railway-tunnel-inspection/card-cover.webp",
+      location: "臺鐵花蓮工務段轄區",
+      summary:
+        "本頁依目前已提供的工程影像，呈現臺鐵花蓮工務段轄區隧道的影像掃描、現地巡查、檢測設備進場與襯砌近接檢查。各隧道範圍、執行期間、檢測數量及成果判讀，將於專案資料確認後補充。",
+      scope: ["鐵路隧道現況巡查", "隧道影像掃描作業", "檢測設備進場與軌道作業", "隧道襯砌近接檢查"],
+      sections: [],
+      photos: [
+        { src: "/images/projects/hualien-railway-tunnel-inspection/scanning.webp", caption: "隧道影像掃描現場作業" },
+        { src: "/images/projects/hualien-railway-tunnel-inspection/equipment.webp", caption: "檢測設備進場與作業準備" },
+        { src: "/images/projects/hualien-railway-tunnel-inspection/elevated-inspection.webp", caption: "隧道襯砌近接檢查" },
+        { src: "/images/projects/hualien-railway-tunnel-inspection/portal-survey.webp", caption: "隧道入口現地巡查" },
+      ],
+    },
+  },
+  {
     slug: "chiayi-dapu-disaster-repair",
     title: "嘉義縣大埔鄉嘉133線1K+800及嘉145線0K+650等災修工程委託勘測設計及監造",
     category: "監造",

@@ -216,6 +216,13 @@ export default function ProjectDetail() {
                     className="h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.18)] hover:ring-brand-200"
                     mediaClassName={i === 0 ? "h-64 lg:h-72" : "h-56 lg:h-60"}
                     imageClassName={p.fit === "contain" ? "p-4" : undefined}
+                    gallery={d.photos?.map((photo) => ({
+                      src: photo.src,
+                      alt: photo.caption ?? project.title,
+                      caption: photo.caption,
+                      fit: photo.fit,
+                    }))}
+                    initialIndex={i}
                   />
                 </Reveal>
               ))}

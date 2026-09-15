@@ -1,4 +1,5 @@
-import { Maximize2, X } from "lucide-react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import {
   Dialog,
   DialogClose,
@@ -20,6 +21,13 @@ interface TechnicalFigureProps {
   mediaClassName?: string;
   imageClassName?: string;
   loading?: "eager" | "lazy";
+  gallery?: Array<{
+    src: string;
+    alt: string;
+    caption?: string;
+    fit?: "cover" | "contain";
+  }>;
+  initialIndex?: number;
 }
 
 export function TechnicalFigure({
@@ -33,9 +41,20 @@ export function TechnicalFigure({
   mediaClassName,
   imageClassName,
   loading = "lazy",
+  gallery,
+  initialIndex = 0,
 }: TechnicalFigureProps) {
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
+  const hasGallery = Boolean(gallery && gallery.length > 1);
+  const activeItem = gallery?.[activeIndex] ?? { src, alt, caption, fit };
+
+  const move = (direction: number) => {
+    if (!gallery?.length) return;
+    setActiveIndex((current) => (current + direction + gallery.length) % gallery.length);
+  };
+
   return (
-    <Dialog>
+    <Dialog onOpenChange={(open) => open && setActiveIndex(initialIndex)}>
       <figure className={cn("overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200", className)}>
         {label && labelPlacement === "header" && (
           <div className="border-b border-sand-200 px-1 pt-1 pb-3">
@@ -81,9 +100,20 @@ export function TechnicalFigure({
         showCloseButton={false}
         style={{ width: "min(96vw, 1600px)", maxWidth: "none" }}
         className="max-h-[96vh] w-[min(96vw,1600px)] max-w-none gap-0 overflow-hidden border-white/10 bg-brand-950 p-3 text-white shadow-2xl sm:max-w-none sm:rounded-2xl sm:p-4"
+        onKeyDown={(event) => {
+          if (!hasGallery) return;
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            move(-1);
+          }
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            move(1);
+          }
+        }}
       >
-        <DialogTitle className="sr-only">{alt}</DialogTitle>
-        <DialogDescription className="sr-only">{caption ?? alt}</DialogDescription>
+        <DialogTitle className="sr-only">{activeItem.alt}</DialogTitle>
+        <DialogDescription className="sr-only">{activeItem.caption ?? activeItem.alt}</DialogDescription>
         <DialogClose asChild>
           <button
             type="button"
@@ -93,8 +123,37 @@ export function TechnicalFigure({
             <X className="h-5 w-5" />
           </button>
         </DialogClose>
-        <img src={src} alt={alt} className="mx-auto max-h-[84vh] max-w-full rounded-xl object-contain" />
-        {caption && <p className="px-3 pt-3 pb-1 text-center text-sm leading-relaxed text-white/70">{caption}</p>}
+        <div className="relative flex min-h-0 items-center justify-center overflow-hidden rounded-xl">
+          <img src={activeItem.src} alt={activeItem.alt} className="mx-auto max-h-[80vh] max-w-full rounded-xl object-contain" />
+          {hasGallery && (
+            <>
+              <button
+                type="button"
+                onClick={() => move(-1)}
+                aria-label="查看上一張圖片"
+                className="absolute left-2 flex h-11 w-11 items-center justify-center rounded-full bg-brand-950/85 text-white shadow-lg backdrop-blur transition-colors hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-400 sm:left-4"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                type="button"
+                onClick={() => move(1)}
+                aria-label="查看下一張圖片"
+                className="absolute right-2 flex h-11 w-11 items-center justify-center rounded-full bg-brand-950/85 text-white shadow-lg backdrop-blur transition-colors hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-400 sm:right-4"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </>
+          )}
+        </div>
+        {hasGallery && (
+          <p className="px-3 pt-3 text-center text-xs font-bold tracking-wider text-emerald2-300">
+            {activeIndex + 1} / {gallery?.length}
+          </p>
+        )}
+        {activeItem.caption && (
+          <p className="px-3 pt-2 pb-1 text-center text-sm leading-relaxed text-white/70">{activeItem.caption}</p>
+        )}
       </DialogContent>
     </Dialog>
   );
