@@ -79,7 +79,7 @@ export function TechnicalFigure({
 
       <DialogContent
         showCloseButton={false}
-        className="max-h-[94vh] max-w-[min(96vw,1500px)] gap-0 overflow-hidden border-white/10 bg-brand-950 p-3 text-white shadow-2xl sm:rounded-2xl sm:p-4"
+        className="max-h-[96vh] w-[min(96vw,1600px)] max-w-none gap-0 overflow-hidden border-white/10 bg-brand-950 p-3 text-white shadow-2xl sm:max-w-none sm:rounded-2xl sm:p-4"
       >
         <DialogTitle className="sr-only">{alt}</DialogTitle>
         <DialogDescription className="sr-only">{caption ?? alt}</DialogDescription>
@@ -92,7 +92,7 @@ export function TechnicalFigure({
             <X className="h-5 w-5" />
           </button>
         </DialogClose>
-        <img src={src} alt={alt} className="max-h-[82vh] w-full rounded-xl object-contain" />
+        <img src={src} alt={alt} className="mx-auto max-h-[84vh] max-w-full rounded-xl object-contain" />
         {caption && <p className="px-3 pt-3 pb-1 text-center text-sm leading-relaxed text-white/70">{caption}</p>}
       </DialogContent>
     </Dialog>
