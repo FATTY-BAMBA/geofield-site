@@ -179,6 +179,118 @@ const FANGYE_TUNNEL_DIR = "/images/projects/fangye-tunnel";
 
 export const projects: Project[] = [
   {
+    slug: "chiayi-dapu-disaster-repair",
+    title: "嘉義縣大埔鄉嘉133線1K+800及嘉145線0K+650等災修工程委託勘測設計及監造",
+    category: "監造",
+    photoCount: 12,
+    cardImage: "/images/projects/chiayi-dapu-disaster-repair/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/chiayi-dapu-disaster-repair/card-cover.webp",
+      location: "嘉義縣大埔鄉",
+      summary:
+        "本頁依目前已提供的工程影像，呈現嘉133線及嘉145線災修工程的現地鑽探、道路邊坡改善與完工環境。完整執行期間、委託單位、設計內容及監造成果，將於專案資料確認後補充。",
+      scope: [
+        "災修路段現況調查與勘測",
+        "現地鑽探作業影像紀錄",
+        "道路及邊坡改善工程紀錄",
+        "設計與施工監造",
+      ],
+      sections: [],
+      photos: [
+        { src: "/images/projects/chiayi-dapu-disaster-repair/drilling.webp", caption: "山區道路現地鑽探作業" },
+        { src: "/images/projects/chiayi-dapu-disaster-repair/gabion.webp", caption: "石籠與道路邊坡改善成果" },
+        { src: "/images/projects/chiayi-dapu-disaster-repair/aerial-context.webp", caption: "災修路段與周邊山區環境" },
+        { src: "/images/projects/chiayi-dapu-disaster-repair/completed-road.webp", caption: "道路改善完成後現況" },
+      ],
+    },
+  },
+  {
+    slug: "moon-world-design-supervision",
+    title: "觀光局月世界設計監造",
+    category: "監造",
+    photoCount: 44,
+    cardImage: "/images/projects/moon-world-design-supervision/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/moon-world-design-supervision/card-cover.webp",
+      location: "高雄月世界風景區",
+      summary:
+        "本頁依目前已提供的工程影像，呈現月世界風景區設計監造工作的地景環境、步道設施、施工查驗及完工紀錄。完整契約名稱、執行期間、服務範圍與成果說明，將於專案資料確認後補充。",
+      scope: [
+        "風景區現況與地景環境紀錄",
+        "步道及相關設施工程紀錄",
+        "施工品質與材料查驗",
+        "完工現況影像紀錄",
+      ],
+      sections: [],
+      photos: [
+        { src: "/images/projects/moon-world-design-supervision/trail.webp", caption: "步道設施完成後現況" },
+        { src: "/images/projects/moon-world-design-supervision/railing.webp", caption: "步道與欄杆設施工程紀錄" },
+        { src: "/images/projects/moon-world-design-supervision/landscape-path.webp", caption: "風景區地景與動線改善" },
+        { src: "/images/projects/moon-world-design-supervision/aerial-landscape.webp", caption: "月世界地景與工程範圍空拍" },
+      ],
+    },
+  },
+  {
+    slug: "kaohsiung-scenic-area-supervision",
+    title: "觀光局高雄市風景區設計監造",
+    category: "監造",
+    photoCount: 34,
+    cardImage: "/images/projects/kaohsiung-scenic-area-supervision/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/kaohsiung-scenic-area-supervision/card-cover.webp",
+      location: "高雄市風景區",
+      summary:
+        "本頁依目前已提供的工程影像，呈現高雄市風景區設計監造工作的施工前環境、結構及排水工程、現場查驗與改善成果。各工區名稱、執行期間及完整成果，將於專案資料確認後補充。",
+      scope: [
+        "各工區施工前現況紀錄",
+        "結構與排水設施工程紀錄",
+        "施工品質查驗",
+        "風景區環境改善工程紀錄",
+      ],
+      sections: [],
+      photos: [
+        { src: "/images/projects/kaohsiung-scenic-area-supervision/rebar-work.webp", caption: "結構鋼筋工程現況" },
+        { src: "/images/projects/kaohsiung-scenic-area-supervision/excavation.webp", caption: "排水設施施工紀錄" },
+        { src: "/images/projects/kaohsiung-scenic-area-supervision/site-context.webp", caption: "風景區工區施工前環境" },
+        { src: "/images/projects/kaohsiung-scenic-area-supervision/gabion-drainage.webp", caption: "石籠與排水設施改善成果" },
+      ],
+    },
+  },
+  {
+    slug: "chiayi-135-2-disaster-restoration",
+    title: "嘉義縣中埔鄉嘉135-2線1K+150災修復建工程",
+    category: "監造",
+    photoCount: 18,
+    cardImage: "/images/projects/chiayi-135-2-disaster-restoration/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/chiayi-135-2-disaster-restoration/card-cover.webp",
+      location: "嘉義縣中埔鄉",
+      summary:
+        "本頁依目前已提供的工程影像，呈現嘉135-2線1K+150災修復建工程的現地鑽探、施工查驗、道路環境與復建成果。完整執行期間、委託單位、工程內容及監造成果，將於專案資料確認後補充。",
+      scope: [
+        "災修路段現況調查",
+        "現地鑽探作業影像紀錄",
+        "施工查驗與工程紀錄",
+        "道路復建成果紀錄",
+      ],
+      sections: [],
+      photos: [
+        { src: "/images/projects/chiayi-135-2-disaster-restoration/drilling.webp", caption: "道路旁現地鑽探作業" },
+        { src: "/images/projects/chiayi-135-2-disaster-restoration/field-inspection.webp", caption: "工程現場查驗紀錄" },
+        { src: "/images/projects/chiayi-135-2-disaster-restoration/aerial-context.webp", caption: "復建路段與周邊環境空拍" },
+        { src: "/images/projects/chiayi-135-2-disaster-restoration/completed-road.webp", caption: "道路復建完成後現況" },
+      ],
+    },
+  },
+  {
     slug: "jiji-line-improvement",
     title: "台鐵集集線改善統包工程",
     category: "設計",
@@ -321,9 +433,32 @@ export const projects: Project[] = [
     slug: "n3-373k-slope-repair",
     title: "國道3號南下373k+300 邊坡修復工程",
     category: "邊坡",
-    photoCount: 8,
+    photoCount: 16,
+    rocYear: 109,
+    rocYearEnd: 110,
     cardImage: "/images/projects/n3-373k/card-cover.webp",
     cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/n3-373k-supervision/card-cover.webp",
+      location: "國道3號南下373k路段",
+      period: "民國109年至110年（2020–2021）",
+      summary:
+        "新增提供的監造影像與既有國道3號南下373k+300邊坡案例屬同一路段工程，因此整合於本頁呈現，不另建立重複案例。現階段內容涵蓋平台截水溝、鋼筋組立及現場查驗紀錄；完整工程範圍與成果說明，將於專案資料確認後補充。",
+      scope: [
+        "邊坡修復工程影像紀錄",
+        "平台截水與排水設施施工紀錄",
+        "鋼筋組立及施工品質查驗",
+        "監造技術服務現場紀錄",
+      ],
+      sections: [],
+      photos: [
+        { src: "/images/projects/n3-373k-supervision/channel-work.webp", caption: "平台截水溝施工紀錄" },
+        { src: "/images/projects/n3-373k-supervision/site-inspection.webp", caption: "現場工程查驗" },
+        { src: "/images/projects/n3-373k-supervision/drainage-inspection.webp", caption: "排水設施完成面查驗" },
+        { src: "/images/projects/n3-373k-supervision/rebar-inspection.webp", caption: "平台截水溝鋼筋查驗" },
+      ],
+    },
   },
   {
     slug: "tai9-rockfall-net",

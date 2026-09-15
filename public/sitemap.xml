@@ -41,6 +41,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.geofield.tw/projects/chiayi-dapu-disaster-repair</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.geofield.tw/projects/moon-world-design-supervision</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.geofield.tw/projects/kaohsiung-scenic-area-supervision</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.geofield.tw/projects/chiayi-135-2-disaster-restoration</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.geofield.tw/projects/n3-373k-slope-repair</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.geofield.tw/news</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

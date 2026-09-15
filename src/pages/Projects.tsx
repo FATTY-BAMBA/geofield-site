@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react";
 
 // 由資料自動產生分類，日後新增分類無須再改這裡
 const categories: Array<"全部" | ProjectCategory> = [
@@ -13,7 +14,15 @@ const categories: Array<"全部" | ProjectCategory> = [
 
 export default function Projects() {
   const [cat, setCat] = useState<(typeof categories)[number]>("全部");
+  const [showAll, setShowAll] = useState(false);
   const filtered = cat === "全部" ? projects : projects.filter((p) => p.category === cat);
+  const visible = cat === "全部" && !showAll ? filtered.slice(0, 12) : filtered;
+  const remaining = filtered.length - visible.length;
+
+  const selectCategory = (category: (typeof categories)[number]) => {
+    setCat(category);
+    setShowAll(false);
+  };
 
   return (
     <>
@@ -31,7 +40,7 @@ export default function Projects() {
               {categories.map((c) => (
                 <button
                   key={c}
-                  onClick={() => setCat(c)}
+                  onClick={() => selectCategory(c)}
                   aria-pressed={cat === c}
                   className={cn(
                     "min-h-11 rounded-full px-5 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2",
@@ -50,12 +59,25 @@ export default function Projects() {
           </Reveal>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((p, i) => (
+            {visible.map((p, i) => (
               <Reveal key={p.title} delay={0.05 * (i % 6)} className="h-full">
                 <ProjectCard project={p} />
               </Reveal>
             ))}
           </div>
+
+          {cat === "全部" && remaining > 0 && (
+            <div className="mt-10 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAll(true)}
+                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-900 shadow-sm ring-1 ring-sand-200 transition hover:-translate-y-0.5 hover:shadow-md hover:ring-brand-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2"
+              >
+                查看更多工程實績（{remaining}）
+                <ChevronDown className="h-4 w-4 text-emerald2-600" aria-hidden="true" />
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </>
