@@ -179,6 +179,52 @@ const FANGYE_TUNNEL_DIR = "/images/projects/fangye-tunnel";
 
 export const projects: Project[] = [
   {
+    slug: "gangshan-huaxing-factory-investigation",
+    title: "高雄市岡山區華興段廠房地質調查",
+    category: "鑽探",
+    photoCount: 18,
+    cardImage: "/images/projects/gangshan-huaxing-factory-investigation/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/gangshan-huaxing-factory-investigation/card-cover.webp",
+      location: "高雄市岡山區華興段",
+      summary:
+        "本頁依目前已提供的工程影像，呈現岡山區華興段廠房基地的現地鑽探、取樣與地電阻量測作業。完整委託單位、調查孔數、試驗項目、執行期間及成果說明，將於專案資料確認後補充。",
+      scope: ["廠房基地現況調查", "現地鑽探與取樣", "地電阻現場量測", "調查設備與作業紀錄"],
+      sections: [],
+      photos: [
+        { src: "/images/projects/gangshan-huaxing-factory-investigation/drilling.webp", caption: "廠房基地現地鑽探作業" },
+        { src: "/images/projects/gangshan-huaxing-factory-investigation/resistivity-field.webp", caption: "基地地電阻量測配置" },
+        { src: "/images/projects/gangshan-huaxing-factory-investigation/resistivity-equipment.webp", caption: "地電阻量測設備與現場作業" },
+        { src: "/images/projects/gangshan-huaxing-factory-investigation/site-context.webp", caption: "廠房基地與周邊環境" },
+      ],
+    },
+  },
+  {
+    slug: "kaohsiung-metro-ym01-investigation",
+    title: "高捷YM01鳥松機廠地質調查",
+    category: "鑽探",
+    photoCount: 17,
+    cardImage: "/images/projects/kaohsiung-metro-ym01-investigation/card-cover.webp",
+    cardImageFit: "cover",
+    detail: {
+      contentStatus: "image-record",
+      heroImage: "/images/projects/kaohsiung-metro-ym01-investigation/card-cover.webp",
+      location: "高雄市鳥松區",
+      summary:
+        "本頁依目前已提供的工程影像，呈現高捷YM01鳥松機廠基地的現況、鑽探、現場量測與整地作業紀錄。完整委託單位、調查孔數、試驗項目、執行期間及成果說明，將於專案資料確認後補充。",
+      scope: ["機廠基地現況調查", "現地鑽探作業", "現場量測與設備紀錄", "基地整地與設施現況紀錄"],
+      sections: [],
+      photos: [
+        { src: "/images/projects/kaohsiung-metro-ym01-investigation/site-earthwork.webp", caption: "基地整地與現場環境" },
+        { src: "/images/projects/kaohsiung-metro-ym01-investigation/field-measurement.webp", caption: "基地現場量測作業" },
+        { src: "/images/projects/kaohsiung-metro-ym01-investigation/drilling.webp", caption: "現地鑽探作業紀錄" },
+        { src: "/images/projects/kaohsiung-metro-ym01-investigation/site-structure.webp", caption: "基地排水設施與施工現況" },
+      ],
+    },
+  },
+  {
     slug: "taitung-railway-tunnel-inspection",
     title: "臺鐵局台東工務段隧道檢測",
     category: "隧道",
