@@ -32,10 +32,10 @@ export function Header() {
           <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5">
             <img src="/images/logo.jpg" alt="大域工程標誌" className="h-9 w-9 object-contain" />
           </span>
-          <span className="leading-tight">
+          <span className="inline-grid min-w-0 leading-tight">
             <span
               className={cn(
-                "block text-lg font-bold tracking-wide transition-colors sm:text-xl",
+                "block text-lg font-bold tracking-wide transition-colors sm:whitespace-nowrap sm:text-xl",
                 solid ? "text-brand-900" : "text-white"
               )}
             >
@@ -43,11 +43,11 @@ export function Header() {
             </span>
             <span
               className={cn(
-                "mt-1 hidden text-sm font-semibold transition-colors sm:block",
+                "mt-1 hidden w-0 min-w-full justify-between text-[13px] font-semibold leading-5 transition-colors sm:flex",
                 solid ? "text-brand-600" : "text-white/80"
               )}
             >
-              {company.nameEn}
+              {company.shortNameEn.split(" ").map((word) => <span key={word}>{word}</span>)}
             </span>
           </span>
         </Link>

@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import {
   ArrowRight,
   Award,
-  Drill,
   Layers,
   MapPin,
   ShieldCheck,
@@ -16,6 +15,7 @@ import { Counter } from "@/components/Counter";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProjectCard } from "@/components/ProjectCard";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
 
 const featuredServiceIds = new Set(["hydro", "tunnel", "slope", "excavation", "monitoring", "conservation"]);
 const featuredServices = services.filter((service) => featuredServiceIds.has(service.id));
@@ -98,51 +98,9 @@ function Hero() {
           </Reveal>
         </div>
 
-        {/* 3D visual */}
+        {/* Curated engineering and event images */}
         <Reveal delay={0.2} direction="right" className="relative">
-          <div className="relative mx-auto max-w-[560px]">
-            <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-emerald2-500/20 via-transparent to-brand-600/30 blur-2xl" />
-            <Link
-              to="/about#equipment"
-              className="group relative block overflow-hidden rounded-[1.75rem] ring-1 ring-white/20 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-400"
-              aria-label="查看大域工程現地調查設備"
-            >
-              <img
-                src="/images/hero-strata.png"
-                alt="大地工程鑽探 3D 剖面示意"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-transparent to-transparent" />
-              <span className="absolute right-5 bottom-5 inline-flex items-center gap-2 rounded-xl bg-brand-950/85 px-4 py-3 text-caption font-bold text-white shadow-xl backdrop-blur transition-all">
-                查看現地調查設備
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-
-            {/* Floating chips */}
-            <div className="absolute -left-2 top-4 rounded-2xl bg-white/95 px-3 py-2 shadow-xl backdrop-blur sm:-left-4 sm:top-8 sm:animate-float sm:px-4 sm:py-3 md:-left-8">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-900 text-emerald2-400">
-                  <Drill className="h-4.5 w-4.5" />
-                </span>
-                <div>
-                  <p className="text-caption font-bold text-brand-900">CPT 圓錐貫入試驗</p>
-                  <p className="hidden text-sm font-semibold tracking-wide text-slate-600 uppercase sm:block">In-situ Testing</p>
-                </div>
-              </div>
-            </div>
-            <div className="absolute -right-2 bottom-20 rounded-2xl bg-white/95 px-3 py-2 shadow-xl backdrop-blur sm:-right-3 sm:bottom-24 sm:animate-float-slow sm:px-4 sm:py-3 md:-right-6">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald2-500 text-white">
-                  <Layers className="h-4.5 w-4.5" />
-                </span>
-                <div>
-                  <p className="text-caption font-bold text-brand-900">地層剖面分析</p>
-                  <p className="hidden text-sm font-semibold tracking-wide text-slate-600 uppercase sm:block">Strata Analysis</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HeroSlideshow />
         </Reveal>
       </div>
 
