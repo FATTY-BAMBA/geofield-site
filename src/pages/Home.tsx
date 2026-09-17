@@ -28,20 +28,20 @@ function Hero() {
       <div className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full bg-brand-600/25 blur-3xl" />
       <div className="absolute top-1/3 -right-32 h-[420px] w-[420px] rounded-full bg-emerald2-500/12 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-[1440px] items-center gap-14 px-5 pt-14 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-20 lg:pb-24">
-        {/* Copy */}
-        <div>
-          <Reveal>
-            <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-emerald2-400 animate-pulse-ring" />
-              <span className="text-sm font-bold tracking-[0.2em] text-white/80 uppercase">
-                民國{company.foundedRoc}年創立 · 高雄 Kaohsiung
-              </span>
-            </div>
-          </Reveal>
+      <div className="relative mx-auto grid max-w-[1440px] items-start gap-x-14 gap-y-7 px-5 pt-14 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-20 lg:pb-24">
+        <Reveal className="lg:col-span-2">
+          <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-emerald2-400 animate-pulse-ring" />
+            <span className="text-sm font-bold tracking-[0.2em] text-white/80 uppercase">
+              民國{company.foundedRoc}年創立 · 高雄 Kaohsiung
+            </span>
+          </div>
+        </Reveal>
 
+        {/* The headline and slideshow share a row so their top edges stay aligned. */}
+        <div>
           <Reveal delay={0.08}>
-            <h1 className="editorial-heading mt-7 text-5xl font-black leading-[1.12] text-white md:text-6xl">
+            <h1 className="editorial-heading text-5xl font-black leading-[1.12] text-white md:text-6xl">
               為未來，
               <br />
               <span className="text-gradient-emerald">打好基礎。</span>
@@ -99,7 +99,7 @@ function Hero() {
         </div>
 
         {/* Curated engineering and event images */}
-        <Reveal delay={0.2} direction="right" className="relative">
+        <Reveal delay={0.2} direction="right" className="relative mt-7 lg:mt-0">
           <HeroSlideshow />
         </Reveal>
       </div>
