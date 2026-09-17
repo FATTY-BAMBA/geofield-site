@@ -24,11 +24,11 @@ const featuredServices = services.filter((service) => featuredServiceIds.has(ser
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-brand-950 pt-20 xl:pt-[88px]">
-      <div className="absolute inset-0 bg-grid-dark" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-grid-dark opacity-60" />
       <div className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full bg-brand-600/25 blur-3xl" />
       <div className="absolute top-1/3 -right-32 h-[420px] w-[420px] rounded-full bg-emerald2-500/12 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-[1440px] items-start gap-x-14 gap-y-7 px-5 pt-14 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-20 lg:pb-24">
+      <div className="relative mx-auto grid max-w-[1440px] items-start gap-x-14 gap-y-7 px-5 pt-10 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-14 lg:pb-24">
         <Reveal className="lg:col-span-2">
           <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-emerald2-400 animate-pulse-ring" />
@@ -81,7 +81,7 @@ function Hero() {
                 <Link
                   key={s.label}
                   to={s.href}
-                  className="group rounded-xl border border-white/50 bg-white/5 p-3 outline-none transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald2-400"
+                  className="group rounded-xl border border-white/25 bg-white/5 p-3 outline-none transition-[transform,background-color,border-color] hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10 focus-visible:border-white/50 focus-visible:bg-white/10 focus-visible:ring-2 focus-visible:ring-emerald2-400 motion-reduce:transform-none"
                   aria-label={`查看${s.label}`}
                 >
                   <p className="text-3xl font-black text-white md:text-4xl">
