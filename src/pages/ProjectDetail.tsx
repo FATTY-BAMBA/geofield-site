@@ -12,26 +12,26 @@ function MaintenanceCycleVisual() {
     <div className="relative h-full min-h-[360px] overflow-hidden rounded-3xl bg-brand-950 p-7 text-white ring-1 ring-white/10 lg:p-9">
       <div className="absolute inset-0 bg-grid-dark opacity-45" />
       <div className="relative">
-        <p className="text-xs font-bold tracking-[0.22em] text-emerald2-300 uppercase">Maintenance Framework</p>
+        <p className="text-sm font-bold tracking-[0.22em] text-emerald2-300 uppercase">Maintenance Framework</p>
         <h4 className="editorial-heading mt-3 text-2xl font-extrabold">以維管資料串聯每一次判斷</h4>
         <ol className="mt-7 grid grid-cols-2 gap-x-5 gap-y-3 sm:grid-cols-5 lg:grid-cols-2 xl:grid-cols-5">
           {maintenanceSteps.map((step, index) => (
             <li key={step} className="border-l-2 border-emerald2-500/65 pl-3">
-              <span className="block text-xs font-black tracking-wider text-emerald2-300">
+              <span className="block text-sm font-black tracking-wider text-emerald2-300">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="mt-1 block text-sm font-bold text-white/90">{step}</span>
+              <span className="mt-1 block text-caption font-bold text-white/90">{step}</span>
             </li>
           ))}
         </ol>
         <div className="mt-8 grid gap-3 border-t border-white/15 pt-6 sm:grid-cols-2">
           <div className="rounded-2xl bg-amber-400/10 p-4 ring-1 ring-amber-300/20">
-            <span className="text-xs font-bold text-amber-200">具立即性風險</span>
-            <p className="mt-1 text-sm leading-relaxed text-white/70">納入主動管理，安排補修、補強或更新。</p>
+            <span className="text-sm font-bold text-amber-200">具立即性風險</span>
+            <p className="mt-1 text-caption leading-relaxed text-white/80">納入主動管理，安排補修、補強或更新。</p>
           </div>
           <div className="rounded-2xl bg-emerald2-500/10 p-4 ring-1 ring-emerald2-400/20">
-            <span className="text-xs font-bold text-emerald2-200">無立即性風險</span>
-            <p className="mt-1 text-sm leading-relaxed text-white/70">保留基準資料，依週期持續追蹤。</p>
+            <span className="text-sm font-bold text-emerald2-200">無立即性風險</span>
+            <p className="mt-1 text-caption leading-relaxed text-white/80">保留基準資料，依週期持續追蹤。</p>
           </div>
         </div>
       </div>
@@ -58,23 +58,23 @@ export default function ProjectDetail() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-brand-950 pt-[72px]">
+      <section className="relative overflow-hidden bg-brand-950 pt-20 xl:pt-[88px]">
         <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/90 to-brand-950/40" />
-        <div className="relative mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
+        <div className="relative mx-auto max-w-[1440px] px-5 py-16 lg:px-8 lg:py-20">
           <Reveal>
             <Link
               to="/projects"
-              className="inline-flex items-center gap-1.5 text-[13px] text-white/60 transition-colors hover:text-white"
+              className="action-button action-inverse"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               返回工程實績
             </Link>
-            <p className="mt-6 text-xs font-bold tracking-[0.3em] text-emerald2-400 uppercase">Case Study</p>
+            <p className="mt-6 text-sm font-bold tracking-[0.3em] text-emerald2-400 uppercase">Case Study</p>
             <h1 className="editorial-heading mt-3 max-w-3xl text-3xl font-extrabold leading-[1.18] text-white md:text-5xl">
               {project.title}
             </h1>
-            <span className="mt-5 inline-block rounded-full bg-emerald2-500/15 px-4 py-1.5 text-sm font-bold text-emerald2-300">
+            <span className="mt-5 inline-block rounded-full bg-emerald2-500/15 px-4 py-1.5 text-caption font-bold text-emerald2-300">
               {project.category}
             </span>
           </Reveal>
@@ -84,27 +84,27 @@ export default function ProjectDetail() {
 
       {/* 專案概述 + 工作項目 */}
       <section className="bg-white py-16 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.35fr_0.65fr] lg:px-8">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 lg:grid-cols-[1.35fr_0.65fr] lg:px-8">
           <Reveal>
             <SectionHeading eyebrow="Overview" title="專案概述" />
             {isImageRecord && (
               <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4">
-                <p className="text-sm font-extrabold text-amber-900">工程影像已先行整理</p>
-                <p className="mt-1 text-sm leading-relaxed text-amber-800/80">
+                <p className="text-caption font-extrabold text-amber-900">工程影像已先行整理</p>
+                <p className="mt-1 text-caption leading-relaxed text-amber-800/80">
                   本頁先呈現目前可確認的專案名稱與現場影像；完整工作內容與成果將於公司資料確認後更新。
                 </p>
               </div>
             )}
-            <p className="editorial-copy mt-6 text-base text-slate-600 md:text-[17px]">{d.summary}</p>
+            <p className="editorial-copy mt-6 text-body text-slate-600">{d.summary}</p>
             {meta.length > 0 && (
               <dl className="mt-8 grid gap-4 sm:grid-cols-3">
                 {meta.map(({ icon: Icon, label, value }) => (
                   <div key={label} className="rounded-2xl bg-sand-50 p-5 ring-1 ring-sand-200">
-                    <dt className="flex items-center gap-2 text-xs font-bold tracking-wider text-slate-400 uppercase">
+                    <dt className="flex items-center gap-2 text-sm font-bold tracking-wider text-slate-600 uppercase">
                       <Icon className="h-3.5 w-3.5" />
                       {label}
                     </dt>
-                    <dd className="mt-2 text-base font-bold text-brand-900">{value}</dd>
+                    <dd className="mt-2 text-body font-bold text-brand-900">{value}</dd>
                   </div>
                 ))}
               </dl>
@@ -117,10 +117,10 @@ export default function ProjectDetail() {
               <ul className="mt-6 space-y-4">
                 {d.scope.map((s, i) => (
                   <li key={s} className="flex gap-3.5">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-emerald2-500/20 text-xs font-black text-emerald2-300">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-emerald2-500/20 text-sm font-black text-emerald2-300">
                       {i + 1}
                     </span>
-                    <span className="text-base leading-relaxed text-white/80">{s}</span>
+                    <span className="text-body leading-relaxed text-white/80">{s}</span>
                   </li>
                 ))}
               </ul>
@@ -132,7 +132,7 @@ export default function ProjectDetail() {
       {/* 技術作業內容 */}
       {d.sections.length > 0 && (
         <section className="bg-sand-50 py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
             <Reveal>
               <SectionHeading
                 eyebrow="Methodology"
@@ -162,19 +162,19 @@ export default function ProjectDetail() {
                       )}
                     </div>
                     <div className={i % 2 === 1 ? "lg:order-1" : undefined}>
-                      <p className="text-xs font-black tracking-[0.2em] text-emerald2-600 uppercase">
+                      <p className="text-sm font-black tracking-[0.2em] text-emerald2-600 uppercase">
                         {String(i + 1).padStart(2, "0")} / {String(d.sections.length).padStart(2, "0")}
                       </p>
                       <h3 className="editorial-heading mt-3 text-2xl font-extrabold leading-snug text-brand-900 lg:text-3xl">
                         {sec.title}
                       </h3>
-                      <p className="editorial-copy mt-5 text-base text-slate-600 md:text-[17px]">{sec.body}</p>
+                      <p className="editorial-copy mt-5 text-body text-slate-600">{sec.body}</p>
                       {sec.bullets && (
                         <ul className="mt-6 flex flex-wrap gap-2">
                           {sec.bullets.map((b) => (
                             <li
                               key={b}
-                              className="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-brand-900 ring-1 ring-sand-200"
+                              className="rounded-full bg-white px-3 py-1.5 text-sm font-bold text-brand-900 ring-1 ring-sand-200"
                             >
                               {b}
                             </li>
@@ -193,7 +193,7 @@ export default function ProjectDetail() {
       {/* 工程照片 */}
       {d.photos && d.photos.length > 0 && (
         <section className="bg-white py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
             <Reveal>
               <SectionHeading
                 eyebrow="Field Record"
@@ -233,21 +233,21 @@ export default function ProjectDetail() {
 
       {/* CTA */}
       <section className="bg-brand-900 py-16 lg:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-6 px-5 text-center lg:px-8">
           <h3 className="text-2xl font-extrabold text-white">有類似的工程需求？</h3>
-          <p className="max-w-lg text-base leading-relaxed text-white/65">
+          <p className="max-w-lg text-body leading-relaxed text-white/80">
             請提供場址、設施現況與工作需求，我們將依現地條件建議適合的調查與評估項目。
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               to="/contact"
-              className="rounded-xl bg-emerald2-500 px-6 py-3 text-sm font-bold text-white transition-all hover:-translate-y-0.5"
+              className="action-button action-primary"
             >
               聯絡我們
             </Link>
             <Link
               to="/projects"
-              className="rounded-xl border-2 border-white/25 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-white/10"
+              className="action-button action-inverse"
             >
               查看其他實績
             </Link>

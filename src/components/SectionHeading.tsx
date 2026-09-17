@@ -13,7 +13,7 @@ export function SectionHeading({ eyebrow, title, description, align = "left", da
     <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center")}>
       <div className={cn("flex items-center gap-3.5", align === "center" && "justify-center")}>
         <span className="h-[3px] w-10 rounded-full bg-emerald2-500" />
-        <span className="text-[13px] font-extrabold leading-[1.4] tracking-[0.18em] text-emerald2-500 uppercase md:text-sm">
+        <span className={cn("text-caption font-extrabold leading-[1.5] tracking-[0.12em] uppercase", dark ? "text-emerald2-300" : "text-emerald2-700")}>
           {eyebrow}
         </span>
       </div>
@@ -26,7 +26,7 @@ export function SectionHeading({ eyebrow, title, description, align = "left", da
         {title}
       </h2>
       {description && (
-        <p className={cn("editorial-copy mt-4 text-base md:text-[17px]", dark ? "text-white/70" : "text-slate-600")}>
+        <p className={cn("editorial-copy mt-4 text-body", dark ? "text-white/80" : "text-slate-600")}>
           {description}
         </p>
       )}

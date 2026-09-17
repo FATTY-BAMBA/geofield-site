@@ -41,9 +41,10 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-body text-foreground antialiased;
     font-feature-settings: "ss01", "cv05";
     line-break: strict;
     text-rendering: optimizeLegibility;
@@ -61,6 +62,33 @@
     background: #114359;
     border-radius: 8px;
     border: 2px solid #eff4f4;
+  }
+}
+
+@layer components {
+  /* Shared, visible actions for links, card actions, and filter controls. */
+  .action-button {
+    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border-2 px-6 py-3 text-lg font-bold leading-normal transition-colors;
+  }
+  .action-primary {
+    @apply border-emerald2-700 bg-emerald2-700 text-white hover:border-emerald2-800 hover:bg-emerald2-800;
+  }
+  .action-secondary {
+    @apply border-brand-700 bg-white text-brand-900 hover:bg-brand-50;
+  }
+  .action-inverse {
+    @apply border-white/70 bg-white/10 text-white hover:bg-white/20;
+  }
+  .filter-button {
+    @apply inline-flex min-h-[52px] items-center justify-center rounded-xl border-2 border-brand-500 bg-white px-6 py-3 text-lg font-bold leading-normal text-brand-900 shadow-sm transition-colors hover:bg-brand-100;
+    text-wrap: balance;
+  }
+  .filter-button[aria-pressed="true"] {
+    @apply border-brand-900 bg-brand-900 text-white shadow-md;
+  }
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 3px solid #2E7590;
+    outline-offset: 4px;
   }
 }
 

@@ -7,7 +7,7 @@ const categoryStyles: Record<string, string> = {
   鑽探: "bg-brand-900/90 text-emerald2-300",
   邊坡: "bg-emerald2-600/90 text-white",
   監造: "bg-white/90 text-brand-900",
-  隧道: "bg-emerald2-500/90 text-white",
+  隧道: "bg-emerald2-700/95 text-white",
 };
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -35,7 +35,7 @@ export function ProjectCard({ project }: { project: Project }) {
       {usesTechnicalBackdrop ? (
         <>
           <div className="flex min-h-11 shrink-0 items-center border-b border-sand-200 bg-sand-50/90 px-5">
-            <span className="text-sm font-extrabold tracking-[0.08em] text-emerald2-700">
+            <span className="text-caption font-extrabold tracking-[0.08em] text-emerald2-700">
               {project.category}
             </span>
           </div>
@@ -61,7 +61,7 @@ export function ProjectCard({ project }: { project: Project }) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-transparent" />
             <span
-              className={`absolute top-4 left-4 z-20 rounded-full px-3 py-1 text-xs font-bold shadow-sm backdrop-blur ${categoryStyles[project.category]}`}
+              className={`absolute top-4 left-4 z-20 rounded-full px-3 py-1 text-caption font-bold shadow-sm backdrop-blur ${categoryStyles[project.category]}`}
             >
               {project.category}
             </span>
@@ -69,19 +69,21 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       )}
       <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-center gap-2 text-sm font-bold tracking-wide text-slate-500">
+        <div className="flex items-center gap-2 text-caption font-bold tracking-wide text-slate-600">
           {yearLabel && <CalendarDays className="h-3.5 w-3.5 text-emerald2-500" />}
           <span>{yearLabel ?? scopeLabels[project.category]}</span>
         </div>
-        <h3 className="editorial-heading mt-3 text-lg font-bold leading-[1.55] text-brand-900 transition-colors group-hover:text-emerald2-600">
+        <h3 className="editorial-heading mt-3 text-xl font-bold leading-[1.55] lg:text-2xl text-brand-900 transition-colors group-hover:text-emerald2-600">
           {project.title}
         </h3>
-        <div className="mt-auto flex min-h-11 items-center justify-between border-t border-sand-200 pt-4 text-base font-bold">
-          <span className={hasDetail ? "text-emerald2-600" : "text-slate-400"}>
-            {hasDetail ? (isImageRecord ? "查看工程影像" : "查看完整案例") : "工程實績"}
-          </span>
-          {hasDetail && (
-            <ArrowRight className="h-4 w-4 shrink-0 text-emerald2-500 transition-transform group-hover:translate-x-1" />
+        <div className="mt-auto pt-6">
+          {hasDetail ? (
+            <span className="action-button action-primary w-full">
+              {isImageRecord ? "查看工程影像" : "查看完整案例"}
+              <ArrowRight aria-hidden="true" className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
+            </span>
+          ) : (
+            <p className="border-t border-sand-200 pt-4 text-caption text-slate-600">工程實績</p>
           )}
         </div>
       </div>
@@ -89,7 +91,7 @@ export function ProjectCard({ project }: { project: Project }) {
   );
 
   const shell =
-    "group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.2)] hover:ring-brand-200";
+    "group flex h-full flex-col overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(13,59,76,0.2)] hover:ring-brand-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-4";
 
   // 已建立詳細內容者才連結至內頁；其餘維持原本的靜態卡片。
   return hasDetail ? (

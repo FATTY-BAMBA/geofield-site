@@ -56,7 +56,7 @@ export default function About() {
 
       {/* Company introduction */}
       <section className="bg-sand-50 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <div className="grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
             <Reveal direction="left">
               <div className="relative">
@@ -88,7 +88,7 @@ export default function About() {
                   <p className="text-3xl font-black text-emerald2-400">
                     <Counter target={30} suffix="+" />
                   </p>
-                  <p className="text-xs font-semibold tracking-wider text-white/70">年工程顧問經驗</p>
+                  <p className="text-sm font-semibold tracking-wider text-white/80">年工程顧問經驗</p>
                 </div>
               </div>
             </Reveal>
@@ -105,12 +105,12 @@ export default function About() {
                 {aboutTabs.map((item, index) => (
                   <Reveal key={item.key} delay={0.06 * index}>
                     <article className="grid gap-3 rounded-2xl bg-white p-6 ring-1 ring-sand-200 sm:grid-cols-[52px_1fr]">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-900 text-sm font-black text-emerald2-300">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-900 text-caption font-black text-emerald2-300">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <div>
                         <h2 className="text-lg font-extrabold text-brand-900">{item.label}</h2>
-                        <p className="editorial-copy mt-2 text-base text-slate-600">{item.content}</p>
+                        <p className="editorial-copy mt-2 text-body text-slate-600">{item.content}</p>
                       </div>
                     </article>
                   </Reveal>
@@ -123,15 +123,15 @@ export default function About() {
 
       {/* Stats band */}
       <section className="border-y border-sand-200 bg-white py-14">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-5 sm:grid-cols-4 lg:px-8">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-10 px-5 sm:grid-cols-4 lg:px-8">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={0.06 * i}>
               <div className="text-center">
                 <p className="text-4xl font-black text-brand-900">
                   <Counter target={s.value} suffix={s.suffix} />
                 </p>
-                <p className="mt-2 text-sm font-bold text-slate-700">{s.label}</p>
-                <p className="mt-0.5 text-xs font-semibold leading-tight tracking-[0.08em] text-slate-400 uppercase">{s.labelEn}</p>
+                <p className="mt-2 text-caption font-bold text-slate-700">{s.label}</p>
+                <p className="mt-0.5 text-sm font-semibold leading-tight tracking-[0.08em] text-slate-600 uppercase">{s.labelEn}</p>
               </div>
             </Reveal>
           ))}
@@ -140,7 +140,7 @@ export default function About() {
 
       {/* Milestones */}
       <section className="bg-sand-50 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading eyebrow="Company at a Glance · 公司概況" title="民國82年成立，持續累積工程經驗" align="center" />
           </Reveal>
@@ -150,12 +150,12 @@ export default function About() {
               {milestones.map((m, i) => (
                 <Reveal key={m.year} delay={0.08 * i}>
                   <div className="relative text-center">
-                    <span className="relative z-10 inline-flex h-12 items-center rounded-full bg-brand-900 px-5 text-sm font-bold tracking-wide text-emerald2-300 shadow-lg">
+                    <span className="relative z-10 inline-flex h-12 items-center rounded-full bg-brand-900 px-5 text-caption font-bold tracking-wide text-emerald2-300 shadow-lg">
                       {m.year}
                     </span>
                     <div className="mt-5 rounded-2xl bg-white p-6 ring-1 ring-sand-200">
-                      <p className="text-base font-bold text-brand-900">{m.title}</p>
-                      <p className="mt-2 text-base leading-[1.75] text-slate-600">{m.desc}</p>
+                      <p className="text-body font-bold text-brand-900">{m.title}</p>
+                      <p className="mt-2 text-body leading-[1.75] text-slate-600">{m.desc}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -167,7 +167,7 @@ export default function About() {
 
       {/* Integrated workflow */}
       <section className="bg-white py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="How We Work · 工作流程"
@@ -182,11 +182,11 @@ export default function About() {
               {workflowSteps.map((item, index) => (
                 <Reveal key={item.step} delay={0.07 * index}>
                   <article className="relative h-full rounded-2xl bg-sand-50 p-6 ring-1 ring-sand-200">
-                    <span className="relative z-10 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-900 text-sm font-black tracking-wider text-emerald2-300 shadow-lg">
+                    <span className="relative z-10 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-900 text-caption font-black tracking-wider text-emerald2-300 shadow-lg">
                       {item.step}
                     </span>
                     <h2 className="mt-5 text-xl font-extrabold text-brand-900">{item.title}</h2>
-                    <p className="mt-2 text-base leading-[1.75] text-slate-600">{item.desc}</p>
+                    <p className="mt-2 text-body leading-[1.75] text-slate-600">{item.desc}</p>
                   </article>
                 </Reveal>
               ))}
@@ -198,7 +198,7 @@ export default function About() {
       {/* Values */}
       <section className="relative overflow-hidden bg-brand-950 py-16 lg:py-24">
         <div className="absolute inset-0 bg-grid-dark" />
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="relative mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading dark align="center" eyebrow="Core Values · 經營理念" title="專業 · 誠信 · 創新 · 服務" />
           </Reveal>
@@ -210,7 +210,7 @@ export default function About() {
                     <v.icon className="h-6 w-6" />
                   </span>
                   <p className="mt-4 text-lg font-extrabold text-white">{v.title}</p>
-                  <p className="mt-2 text-base leading-[1.75] text-white/65">{v.desc}</p>
+                  <p className="mt-2 text-body leading-[1.75] text-white/80">{v.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -220,7 +220,7 @@ export default function About() {
 
       {/* Equipment and methods */}
       <section id="equipment" className="scroll-mt-24 bg-white py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="Equipment & Methods · 設備與技術"
@@ -247,7 +247,7 @@ export default function About() {
                     </span>
                     <div>
                       <h2 className="text-lg font-extrabold text-brand-900">{title}</h2>
-                      <p className="mt-2 text-base leading-[1.75] text-slate-600">{desc}</p>
+                      <p className="mt-2 text-body leading-[1.75] text-slate-600">{desc}</p>
                     </div>
                   </div>
                 </article>
@@ -260,12 +260,12 @@ export default function About() {
               <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
                 <div className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
                   <p className="text-6xl font-black text-emerald2-300">2</p>
-                  <p className="mt-1 text-xs font-bold tracking-[0.18em] text-white/45 uppercase">Truck-mounted CPT Systems</p>
+                  <p className="mt-1 text-sm font-bold tracking-[0.18em] text-white/80 uppercase">Truck-mounted CPT Systems</p>
                   <h2 className="mt-6 text-2xl font-black leading-tight md:text-3xl">雙車配置的車載式 CPT 現地試驗系統</h2>
-                  <p className="editorial-copy mt-4 text-base text-white/70">
+                  <p className="editorial-copy mt-4 text-body text-white/80">
                     兩部試驗車均可依案件需求投入現地調查，並於車內完成即時資料擷取與深度剖面檢視。
                   </p>
-                  <ul className="mt-6 space-y-3 text-sm font-semibold text-white/75">
+                  <ul className="mt-6 space-y-3 text-caption font-semibold text-white/75">
                     {["雙車皆可投入現地作業", "即時取得連續地層資料", "試驗成果支援工程判讀"].map((item) => (
                       <li key={item} className="flex items-center gap-2.5">
                         <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald2-300" />
@@ -283,7 +283,7 @@ export default function About() {
                         loading="lazy"
                         className="aspect-[4/3] h-full w-full object-cover transition-transform duration-700 hover:scale-[1.035]"
                       />
-                      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-950/95 to-transparent px-4 pt-10 pb-3 text-xs font-bold text-white">
+                      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-950/95 to-transparent px-4 pt-10 pb-3 text-sm font-bold text-white">
                         {item.title}
                       </figcaption>
                     </figure>
@@ -297,14 +297,14 @@ export default function About() {
 
       {/* Closing call to action */}
       <section className="border-t border-sand-200 bg-sand-50 py-16 lg:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-5 lg:flex-row lg:items-center lg:px-8">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-8 px-5 lg:flex-row lg:items-center lg:px-8">
           <Reveal>
             <div>
-              <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Work With GeoField · 與大域合作</p>
+              <p className="text-sm font-bold tracking-[0.2em] text-emerald2-600 uppercase">Work With GeoField · 與大域合作</p>
               <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight text-brand-900 md:text-4xl">
                 從工程需求與現地條件開始，建立合適的技術方案
               </h2>
-              <p className="editorial-copy mt-4 max-w-2xl text-base text-slate-600 md:text-[17px]">
+              <p className="editorial-copy mt-4 max-w-2xl text-body text-slate-600">
                 提供工程位置、工作需求與預計時程，我們將協助確認適合的調查、設計、監造、檢測或監測服務。
               </p>
             </div>
@@ -313,14 +313,14 @@ export default function About() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/services"
-                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-brand-900 ring-1 ring-sand-300 transition hover:-translate-y-0.5 hover:ring-brand-300"
+                className="action-button action-secondary"
               >
                 查看服務項目
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald2-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-emerald2-600/20 transition hover:-translate-y-0.5 hover:bg-emerald2-500"
+                className="action-button action-primary"
               >
                 聯絡我們
                 <ArrowRight className="h-4 w-4" />

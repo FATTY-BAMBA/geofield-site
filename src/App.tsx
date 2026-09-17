@@ -125,7 +125,7 @@ export default function App() {
       <ScrollToTop />
       <RouteMeta />
       <Header />
-      <main>
+      <main className="overflow-x-clip">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

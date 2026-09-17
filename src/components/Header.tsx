@@ -6,8 +6,9 @@ import { cn } from "@/lib/utils";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
   const location = useLocation();
+  const [menuLocation, setMenuLocation] = useState<string | null>(null);
+  const open = menuLocation === location.key;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -15,10 +16,6 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
 
   const solid = scrolled || open;
 
@@ -29,16 +26,16 @@ export function Header() {
         solid ? "bg-white/95 backdrop-blur-md shadow-[0_2px_20px_rgba(7,35,46,0.08)]" : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between gap-4 px-5 xl:h-[88px] lg:px-8">
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5">
+        <Link to="/" onClick={() => setMenuLocation(null)} className="flex min-w-0 items-center gap-3">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5">
             <img src="/images/logo.jpg" alt="大域工程標誌" className="h-9 w-9 object-contain" />
           </span>
           <span className="leading-tight">
             <span
               className={cn(
-                "block text-base font-bold tracking-wide transition-colors",
+                "block text-lg font-bold tracking-wide transition-colors sm:text-xl",
                 solid ? "text-brand-900" : "text-white"
               )}
             >
@@ -46,8 +43,8 @@ export function Header() {
             </span>
             <span
               className={cn(
-                "mt-0.5 block text-xs font-semibold tracking-[0.06em] transition-colors",
-                solid ? "text-brand-600" : "text-white/60"
+                "mt-1 hidden text-sm font-semibold transition-colors sm:block",
+                solid ? "text-brand-600" : "text-white/80"
               )}
             >
               {company.nameEn}
@@ -56,14 +53,14 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="主要導覽" className="hidden shrink-0 items-center xl:flex">
           {navItems.map((item) => (
             <NavLink
               key={item.key}
               to={item.path}
               className={({ isActive }) =>
                 cn(
-                  "relative rounded-lg px-4 py-2 text-sm font-medium transition-colors",
+                  "relative inline-flex min-h-12 items-center rounded-lg px-3 py-2 text-lg font-bold transition-colors",
                   solid
                     ? isActive
                       ? "text-emerald2-600"
@@ -79,7 +76,7 @@ export function Header() {
                   {item.label}
                   <span
                     className={cn(
-                      "absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-emerald2-400 transition-all",
+                      "absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-emerald2-400 transition-all",
                       isActive ? "opacity-100" : "opacity-0"
                     )}
                   />
@@ -89,7 +86,7 @@ export function Header() {
           ))}
           <Link
             to="/contact"
-            className="ml-3 inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald2-500/25 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
+            className="action-button action-primary ml-3 px-4"
           >
             <PhoneCall className="h-4 w-4" />
             聯絡我們
@@ -98,12 +95,13 @@ export function Header() {
 
         {/* Mobile toggle */}
         <button
-          onClick={() => setOpen(!open)}
+          onClick={() => setMenuLocation(open ? null : location.key)}
           aria-label={open ? "關閉選單" : "開啟選單"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           className={cn(
-            "flex h-11 w-11 items-center justify-center rounded-xl transition-colors lg:hidden",
-            solid ? "text-brand-900 hover:bg-sand-100" : "text-white hover:bg-white/10"
+            "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 transition-colors xl:hidden",
+            solid ? "border-brand-500 text-brand-900 hover:bg-sand-100" : "border-white/70 text-white hover:bg-white/10"
           )}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -112,19 +110,22 @@ export function Header() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-navigation"
+        inert={!open}
         className={cn(
-          "overflow-hidden bg-white transition-all duration-300 lg:hidden",
-          open ? "max-h-[420px] border-t border-sand-200" : "max-h-0"
+          "overflow-y-auto bg-white transition-all duration-300 xl:hidden",
+          open ? "max-h-[calc(100dvh-80px)] border-t border-sand-200" : "max-h-0"
         )}
       >
-        <nav className="space-y-1 px-5 py-4">
+        <nav aria-label="行動版導覽" className="space-y-1 px-5 py-4">
           {navItems.map((item) => (
             <NavLink
               key={item.key}
               to={item.path}
+              onClick={() => setMenuLocation(null)}
               className={({ isActive }) =>
                 cn(
-                  "block rounded-lg px-4 py-3 text-base font-medium",
+                  "block rounded-lg px-4 py-3 text-body font-medium",
                   isActive ? "bg-sand-100 text-emerald2-600" : "text-brand-900 hover:bg-sand-50"
                 )
               }
@@ -134,7 +135,8 @@ export function Header() {
           ))}
           <Link
             to="/contact"
-            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-emerald2-500 px-4 py-3 text-base font-bold text-white"
+            onClick={() => setMenuLocation(null)}
+            className="action-button action-primary mt-2 w-full"
           >
             <PhoneCall className="h-4 w-4" />
             聯絡我們

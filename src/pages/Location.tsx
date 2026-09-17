@@ -13,7 +13,7 @@ export default function Location() {
       />
 
       <section className="bg-sand-50 py-16 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-2 xl:grid-cols-3 lg:px-8">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-5 md:grid-cols-2 xl:grid-cols-3 lg:px-8">
           {offices.map((o, i) => (
             <Reveal key={o.name} delay={0.08 * i} className="h-full">
               <article className="grid h-full grid-rows-[minmax(190px,auto)_300px] overflow-hidden rounded-3xl bg-white ring-1 ring-sand-200 sm:grid-rows-[minmax(190px,auto)_340px]">
@@ -24,11 +24,11 @@ export default function Location() {
                     </span>
                     <div>
                       <h3 className="text-lg font-extrabold text-brand-900">{o.name}</h3>
-                      <p className="mt-0.5 text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</p>
+                      <p className="mt-0.5 text-sm font-bold tracking-[0.1em] text-slate-600 uppercase">{o.nameEn}</p>
                     </div>
                   </div>
-                  <p className="editorial-copy mt-4 text-base text-slate-600">{o.address}</p>
-                  <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-3 text-base leading-[1.7] text-slate-600">
+                  <p className="editorial-copy mt-4 text-body text-slate-600">{o.address}</p>
+                  <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-3 text-body leading-[1.7] text-slate-600">
                     {o.tel && (
                       <span className="inline-flex items-center gap-2">
                         <Phone className="h-4 w-4 text-emerald2-500" /> {o.tel}

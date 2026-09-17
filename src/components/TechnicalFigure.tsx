@@ -58,7 +58,7 @@ export function TechnicalFigure({
       <figure className={cn("overflow-hidden rounded-2xl bg-white ring-1 ring-sand-200", className)}>
         {label && labelPlacement === "header" && (
           <div className="border-b border-sand-200 px-1 pt-1 pb-3">
-            <span className="text-xs font-bold tracking-[0.18em] text-emerald2-600 uppercase">
+            <span className="text-sm font-bold tracking-[0.18em] text-emerald2-600 uppercase">
               {label}
             </span>
           </div>
@@ -84,16 +84,17 @@ export function TechnicalFigure({
               )}
             />
             {label && labelPlacement === "overlay" && (
-              <span className="absolute top-4 left-4 rounded-full bg-brand-950/90 px-3 py-1.5 text-xs font-bold tracking-[0.12em] text-emerald2-300 uppercase backdrop-blur">
+              <span className="absolute top-4 left-4 rounded-full bg-brand-950/90 px-3 py-1.5 text-sm font-bold tracking-[0.12em] text-emerald2-300 uppercase backdrop-blur">
                 {label}
               </span>
             )}
-            <span className="absolute right-4 bottom-4 flex h-10 w-10 items-center justify-center rounded-full bg-brand-950/85 text-white opacity-0 shadow-lg backdrop-blur transition-all group-hover:opacity-100 group-focus-visible:opacity-100">
-              <Maximize2 className="h-4 w-4" />
+            <span className="absolute right-3 bottom-3 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/70 bg-brand-950/95 px-3 py-2 text-caption font-bold text-white shadow-lg transition-colors group-hover:bg-brand-800">
+              <Maximize2 aria-hidden="true" className="h-4 w-4" />
+              放大圖片
             </span>
           </button>
         </DialogTrigger>
-        {caption && <figcaption className="px-5 py-4 text-sm leading-relaxed text-slate-500">{caption}</figcaption>}
+        {caption && <figcaption className="px-5 py-4 text-caption leading-relaxed text-slate-600">{caption}</figcaption>}
       </figure>
 
       <DialogContent
@@ -147,12 +148,12 @@ export function TechnicalFigure({
           )}
         </div>
         {hasGallery && (
-          <p className="px-3 pt-3 text-center text-xs font-bold tracking-wider text-emerald2-300">
+          <p className="px-3 pt-3 text-center text-sm font-bold tracking-wider text-emerald2-300">
             {activeIndex + 1} / {gallery?.length}
           </p>
         )}
         {activeItem.caption && (
-          <p className="px-3 pt-2 pb-1 text-center text-sm leading-relaxed text-white/70">{activeItem.caption}</p>
+          <p className="px-3 pt-2 pb-1 text-center text-caption leading-relaxed text-white/80">{activeItem.caption}</p>
         )}
       </DialogContent>
     </Dialog>

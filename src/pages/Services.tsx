@@ -3,7 +3,6 @@ import { services } from "@/data/site";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
-import { cn } from "@/lib/utils";
 
 export default function Services() {
   const [filter, setFilter] = useState("all");
@@ -19,26 +18,21 @@ export default function Services() {
       />
 
       <section className="bg-sand-50 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <div className="mb-10 max-w-3xl border-l-4 border-emerald2-500 pl-5">
               <h2 className="text-2xl font-extrabold text-brand-900">九項核心服務，對應工程各階段需求</h2>
-              <p className="editorial-copy mt-3 text-base text-slate-600 md:text-[17px]">
+              <p className="editorial-copy mt-3 text-body text-slate-600">
                 從前期調查、規劃設計及計畫編製，到施工監造、檢測與長期監測，點選下方項目即可查看主要工作內容。
               </p>
             </div>
           </Reveal>
           <Reveal>
-            <div className="flex flex-wrap gap-2.5">
+            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap" role="group" aria-label="服務項目分類">
               <button
                 onClick={() => setFilter("all")}
                 aria-pressed={filter === "all"}
-                className={cn(
-                  "min-h-11 rounded-full px-5 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2",
-                  filter === "all"
-                    ? "bg-brand-900 text-white shadow-lg"
-                    : "bg-white text-brand-900 ring-1 ring-sand-200 hover:ring-brand-900/30"
-                )}
+                className="filter-button px-3 sm:px-6"
               >
                 全部服務
               </button>
@@ -47,12 +41,7 @@ export default function Services() {
                   key={s.id}
                   onClick={() => setFilter(s.id)}
                   aria-pressed={filter === s.id}
-                  className={cn(
-                    "min-h-11 rounded-full px-5 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-2",
-                    filter === s.id
-                      ? "bg-brand-900 text-white shadow-lg"
-                      : "bg-white text-brand-900 ring-1 ring-sand-200 hover:ring-brand-900/30"
-                  )}
+                  className="filter-button px-3 sm:px-6"
                 >
                   {s.title}
                 </button>

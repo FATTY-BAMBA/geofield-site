@@ -11,7 +11,7 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
       )}
     >
       {/* Keep the service label outside the artwork's visual safe area. */}
-      <div className="flex h-14 shrink-0 items-center border-b border-sand-200 bg-sand-50/90 px-5">
+      <div className="flex min-h-16 shrink-0 items-center border-b border-sand-200 bg-sand-50/90 px-5 py-3">
         <span className="text-sm font-extrabold leading-[1.35] tracking-[0.08em] text-brand-800 uppercase">
           {service.english}
         </span>
@@ -31,13 +31,13 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
 
       {/* Body */}
       <div className="flex flex-1 flex-col p-6 pt-5">
-        <h3 className="text-xl font-bold text-brand-900">{service.title}</h3>
-        <p className="editorial-copy mt-2 text-base text-slate-600">{service.desc}</p>
+        <h3 className="text-xl font-bold text-brand-900 lg:text-2xl">{service.title}</h3>
+        <p className="editorial-copy mt-2 text-body text-slate-600">{service.desc}</p>
 
         {detailed && (
           <ul className="mt-4 space-y-2.5 border-t border-sand-200 pt-4">
             {service.points.map((pt) => (
-              <li key={pt} className="flex items-start gap-2 text-base leading-[1.75] text-slate-600">
+              <li key={pt} className="flex items-start gap-2 text-body leading-[1.75] text-slate-600">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald2-500" />
                 {pt}
               </li>
@@ -45,13 +45,16 @@ export function ServiceCard({ service, detailed = false }: { service: Service; d
           </ul>
         )}
 
-        <Link
-          to="/contact"
-          className="mt-auto inline-flex min-h-11 items-center gap-1.5 pt-5 text-base font-bold text-emerald2-600 transition-colors hover:text-emerald2-500"
-        >
-          洽詢此服務
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+        <div className="mt-auto pt-6">
+          <Link
+            aria-label={`洽詢此服務：${service.title}`}
+            to="/contact"
+            className="action-button action-primary w-full"
+          >
+            洽詢此服務
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </div>
     </div>
   );

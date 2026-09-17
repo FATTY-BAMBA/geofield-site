@@ -23,18 +23,18 @@ const featuredServices = services.filter((service) => featuredServiceIds.has(ser
 /* ─── Hero ─── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-brand-950 pt-[72px]">
+    <section className="relative overflow-hidden bg-brand-950 pt-20 xl:pt-[88px]">
       <div className="absolute inset-0 bg-grid-dark" />
       <div className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full bg-brand-600/25 blur-3xl" />
       <div className="absolute top-1/3 -right-32 h-[420px] w-[420px] rounded-full bg-emerald2-500/12 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 pt-14 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-20 lg:pb-24">
+      <div className="relative mx-auto grid max-w-[1440px] items-center gap-14 px-5 pt-14 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-20 lg:pb-24">
         {/* Copy */}
         <div>
           <Reveal>
             <div className="inline-flex items-center gap-2.5 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-emerald2-400 animate-pulse-ring" />
-              <span className="text-xs font-bold tracking-[0.2em] text-white/80 uppercase">
+              <span className="text-sm font-bold tracking-[0.2em] text-white/80 uppercase">
                 民國{company.foundedRoc}年創立 · 高雄 Kaohsiung
               </span>
             </div>
@@ -50,24 +50,24 @@ function Hero() {
 
           <Reveal delay={0.16}>
             <p className="mt-6 text-lg font-bold text-white/90">{company.name}</p>
-            <p className="mt-1 text-xs font-semibold tracking-[0.16em] text-emerald2-300/90 uppercase">
+            <p className="mt-1 text-sm font-semibold tracking-[0.16em] text-emerald2-300/90 uppercase">
               {company.nameEn}
             </p>
-            <p className="editorial-copy mt-5 max-w-lg text-base text-white/70 md:text-[17px]">{company.intro}</p>
+            <p className="editorial-copy mt-5 max-w-lg text-body text-white/80">{company.intro}</p>
           </Reveal>
 
           <Reveal delay={0.24}>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-7 py-3.5 text-base font-bold text-white shadow-xl shadow-emerald2-500/25 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
+                className="action-button action-primary"
               >
                 探索服務項目
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/5 px-7 py-3.5 text-base font-bold text-white ring-1 ring-white/20 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/10"
+                className="action-button action-inverse"
               >
                 檢視工程實績
               </Link>
@@ -76,22 +76,22 @@ function Hero() {
 
           {/* Stats */}
           <Reveal delay={0.32}>
-            <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-8 sm:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-3 border-t border-white/10 pt-8 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
               {stats.map((s) => (
                 <Link
                   key={s.label}
                   to={s.href}
-                  className="group rounded-xl py-1 outline-none transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald2-400"
+                  className="group rounded-xl border border-white/50 bg-white/5 p-3 outline-none transition-transform hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-emerald2-400"
                   aria-label={`查看${s.label}`}
                 >
                   <p className="text-3xl font-black text-white md:text-4xl">
                     <Counter target={s.value} suffix={s.suffix} />
                   </p>
-                  <p className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-semibold text-white/75 transition-colors group-hover:text-white">
+                  <p className="mt-1.5 inline-flex items-center gap-1.5 text-lg font-semibold text-white/90 transition-colors group-hover:text-white">
                     {s.label}
                     <ArrowRight className="h-3.5 w-3.5 text-emerald2-300 transition-transform group-hover:translate-x-1" />
                   </p>
-                  <p className="mt-0.5 text-xs font-semibold leading-tight tracking-[0.08em] text-white/40 uppercase">{s.labelEn}</p>
+                  <p className="mt-0.5 text-sm font-semibold leading-tight tracking-[0.08em] text-white/80 uppercase">{s.labelEn}</p>
                 </Link>
               ))}
             </div>
@@ -113,32 +113,32 @@ function Hero() {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-950/50 via-transparent to-transparent" />
-              <span className="absolute right-5 bottom-5 inline-flex items-center gap-2 rounded-xl bg-brand-950/85 px-4 py-3 text-sm font-bold text-white shadow-xl backdrop-blur transition-all lg:opacity-0 lg:group-hover:opacity-100 lg:group-focus-visible:opacity-100">
+              <span className="absolute right-5 bottom-5 inline-flex items-center gap-2 rounded-xl bg-brand-950/85 px-4 py-3 text-caption font-bold text-white shadow-xl backdrop-blur transition-all">
                 查看現地調查設備
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Link>
 
             {/* Floating chips */}
-            <div className="absolute -left-4 top-8 animate-float rounded-2xl bg-white/95 px-4 py-3 shadow-xl backdrop-blur md:-left-8">
+            <div className="absolute -left-2 top-4 rounded-2xl bg-white/95 px-3 py-2 shadow-xl backdrop-blur sm:-left-4 sm:top-8 sm:animate-float sm:px-4 sm:py-3 md:-left-8">
               <div className="flex items-center gap-2.5">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-900 text-emerald2-400">
                   <Drill className="h-4.5 w-4.5" />
                 </span>
                 <div>
-                  <p className="text-sm font-bold text-brand-900">CPT 圓錐貫入試驗</p>
-                  <p className="text-xs font-semibold tracking-wide text-slate-400 uppercase">In-situ Testing</p>
+                  <p className="text-caption font-bold text-brand-900">CPT 圓錐貫入試驗</p>
+                  <p className="hidden text-sm font-semibold tracking-wide text-slate-600 uppercase sm:block">In-situ Testing</p>
                 </div>
               </div>
             </div>
-            <div className="absolute -right-3 bottom-10 animate-float-slow rounded-2xl bg-white/95 px-4 py-3 shadow-xl backdrop-blur md:-right-6">
+            <div className="absolute -right-2 bottom-20 rounded-2xl bg-white/95 px-3 py-2 shadow-xl backdrop-blur sm:-right-3 sm:bottom-24 sm:animate-float-slow sm:px-4 sm:py-3 md:-right-6">
               <div className="flex items-center gap-2.5">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald2-500 text-white">
                   <Layers className="h-4.5 w-4.5" />
                 </span>
                 <div>
-                  <p className="text-sm font-bold text-brand-900">地層剖面分析</p>
-                  <p className="text-xs font-semibold tracking-wide text-slate-400 uppercase">Strata Analysis</p>
+                  <p className="text-caption font-bold text-brand-900">地層剖面分析</p>
+                  <p className="hidden text-sm font-semibold tracking-wide text-slate-600 uppercase sm:block">Strata Analysis</p>
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@ function Hero() {
 function ServicesSection() {
   return (
     <section className="relative bg-sand-50 py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
@@ -165,7 +165,7 @@ function ServicesSection() {
             />
             <Link
               to="/services"
-              className="group inline-flex items-center gap-2 rounded-xl border-2 border-brand-900 px-6 py-3 text-sm font-bold text-brand-900 transition-all hover:bg-brand-900 hover:text-white"
+              className="action-button action-secondary"
             >
               查看全部 9 項服務
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -195,7 +195,7 @@ function AboutSection() {
 
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
         {/* Slideshow */}
         <Reveal direction="left">
           <div className="relative">
@@ -212,22 +212,23 @@ function AboutSection() {
                 />
               ))}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5">
-                <p className="text-sm font-bold text-white">{heroPhotos[index].title}</p>
-                <p className="text-xs font-semibold tracking-[0.12em] text-white/70 uppercase">
+              <div className="absolute bottom-20 left-5 right-5">
+                <p className="text-caption font-bold text-white">{heroPhotos[index].title}</p>
+                <p className="text-sm font-semibold tracking-[0.12em] text-white/80 uppercase">
                   {heroPhotos[index].titleEn}
                 </p>
               </div>
-              <div className="absolute bottom-5 right-5 flex gap-1.5">
+              <div className="absolute bottom-3 right-3 flex rounded-full bg-brand-950/80 p-1">
                 {heroPhotos.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setIndex(i)}
                     aria-label={`第 ${i + 1} 張照片`}
-                    className={`h-1.5 rounded-full transition-all ${
-                      i === index ? "w-6 bg-emerald2-400" : "w-1.5 bg-white/50 hover:bg-white/80"
-                    }`}
-                  />
+                    aria-pressed={i === index}
+                    className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-white/10"
+                  >
+                    <span className={`h-2 rounded-full transition-all ${i === index ? "w-6 bg-emerald2-300" : "w-2 bg-white"}`} />
+                  </button>
                 ))}
               </div>
             </div>
@@ -243,7 +244,7 @@ function AboutSection() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="editorial-copy mt-5 text-base text-slate-600 md:text-[17px]">
+            <p className="editorial-copy mt-5 text-body text-slate-600">
               自民國{company.foundedRoc}年（{company.founded}年）成立以來，大域工程累積超過 500 件工程實績，涵蓋鑽探調查、邊坡工程、
               隧道檢測與水土保持監造等領域。我們以自有試驗車隊與儀器設備深入現場，
               用第一手數據支撐每一項設計判斷。
@@ -262,8 +263,8 @@ function AboutSection() {
                     <f.icon className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-base font-bold text-brand-900">{f.title}</p>
-                    <p className="mt-1 text-base leading-[1.7] text-slate-600">{f.desc}</p>
+                    <p className="text-body font-bold text-brand-900">{f.title}</p>
+                    <p className="mt-1 text-body leading-[1.7] text-slate-600">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -272,7 +273,7 @@ function AboutSection() {
           <Reveal delay={0.26}>
             <Link
               to="/about"
-              className="group mt-9 inline-flex min-h-11 items-center gap-2 text-base font-bold text-emerald2-600 transition-colors hover:text-emerald2-500"
+              className="action-button action-primary mt-9"
             >
               深入了解大域
               <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
@@ -289,7 +290,7 @@ function ProjectsSection() {
   const featured = projects.slice(0, 4);
   return (
     <section className="bg-sand-50 py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
@@ -299,14 +300,14 @@ function ProjectsSection() {
             />
             <Link
               to="/projects"
-              className="group inline-flex items-center gap-2 rounded-xl border-2 border-brand-900 px-6 py-3 text-sm font-bold text-brand-900 transition-all hover:bg-brand-900 hover:text-white"
+              className="action-button action-secondary"
             >
               全部實績
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {featured.map((p, i) => (
             <Reveal key={p.title} delay={0.06 * i} className="h-full">
               <ProjectCard project={p} />
@@ -324,7 +325,7 @@ function AssuranceBand() {
     <section className="relative overflow-hidden bg-brand-950 py-18 lg:py-24">
       <div className="absolute inset-0 bg-grid-dark" />
       <div className="absolute top-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald2-500/10 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl px-5 py-16 lg:px-8">
+      <div className="relative mx-auto max-w-[1440px] px-5 py-16 lg:px-8">
         <Reveal>
           <SectionHeading
             dark
@@ -333,7 +334,7 @@ function AssuranceBand() {
             title="用現地資料支撐工程判斷"
           />
         </Reveal>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {[
             { icon: Award, num: "30+", title: "年工程經驗", desc: "民國82年成立，持續投入大地工程顧問服務" },
             { icon: Layers, num: String(services.length), title: "項核心服務", desc: "整合調查、設計、監造、檢測與監測技術" },
@@ -346,8 +347,8 @@ function AssuranceBand() {
                   <item.icon className="h-6 w-6" />
                 </span>
                 <p className="mt-5 text-3xl font-black text-white">{item.num}</p>
-                <p className="mt-1 text-sm font-bold text-emerald2-300">{item.title}</p>
-                <p className="mt-2 text-base leading-[1.75] text-white/65">{item.desc}</p>
+                <p className="mt-1 text-caption font-bold text-emerald2-300">{item.title}</p>
+                <p className="mt-2 text-body leading-[1.75] text-white/80">{item.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -366,11 +367,11 @@ function CtaSection() {
         style={{ transform: "skewX(-12deg)", transformOrigin: "top right" }}
       />
       <div className="absolute inset-0 bg-grid-dark opacity-60" />
-      <div className="relative mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-5 py-16 lg:px-8 lg:py-20">
+      <div className="relative mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-8 px-5 py-16 lg:px-8 lg:py-20">
         <Reveal>
           <div>
             <h2 className="editorial-heading text-3xl font-extrabold leading-[1.2] text-white md:text-4xl">有工程需求？歡迎與我們聯繫</h2>
-            <p className="editorial-copy mt-3 max-w-lg text-base text-white/70 md:text-[17px]">
+            <p className="editorial-copy mt-3 max-w-lg text-body text-white/80">
               請告訴我們工程位置、工作需求與預計時程，團隊將於營業時間內回覆。
             </p>
           </div>
@@ -379,14 +380,14 @@ function CtaSection() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-8 py-4 text-base font-bold text-white shadow-xl shadow-emerald2-500/30 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
+              className="action-button action-primary"
             >
               立即聯絡我們
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="tel:+88672295922"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 text-base font-bold text-white ring-1 ring-white/25 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white/15"
+              className="action-button action-inverse"
             >
               (07) 229-5922
             </a>

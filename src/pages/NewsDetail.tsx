@@ -16,22 +16,22 @@ export default function NewsDetail() {
 
   return (
     <article>
-      <header className="relative overflow-hidden bg-brand-950 pt-[72px]">
+      <header className="relative overflow-hidden bg-brand-950 pt-20 xl:pt-[88px]">
         <div className="absolute inset-0 bg-grid-dark" />
-        <div className="relative mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
+        <div className="relative mx-auto max-w-[1440px] px-5 py-14 lg:px-8 lg:py-20">
           <Reveal>
             <Link
               to="/news"
-              className="inline-flex min-h-11 items-center gap-2 text-sm text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-400"
+              className="action-button action-inverse"
             >
               <ArrowLeft aria-hidden="true" className="h-4 w-4" />
               返回最新消息
             </Link>
-            <p className="mt-6 text-xs font-bold tracking-[0.22em] text-emerald2-400 uppercase">Professional Activities</p>
+            <p className="mt-6 text-sm font-bold tracking-[0.22em] text-emerald2-400 uppercase">Professional Activities</p>
             <h1 className="editorial-heading mt-4 max-w-5xl text-3xl font-extrabold leading-[1.45] text-white md:text-4xl lg:text-5xl">
               {article.title}
             </h1>
-            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-caption">
               <span className="rounded-full bg-emerald2-500/15 px-4 py-1.5 font-bold text-emerald2-300">
                 {article.category}
               </span>
@@ -47,18 +47,18 @@ export default function NewsDetail() {
       </header>
 
       <section className="bg-white py-12 lg:py-16" aria-label="活動紀錄">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <div className="max-w-3xl space-y-4">
               {article.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="editorial-copy text-base text-slate-600 md:text-lg">{paragraph}</p>
+                <p key={paragraph} className="editorial-copy text-body text-slate-600">{paragraph}</p>
               ))}
               {article.eventSource && (
                 <a
                   href={article.eventSource.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center gap-1.5 text-sm font-bold text-emerald2-700 underline decoration-emerald2-200 underline-offset-4 hover:decoration-emerald2-700"
+                  className="inline-flex min-h-11 items-center gap-1.5 text-caption font-bold text-emerald2-700 underline decoration-emerald2-200 underline-offset-4 hover:decoration-emerald2-700"
                 >
                   {article.eventSource.label}
                   <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
@@ -71,7 +71,7 @@ export default function NewsDetail() {
       </section>
 
       <section className="bg-sand-50 py-12 lg:py-20" aria-label="活動照片">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading eyebrow="Event Gallery" title="活動照片" description="點選照片可放大查看完整影像。" />
           </Reveal>
@@ -93,7 +93,7 @@ export default function NewsDetail() {
           </div>
           <Link
             to="/news"
-            className="mt-12 inline-flex min-h-11 items-center gap-2 rounded-xl bg-brand-900 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald2-500 focus-visible:ring-offset-4"
+            className="action-button action-secondary mt-12"
           >
             <ArrowLeft aria-hidden="true" className="h-4 w-4" />
             返回最新消息

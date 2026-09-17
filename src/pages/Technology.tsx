@@ -114,7 +114,7 @@ const monitoringCapabilities = [
 export default function Technology() {
   return (
     <>
-      <section className="relative min-h-[560px] overflow-hidden bg-brand-950 pt-[72px] lg:min-h-[650px]">
+      <section className="relative min-h-[560px] overflow-hidden bg-brand-950 pt-20 xl:pt-[88px] lg:min-h-[650px]">
         <img
           src={`${ASSET_DIR}/hero-field-monitoring.webp`}
           alt="坡地自動監測設備現地布設情境"
@@ -123,15 +123,15 @@ export default function Technology() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/80 to-brand-950/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-950/75 via-transparent to-brand-950/20" />
         <div className="absolute inset-0 bg-grid-dark opacity-20" />
-        <div className="relative mx-auto flex min-h-[488px] max-w-7xl items-center px-5 py-16 lg:min-h-[578px] lg:px-8">
+        <div className="relative mx-auto flex min-h-[488px] max-w-[1440px] items-center px-5 py-16 lg:min-h-[578px] lg:px-8">
           <Reveal>
             <div className="max-w-3xl">
-              <nav className="flex items-center gap-1.5 text-[13px] text-white/50">
+              <nav className="flex items-center gap-1.5 text-caption text-white/80">
                 <Link to="/" className="transition-colors hover:text-white">首頁</Link>
                 <ChevronRight className="h-3.5 w-3.5" />
                 <span className="font-semibold text-emerald2-300">技術與設備</span>
               </nav>
-              <p className="mt-8 text-sm font-bold tracking-[0.24em] text-emerald2-300 uppercase">
+              <p className="mt-8 text-caption font-bold tracking-[0.24em] text-emerald2-300 uppercase">
                 Kantaro · 自計化坡地地表傾滑計
               </p>
               <h1 className="editorial-heading mt-4 text-4xl font-black leading-[1.1] text-white md:text-6xl">
@@ -139,10 +139,10 @@ export default function Technology() {
                 <br />
                 地表傾滑計
               </h1>
-              <p className="editorial-copy mt-6 max-w-xl text-base text-white/70 md:text-lg">
+              <p className="editorial-copy mt-6 max-w-xl text-body text-white/80 md:text-lg">
                 Kantaro 整合坡面傾斜、土壤水分與無線傳輸；大域工程作為 CKC 在地工程應用夥伴，於台灣提供現地勘查、安裝與系統建置、監測服務、資料判讀及維護／售後服務。
               </p>
-              <div className="mt-5 w-fit rounded-xl bg-brand-950/55 px-4 py-3 text-[13px] leading-relaxed text-white/65 ring-1 ring-white/10 backdrop-blur-md">
+              <div className="mt-5 w-fit rounded-xl bg-brand-950/55 px-4 py-3 text-caption leading-relaxed text-white/80 ring-1 ring-white/10 backdrop-blur-md">
                 <p><span className="font-bold text-white/90">技術來源</span> · <a href="https://www.ckcnet.co.jp/" target="_blank" rel="noreferrer" className="underline decoration-white/30 underline-offset-2 transition-colors hover:text-white">CHUO KAIHATSU CORPORATION（中央開発株式会社，CKC）</a></p>
                 <p><span className="font-bold text-white/90">在地工程應用夥伴</span> · 大域工程顧問有限公司</p>
               </div>
@@ -150,7 +150,7 @@ export default function Technology() {
                 {[["24/7", "自動監控"], ["0.0025°", "傾斜解析度"], ["高密度", "面狀布設"]].map(([value, label]) => (
                   <div key={label} className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-md ring-1 ring-white/15">
                     <span className="font-black text-white">{value}</span>
-                    <span className="ml-2 text-sm text-white/70">{label}</span>
+                    <span className="ml-2 text-caption text-white/80">{label}</span>
                   </div>
                 ))}
               </div>
@@ -161,7 +161,7 @@ export default function Technology() {
       </section>
 
       <section className="bg-white py-16 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="Why Surface Monitoring"
@@ -174,7 +174,7 @@ export default function Technology() {
                 "適合多點布設，從單點資訊延伸至坡面分區判讀",
                 "災後可重新固定並恢復監測，提高續測韌性",
               ].map((item) => (
-                <p key={item} className="flex gap-3 text-base leading-[1.75] text-slate-600">
+                <p key={item} className="flex gap-3 text-body leading-[1.75] text-slate-600">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald2-500" />
                   {item}
                 </p>
@@ -183,7 +183,7 @@ export default function Technology() {
           </Reveal>
 
           <Reveal direction="right">
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 2xl:grid-cols-4">
               {[
                 ["24/7", "自動監控"],
                 ["0.0025°", "傾斜解析度"],
@@ -192,7 +192,7 @@ export default function Technology() {
               ].map(([value, label]) => (
                 <div key={label} className="rounded-2xl bg-sand-50 p-5 ring-1 ring-sand-200">
                   <p className="text-2xl font-black tracking-tight text-brand-900">{value}</p>
-                  <p className="mt-2 text-sm font-bold leading-[1.6] text-slate-600">{label}</p>
+                  <p className="mt-2 text-caption font-bold leading-[1.6] text-slate-600">{label}</p>
                 </div>
               ))}
             </div>
@@ -201,7 +201,7 @@ export default function Technology() {
       </section>
 
       <section className="bg-sand-50 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="System Architecture"
@@ -233,7 +233,7 @@ export default function Technology() {
                       </span>
                       <div>
                         <h3 className="font-extrabold text-brand-900">{title}</h3>
-                        <p className="editorial-copy mt-2 text-base text-slate-600">{text}</p>
+                        <p className="editorial-copy mt-2 text-body text-slate-600">{text}</p>
                       </div>
                     </div>
                   </article>
@@ -245,7 +245,7 @@ export default function Technology() {
       </section>
 
       <section className="bg-brand-950 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="Warning Logic"
@@ -261,14 +261,14 @@ export default function Technology() {
                 <article className="relative h-full overflow-hidden rounded-2xl bg-white p-6 ring-1 ring-white/10">
                   <div className={`absolute inset-x-0 top-0 h-1 ${stage.color}`} />
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-black tracking-[0.2em] text-slate-300">{stage.number}</span>
-                    <span className="rounded-full bg-sand-100 px-3 py-1 text-xs font-black tracking-wider text-brand-900 uppercase">
+                    <span className="text-sm font-black tracking-[0.2em] text-slate-300">{stage.number}</span>
+                    <span className="rounded-full bg-sand-100 px-3 py-1 text-sm font-black tracking-wider text-brand-900 uppercase">
                       {stage.english}
                     </span>
                   </div>
                   <h3 className="mt-7 text-lg font-extrabold text-brand-900">{stage.title}</h3>
-                  <p className="mt-3 min-h-12 text-base leading-[1.75] text-slate-600">{stage.text}</p>
-                  <p className="mt-6 border-t border-sand-200 pt-4 font-mono text-sm font-black text-brand-900">
+                  <p className="mt-3 min-h-12 text-body leading-[1.75] text-slate-600">{stage.text}</p>
+                  <p className="mt-6 border-t border-sand-200 pt-4 font-mono text-caption font-black text-brand-900">
                     {stage.threshold}
                   </p>
                 </article>
@@ -279,7 +279,7 @@ export default function Technology() {
       </section>
 
       <section className="bg-white py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="Field Application"
@@ -293,7 +293,7 @@ export default function Technology() {
               <Reveal key={label} delay={index * 0.05}>
                 <div className="h-full rounded-2xl bg-sand-50 p-5 text-center ring-1 ring-sand-200">
                   <p className="text-3xl font-black text-brand-900">{value}</p>
-                  <p className="mt-2 text-sm font-bold leading-[1.6] text-slate-600">{label}</p>
+                  <p className="mt-2 text-caption font-bold leading-[1.6] text-slate-600">{label}</p>
                 </div>
               </Reveal>
             ))}
@@ -316,12 +316,12 @@ export default function Technology() {
               <div className="flex h-full flex-col rounded-3xl bg-brand-900 p-7 text-white lg:p-9">
                 <MapPinned className="h-7 w-7 text-emerald2-300" />
                 <h3 className="mt-5 text-2xl font-extrabold">一年、24 次監測</h3>
-                <p className="editorial-copy mt-4 text-base text-white/70">
+                <p className="editorial-copy mt-4 text-body text-white/80">
                   梅雨季期間，現地發生多處小規模坡面坍滑。ZT-4、ZT-5、ZT-7 與 ZT-8 的量測結果進入簡報所列警戒值範圍；其中 ZT-4 與 ZT-8 所在位置發生坡面滑動，並造成儀器嚴重傾斜或損壞。
                 </p>
                 <div className="mt-6 rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-                  <p className="text-xs font-bold tracking-[0.18em] text-emerald2-300 uppercase">Key finding</p>
-                  <p className="mt-2 text-base font-bold leading-relaxed">
+                  <p className="text-sm font-bold tracking-[0.18em] text-emerald2-300 uppercase">Key finding</p>
+                  <p className="mt-2 text-body font-bold leading-relaxed">
                     地表傾滑計與傳統傾斜管的成果，皆指出滑動分區 C 較為活躍。
                   </p>
                 </div>
@@ -333,15 +333,15 @@ export default function Technology() {
             <div className="mt-8 overflow-hidden rounded-3xl bg-white p-5 ring-1 ring-sand-200 sm:p-8 lg:p-10">
               <div className="flex flex-wrap items-end justify-between gap-4 border-b border-sand-200 pb-6">
                 <div>
-                  <p className="text-xs font-bold tracking-[0.2em] text-emerald2-600 uppercase">Monitoring layout</p>
+                  <p className="text-sm font-bold tracking-[0.2em] text-emerald2-600 uppercase">Monitoring layout</p>
                   <h3 className="mt-2 text-2xl font-extrabold text-brand-900">監測網配置</h3>
                 </div>
-                <p className="max-w-sm text-base leading-[1.75] text-slate-600">
+                <p className="max-w-sm text-body leading-[1.75] text-slate-600">
                   以原始配置圖保留測點位置，警戒結果另以網頁資訊卡呈現。
                 </p>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-slate-600">
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-caption font-bold text-slate-600">
                 {[
                   ["bg-indigo-600", "ZT 地表傾滑計 · 9處"],
                   ["bg-red-500", "BH 傾斜觀測管 · 8處"],
@@ -370,31 +370,31 @@ export default function Technology() {
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <Reveal>
               <article className="h-full rounded-2xl bg-orange-50 p-6 ring-1 ring-orange-200">
-                <p className="text-xs font-bold tracking-[0.16em] text-orange-700 uppercase">Warning range</p>
+                <p className="text-sm font-bold tracking-[0.16em] text-orange-700 uppercase">Warning range</p>
                 <h3 className="mt-2 font-extrabold text-brand-900">達警戒值範圍</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {["ZT-4", "ZT-5", "ZT-7", "ZT-8"].map((station) => (
-                    <span key={station} className="rounded-full bg-white px-3 py-1.5 text-xs font-black text-orange-700 ring-1 ring-orange-200">{station}</span>
+                    <span key={station} className="rounded-full bg-white px-3 py-1.5 text-sm font-black text-orange-700 ring-1 ring-orange-200">{station}</span>
                   ))}
                 </div>
               </article>
             </Reveal>
             <Reveal delay={0.06}>
               <article className="h-full rounded-2xl bg-red-50 p-6 ring-1 ring-red-200">
-                <p className="text-xs font-bold tracking-[0.16em] text-red-700 uppercase">Slope movement</p>
+                <p className="text-sm font-bold tracking-[0.16em] text-red-700 uppercase">Slope movement</p>
                 <h3 className="mt-2 font-extrabold text-brand-900">發生坡面滑動</h3>
                 <div className="mt-4 flex gap-2">
                   {["ZT-4", "ZT-8"].map((station) => (
-                    <span key={station} className="rounded-full bg-white px-3 py-1.5 text-xs font-black text-red-700 ring-1 ring-red-200">{station}</span>
+                    <span key={station} className="rounded-full bg-white px-3 py-1.5 text-sm font-black text-red-700 ring-1 ring-red-200">{station}</span>
                   ))}
                 </div>
               </article>
             </Reveal>
             <Reveal delay={0.12}>
               <article className="h-full rounded-2xl bg-brand-900 p-6 text-white">
-                <p className="text-xs font-bold tracking-[0.16em] text-emerald2-300 uppercase">Cross validation</p>
+                <p className="text-sm font-bold tracking-[0.16em] text-emerald2-300 uppercase">Cross validation</p>
                 <h3 className="mt-2 font-extrabold">兩種方法，同一判讀</h3>
-                <p className="mt-3 text-base leading-relaxed text-white/65">ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。</p>
+                <p className="mt-3 text-body leading-relaxed text-white/80">ZT 與傳統傾斜管成果皆顯示滑動分區 C 較為活躍。</p>
               </article>
             </Reveal>
           </div>
@@ -402,7 +402,7 @@ export default function Technology() {
       </section>
 
       <section className="bg-sand-50 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="Complementary Monitoring"
@@ -413,7 +413,7 @@ export default function Technology() {
 
           <Reveal delay={0.1}>
             <div className="mt-10 overflow-hidden rounded-3xl bg-white ring-1 ring-sand-200">
-              <div className="hidden grid-cols-[0.7fr_1fr_1fr] bg-brand-900 px-6 py-4 text-sm font-bold text-white md:grid">
+              <div className="hidden grid-cols-[0.7fr_1fr_1fr] bg-brand-900 px-6 py-4 text-caption font-bold text-white md:grid">
                 <span>比較項目</span>
                 <span>傾斜觀測管</span>
                 <span>地表傾滑監測</span>
@@ -421,12 +421,12 @@ export default function Technology() {
               {comparison.map(([label, conventional, surface]) => (
                 <div key={label} className="grid gap-3 border-t border-sand-200 px-6 py-5 md:grid-cols-[0.7fr_1fr_1fr]">
                   <p className="font-extrabold text-brand-900">{label}</p>
-                  <p className="text-base leading-relaxed text-slate-500">
-                    <span className="mb-1 block text-xs font-bold text-slate-400 md:hidden">傾斜觀測管</span>
+                  <p className="text-body leading-relaxed text-slate-600">
+                    <span className="mb-1 block text-sm font-bold text-slate-600 md:hidden">傾斜觀測管</span>
                     {conventional}
                   </p>
-                  <p className="text-base leading-relaxed text-slate-600">
-                    <span className="mb-1 block text-xs font-bold text-emerald2-600 md:hidden">地表傾滑監測</span>
+                  <p className="text-body leading-relaxed text-slate-600">
+                    <span className="mb-1 block text-sm font-bold text-emerald2-600 md:hidden">地表傾滑監測</span>
                     {surface}
                   </p>
                 </div>
@@ -437,7 +437,7 @@ export default function Technology() {
       </section>
 
       <section className="bg-white py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="Monitoring Services · 監測服務"
@@ -453,7 +453,7 @@ export default function Technology() {
                     <Icon className="h-5 w-5" />
                   </span>
                   <h3 className="mt-5 text-lg font-extrabold text-brand-900">{title}</h3>
-                  <p className="mt-3 text-base leading-[1.75] text-slate-600">{text}</p>
+                  <p className="mt-3 text-body leading-[1.75] text-slate-600">{text}</p>
                 </article>
               </Reveal>
             ))}
@@ -462,15 +462,15 @@ export default function Technology() {
       </section>
 
       <section className="bg-brand-900 py-16 lg:py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center lg:px-8">
+        <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-6 px-5 text-center lg:px-8">
           <Wrench className="h-7 w-7 text-emerald2-300" />
           <h2 className="text-2xl font-extrabold text-white">需要規劃坡地監測系統？</h2>
-          <p className="max-w-xl text-base leading-relaxed text-white/65">
+          <p className="max-w-xl text-body leading-relaxed text-white/80">
             我們可依地質條件、滑動機制與管理需求，評估監測配置與資料判讀方式。
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-6 py-3 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
+            className="action-button action-primary"
           >
             聯絡我們
             <ArrowRight className="h-4 w-4" />

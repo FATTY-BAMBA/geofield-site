@@ -11,7 +11,7 @@ interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, description, image }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-brand-950 pt-[72px]">
+    <section className="relative overflow-hidden bg-brand-950 pt-20 xl:pt-[88px]">
       <div className="absolute inset-0 bg-grid-dark" />
       <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-600/30 blur-3xl" />
       <div className="absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-emerald2-500/15 blur-3xl" />
@@ -22,18 +22,18 @@ export function PageHero({ eyebrow, title, description, image }: PageHeroProps) 
           className="pointer-events-none absolute -right-10 bottom-0 hidden w-[380px] opacity-30 lg:block"
         />
       )}
-      <div className="relative mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
+      <div className="relative mx-auto max-w-[1440px] px-5 py-16 lg:px-8 lg:py-20">
         <Reveal>
-          <nav className="flex items-center gap-1.5 text-[13px] text-white/50">
-            <Link to="/" className="transition-colors hover:text-white">
+          <nav className="flex items-center gap-1.5 text-caption text-white/80">
+            <Link to="/" className="inline-flex min-h-11 items-center underline underline-offset-4 transition-colors hover:text-white">
               首頁
             </Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <span className="font-semibold text-emerald2-300">{title}</span>
           </nav>
-          <p className="mt-6 text-xs font-bold tracking-[0.3em] text-emerald2-400 uppercase">{eyebrow}</p>
+          <p className="mt-6 text-sm font-bold tracking-[0.3em] text-emerald2-400 uppercase">{eyebrow}</p>
           <h1 className="editorial-heading mt-3 text-4xl font-extrabold leading-[1.16] text-white md:text-5xl">{title}</h1>
-          {description && <p className="editorial-copy mt-4 max-w-2xl text-base text-white/70 md:text-[17px]">{description}</p>}
+          {description && <p className="editorial-copy mt-4 max-w-3xl text-body text-white/80">{description}</p>}
         </Reveal>
       </div>
       <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-transparent via-emerald2-500 to-transparent" />

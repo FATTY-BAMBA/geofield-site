@@ -39,7 +39,7 @@ export default function Contact() {
   };
 
   const inputCls =
-    "w-full rounded-xl border border-sand-200 bg-sand-50 px-4 py-3 text-base text-brand-900 outline-none transition-all placeholder:text-slate-400 focus:border-emerald2-500 focus:bg-white focus:ring-4 focus:ring-emerald2-500/15";
+    "w-full rounded-xl border-2 border-brand-400 bg-white px-4 py-3 text-body text-brand-900 outline-none transition-all placeholder:text-slate-600 focus:border-emerald2-500 focus:bg-white focus:ring-4 focus:ring-emerald2-500/15";
 
   return (
     <>
@@ -50,26 +50,26 @@ export default function Contact() {
       />
 
       <section className="bg-sand-50 py-16 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
           {/* Form */}
           <Reveal direction="left">
-            <div className="rounded-3xl bg-white p-8 ring-1 ring-sand-200 md:p-10">
+            <div className="rounded-3xl bg-white p-6 ring-1 ring-sand-200 md:p-10">
               {sent ? (
                 <div className="flex flex-col items-center py-14 text-center">
                   <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald2-500/10 text-emerald2-500">
                     <CheckCircle2 className="h-9 w-9" />
                   </span>
                   <h3 className="mt-6 text-2xl font-extrabold text-brand-900">訊息已為您準備好</h3>
-                  <p className="editorial-copy mt-3 max-w-sm text-base text-slate-600">
+                  <p className="editorial-copy mt-3 max-w-sm text-body text-slate-600">
                     我們已開啟您的郵件軟體並帶入訊息內容，收件人為{" "}
-                    <a href={`mailto:${company.email}`} className="font-bold text-emerald2-600 hover:underline">
+                    <a href={`mailto:${company.email}`} className="font-bold text-emerald2-600 underline underline-offset-4">
                       {company.email}
                     </a>
                     。送出後我們將盡速回覆；若未自動開啟，請直接來信或致電 (07) 229-5922。
                   </p>
                   <button
                     onClick={() => setSent(false)}
-                    className="mt-8 rounded-xl border-2 border-brand-900 px-6 py-3 text-sm font-bold text-brand-900 transition-all hover:bg-brand-900 hover:text-white"
+                    className="mt-8 rounded-xl border-2 border-brand-900 px-6 py-3 text-caption font-bold text-brand-900 transition-all hover:bg-brand-900 hover:text-white"
                   >
                     再寫一封
                   </button>
@@ -77,22 +77,22 @@ export default function Contact() {
               ) : (
                 <form onSubmit={submit}>
                   <h3 className="text-xl font-extrabold text-brand-900">線上洽詢</h3>
-                  <p className="mt-2 text-base leading-[1.7] text-slate-600">
+                  <p className="mt-2 text-body leading-[1.7] text-slate-600">
                     填寫以下內容後，系統將開啟您的郵件軟體，並將洽詢資料寄送至{" "}
-                    <a href={`mailto:${company.email}`} className="font-bold text-emerald2-600 hover:underline">
+                    <a href={`mailto:${company.email}`} className="font-bold text-emerald2-600 underline underline-offset-4">
                       {company.email}
                     </a>
                     。
                   </p>
                   <div className="mt-7 grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label className="mb-1.5 block text-sm font-bold text-brand-900">
+                      <label className="mb-1.5 block text-caption font-bold text-brand-900">
                         姓名 <span className="text-emerald2-500">*</span>
                       </label>
                       <input value={form.name} onChange={update("name")} className={inputCls} placeholder="您的姓名" />
                     </div>
                     <div>
-                      <label className="mb-1.5 block text-sm font-bold text-brand-900">聯絡電話</label>
+                      <label className="mb-1.5 block text-caption font-bold text-brand-900">聯絡電話</label>
                       <input
                         value={form.phone}
                         onChange={update("phone")}
@@ -102,7 +102,7 @@ export default function Contact() {
                       />
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="mb-1.5 block text-sm font-bold text-brand-900">
+                      <label className="mb-1.5 block text-caption font-bold text-brand-900">
                         Email <span className="text-emerald2-500">*</span>
                       </label>
                       <input
@@ -114,7 +114,7 @@ export default function Contact() {
                       />
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="mb-1.5 block text-sm font-bold text-brand-900">
+                      <label className="mb-1.5 block text-caption font-bold text-brand-900">
                         訊息內容 <span className="text-emerald2-500">*</span>
                       </label>
                       <textarea
@@ -126,12 +126,12 @@ export default function Contact() {
                       />
                     </div>
                   </div>
-                  {error && <p className="mt-4 text-sm font-semibold text-red-500">{error}</p>}
+                  {error && <p className="mt-4 text-caption font-semibold text-red-500">{error}</p>}
                   <div className="mt-7 text-right">
                     <button
                       type="submit"
                       aria-label={`開啟郵件並寄送至 ${company.email}`}
-                      className="inline-flex items-center gap-2 rounded-xl bg-emerald2-500 px-8 py-3.5 text-base font-bold text-white shadow-xl shadow-emerald2-500/25 transition-all hover:-translate-y-0.5 hover:bg-emerald2-400"
+                      className="action-button action-primary"
                     >
                       寄送至大域信箱
                       <Send className="h-4 w-4" />
@@ -149,9 +149,9 @@ export default function Contact() {
                 <div key={o.name} className="rounded-3xl bg-white p-7 ring-1 ring-sand-200">
                   <div className="flex items-center justify-between gap-3">
                     <h4 className="text-lg font-extrabold text-brand-900">{o.name}</h4>
-                    <span className="text-xs font-bold tracking-[0.1em] text-slate-400 uppercase">{o.nameEn}</span>
+                    <span className="text-sm font-bold tracking-[0.1em] text-slate-600 uppercase">{o.nameEn}</span>
                   </div>
-                  <div className="mt-4 space-y-3 text-base leading-[1.7] text-slate-600">
+                  <div className="mt-4 space-y-3 text-body leading-[1.7] text-slate-600">
                     <p className="flex gap-2.5">
                       <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald2-500" />
                       {o.address}
@@ -159,7 +159,7 @@ export default function Contact() {
                     {o.tel && (
                       <p className="flex gap-2.5">
                         <Phone className="mt-0.5 h-4 w-4 shrink-0 text-emerald2-500" />
-                        <a href={`tel:${o.tel.replace(/[^\d]/g, "")}`} className="transition-colors hover:text-brand-900">
+                        <a href={`tel:${o.tel.replace(/[^\d]/g, "")}`} className="underline underline-offset-4 transition-colors hover:text-brand-900">
                           {o.tel}
                         </a>
                       </p>
@@ -174,10 +174,10 @@ export default function Contact() {
                 </div>
               ))}
               <div className="rounded-3xl bg-brand-950 p-7 text-white">
-                <div className="space-y-3 text-base leading-[1.7]">
+                <div className="space-y-3 text-body leading-[1.7]">
                   <p className="flex gap-2.5 text-white/80">
                     <Mail className="mt-0.5 h-4 w-4 shrink-0 text-emerald2-400" />
-                    <a href={`mailto:${company.email}`} className="transition-colors hover:text-white">
+                    <a href={`mailto:${company.email}`} className="underline underline-offset-4 transition-colors hover:text-white">
                       {company.email}
                     </a>
                   </p>
@@ -186,7 +186,7 @@ export default function Contact() {
                     營業時間：{company.hours}
                   </p>
                 </div>
-                <div className="mt-5 rounded-xl bg-white/5 px-4 py-3 text-base leading-[1.75] text-white/65 ring-1 ring-white/10">
+                <div className="mt-5 rounded-xl bg-white/5 px-4 py-3 text-body leading-[1.75] text-white/80 ring-1 ring-white/10">
                   急件或現場勘查需求，建議直接來電，我們將優先為您安排。
                 </div>
               </div>

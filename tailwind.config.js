@@ -7,6 +7,10 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", "'Noto Sans TC'", "system-ui", "sans-serif"],
       },
+      fontSize: {
+        body: ["clamp(1.125rem, 1rem + 0.3vw, 1.25rem)", { lineHeight: "1.8" }],
+        caption: ["1rem", { lineHeight: "1.6" }],
+      },
       colors: {
         brand: {
           50: "#F0F7F9",
@@ -22,15 +26,21 @@ module.exports = {
           950: "#07232E",
         },
         emerald2: {
+          50: "#EFFAF5",
+          100: "#D9F3E6",
+          200: "#AFE6CE",
           300: "#5BD3AC",
           400: "#2BB989",
           500: "#1D9E75",
           600: "#15805F",
+          700: "#106649",
+          800: "#0C513B",
         },
         sand: {
           50: "#F7FAFA",
           100: "#EFF4F4",
           200: "#E2EBEB",
+          300: "#C1D1D1",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
