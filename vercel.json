@@ -1,3 +1,17 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/h/Album", "destination": "/projects", "permanent": true },
+    {
+      "source": "/h/about",
+      "missing": [{ "type": "query", "key": "cont" }],
+      "destination": "/about",
+      "permanent": true
+    }
+  ]
 }

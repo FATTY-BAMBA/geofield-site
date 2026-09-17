@@ -1,4 +1,5 @@
-import { Link, Navigate, useParams } from "react-router";
+import NotFound from "./NotFound";
+import { Link, useParams } from "react-router";
 import { ArrowLeft, Building2, CalendarDays, MapPin } from "lucide-react";
 import { getProject, categoryImages } from "@/data/site";
 import { Reveal } from "@/components/Reveal";
@@ -43,8 +44,7 @@ export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProject(slug);
 
-  // 無此專案，或該專案尚未建立詳細內容 → 回列表頁
-  if (!project || !project.detail) return <Navigate to="/projects" replace />;
+  if (!project || !project.detail) return <NotFound />;
 
   const d = project.detail;
   const isImageRecord = d.contentStatus === "image-record";

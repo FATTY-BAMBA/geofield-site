@@ -7,9 +7,9 @@ const SLIDE_INTERVAL = 3000;
 export function HeroSlideshow() {
   const container = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const [reducedMotion, setReducedMotion] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [inView, setInView] = useState(true);
-  const [pageVisible, setPageVisible] = useState(() => !document.hidden);
+  const [pageVisible, setPageVisible] = useState(() => typeof document === "undefined" || !document.hidden);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");

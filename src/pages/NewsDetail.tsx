@@ -1,4 +1,5 @@
-import { Link, Navigate, useParams } from "react-router";
+import NotFound from "./NotFound";
+import { Link, useParams } from "react-router";
 import { ArrowLeft, ArrowUpRight, CalendarDays } from "lucide-react";
 import { getNewsArticle } from "@/data/news";
 import { Reveal } from "@/components/Reveal";
@@ -9,7 +10,7 @@ export default function NewsDetail() {
   const { slug } = useParams();
   const article = getNewsArticle(slug);
 
-  if (!article) return <Navigate to="/news" replace />;
+  if (!article) return <NotFound />;
 
   const gallery = article.photos.map((photo) => ({ ...photo, alt: photo.caption }));
   const singlePhoto = gallery.length === 1;
