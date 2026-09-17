@@ -3,7 +3,7 @@
 export const company = {
   name: "大域工程顧問有限公司",
   nameEn: "GEOFIELD ENGINEERING CONSULTANTS CO., LTD",
-  shortNameEn: "GEOFIELD ENGINEERING LTD.",
+  shortNameEn: "GEOFIELD ENGINEERING CONS LTD.",
   shortEn: "GEOFIELD",
   tagline: "為未來，打好基礎",
   taglineEn: "BUILDING FOUNDATIONS FOR THE FUTURE",

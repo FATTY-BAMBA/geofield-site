@@ -35,7 +35,7 @@ export function Header() {
           <span className="inline-grid min-w-0 leading-tight">
             <span
               className={cn(
-                "block text-lg font-bold tracking-wide transition-colors sm:whitespace-nowrap sm:text-xl",
+                "block text-lg font-bold tracking-wide transition-colors sm:whitespace-nowrap sm:text-[22px]",
                 solid ? "text-brand-900" : "text-white"
               )}
             >
@@ -43,11 +43,11 @@ export function Header() {
             </span>
             <span
               className={cn(
-                "mt-1 hidden w-0 min-w-full justify-between text-[13px] font-semibold leading-5 transition-colors sm:flex",
+                "mt-1 hidden whitespace-nowrap text-[13px] font-semibold leading-5 transition-colors sm:block",
                 solid ? "text-brand-600" : "text-white/80"
               )}
             >
-              {company.shortNameEn.split(" ").map((word) => <span key={word}>{word}</span>)}
+              {company.shortNameEn}
             </span>
           </span>
         </Link>
