@@ -6,12 +6,22 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/h/Album", "destination": "/projects", "permanent": true },
+    {
+      "source": "/h/Album",
+      "destination": "/projects",
+      "permanent": true
+    },
     {
       "source": "/h/about",
-      "missing": [{ "type": "query", "key": "cont" }],
+      "missing": [
+        {
+          "type": "query",
+          "key": "cont"
+        }
+      ],
       "destination": "/about",
       "permanent": true
     }
-  ]
+  ],
+  "installCommand": "npm ci"
 }

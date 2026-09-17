@@ -31,6 +31,8 @@ If an old backup identifies a matching current page, add a query-specific perman
 
 ## Verification
 
+The first uncached Vercel build exposed 118 pre-existing lockfile URLs pointing to an unreachable npm mirror. These URLs now use the official npm registry; package versions and integrity hashes are unchanged. A clean install and rebuild pass. Vercel uses `npm ci` for reproducible installs.
+
 `npm run build` includes regression checks for every page's initial HTML, canonical, title, description, indexability, heading, internal links and sitemap membership. It also checks unknown paths, retired accounts, unknown detail slugs, nested invalid paths and case variants for not-found content/noindex. TypeScript and targeted lint checks pass. Full-repository lint has 8 existing errors in unused `src/components/ui/*` files.
 
 Local browser checks cover hydration, slideshow rotation, project filtering, direct project loading, and error-page recovery (which restores normal canonical/index metadata). Final HTTP routing must be checked on the Vercel preview; Vite's development/preview SPA fallback does not represent production missing-page routing.
